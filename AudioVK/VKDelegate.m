@@ -8,6 +8,13 @@
 
 #import "VKDelegate.h"
 
+NSString *const kVkDelegateUserIdKey = @"kVkDelegateUserIdKey";
+NSString *const kVkDelegateUserEmailKey = @"kVkDelegateUserEmailKey";
+NSString *const kVkDelegateUserAccessTokenKey = @"kVkDelegateUserTokenKey";
+
+NSString *const kVkDelegateNewTokenWasGiven = @"kVkDelegateNewTokenWasGiven";
+NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenied";
+
 @implementation VKDelegate
 
 +(instancetype)sharedDelegate{
@@ -20,7 +27,7 @@
 }
 
 - (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError{
-    
+    NSLog(@"Need captcha");
 }
 
 /**
@@ -28,7 +35,7 @@
  @param expiredToken old token that has expired
  */
 - (void)vkSdkTokenHasExpired:(VKAccessToken *)expiredToken{
-    
+    NSLog(@"Token expired");
 }
 
 /**
@@ -36,7 +43,8 @@
  @param authorizationError error that describes authorization error
  */
 - (void)vkSdkUserDeniedAccess:(VKError *)authorizationError{
-    
+    NSLog(@"User denied access");
+    [[NSNotificationCenter defaultCenter] postNotificationName:kVkDelegateAccessHasBeenDenied object:self];
 }
 
 /**
@@ -54,7 +62,32 @@
  Notifies delegate about receiving new access token
  @param newToken new token for API requests
  */
-- (void)vkSdkReceivedNewToken:(VKAccessToken *)newToken{
+- (void)vkSdkReceivedNewToken:(VKAccessToken *)token{
+    [self vkSdkPerformToken:token];
+}
+
+- (void)vkSdkAcceptedUserToken:(VKAccessToken *)token{
+    NSLog(@"Accepted token");
+    [self vkSdkPerformToken:token];
+}
+
+- (void)vkSdkRenewedToken:(VKAccessToken *)newToken{
+    NSLog(@"Renewed token");
+    [self vkSdkPerformToken:newToken];
+}
+
+- (void)vkSdkPerformToken:(VKAccessToken*)token{
+    NSLog(@"Token: %@",token);
+    NSLog(@"Email: %@",token.email);
     
+    NSMutableDictionary* newTokenUserInfo = [NSMutableDictionary dictionary];
+    newTokenUserInfo[kVkDelegateUserIdKey] = token.userId;
+    newTokenUserInfo[kVkDelegateUserAccessTokenKey] = token.accessToken;
+    if (token.email)
+        newTokenUserInfo[kVkDelegateUserEmailKey] = token.email;
+    NSNotification* newTokenNotification = [[NSNotification alloc] initWithName:(NSString*)kVkDelegateNewTokenWasGiven
+                                                                         object:self
+                                                                       userInfo:newTokenUserInfo];
+    [[NSNotificationCenter defaultCenter] postNotification:newTokenNotification];
 }
 @end

@@ -8,18 +8,47 @@
 
 #import "AppDelegate.h"
 #import "VKDelegate.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
-@property (nonatomic) VKDelegate* vkSdkDelegate;
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    self.vkSdkDelegate = [VKDelegate sharedDelegate];
-    [VKSdk initializeWithDelegate:_vkSdkDelegate andAppId:@"4657523"];
+    [self application:application initializeServicesWithOptions:launchOptions];
+    
+    PFUser *user = [PFUser user];
+    user.username = @"OdNairy";
+    user.password = @"sdfljikw";
+    user.email = @"odnairy@gmail.com";
+    
+    // other fields can be set if you want to save more information
+    user[@"phone"] = @"375259333256";
+    
+//    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (!error) {
+//            // Hooray! Let them use the app now.
+//        } else {
+//            NSString *errorString = [error userInfo][@"error"];
+//            // Show the errorString somewhere and let the user try again.
+//        }
+//    }];
+
+    return YES;
+}
+
+- (void)application:(UIApplication *)application initializeServicesWithOptions:(NSDictionary*)launchOptions{
+    [VKSdk initializeWithDelegate:[VKDelegate sharedDelegate] andAppId:@"4657523"];
+    [Parse setApplicationId:@"7Ky1DZqyCKlzex4hgiCsFj2Lg1CHVAKtf5GLhBF8"
+                  clientKey:@"QE4JrBZPVhvPgtjbKnCHdLswZcgYSRKH8MtYTk4X"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    [VKSdk processOpenURL:url fromApplication:sourceApplication];
     return YES;
 }
 

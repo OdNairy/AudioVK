@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9A42FBCB9D66CD2FB34BF8C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26192FE02FA55A7D09DFEB7E /* libPods.a */; };
+		FE3527A41A2CBFB800FEBA6B /* AUVAuthentificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3527A31A2CBFB800FEBA6B /* AUVAuthentificationViewController.m */; };
 		FED04B921A27A0AA009491B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FED04B911A27A0AA009491B0 /* main.m */; };
 		FED04B951A27A0AA009491B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FED04B941A27A0AA009491B0 /* AppDelegate.m */; };
-		FED04B981A27A0AA009491B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FED04B971A27A0AA009491B0 /* ViewController.m */; };
-		FED04B9B1A27A0AA009491B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FED04B991A27A0AA009491B0 /* Main.storyboard */; };
+		FED04B9B1A27A0AA009491B0 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FED04B991A27A0AA009491B0 /* Root.storyboard */; };
 		FED04B9D1A27A0AA009491B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FED04B9C1A27A0AA009491B0 /* Images.xcassets */; };
 		FED04BA01A27A0AA009491B0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED04B9E1A27A0AA009491B0 /* LaunchScreen.xib */; };
 		FEF29DB21A2B391500589D36 /* VKDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF29DB11A2B391500589D36 /* VKDelegate.m */; };
@@ -21,14 +21,14 @@
 		26192FE02FA55A7D09DFEB7E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6323733BB1DAF4BE6E4ECD71 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6EC6A98FD00749B45EE5CF14 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FE3527A21A2CBFB800FEBA6B /* AUVAuthentificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUVAuthentificationViewController.h; sourceTree = "<group>"; };
+		FE3527A31A2CBFB800FEBA6B /* AUVAuthentificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUVAuthentificationViewController.m; sourceTree = "<group>"; };
 		FED04B8C1A27A0AA009491B0 /* AudioVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED04B901A27A0AA009491B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FED04B911A27A0AA009491B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FED04B931A27A0AA009491B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FED04B941A27A0AA009491B0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FED04B961A27A0AA009491B0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FED04B971A27A0AA009491B0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		FED04B9A1A27A0AA009491B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FED04B9A1A27A0AA009491B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Root.storyboard; sourceTree = "<group>"; };
 		FED04B9C1A27A0AA009491B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FED04B9F1A27A0AA009491B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FED04BAA1A27A0AB009491B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,14 +90,14 @@
 			children = (
 				FED04B931A27A0AA009491B0 /* AppDelegate.h */,
 				FED04B941A27A0AA009491B0 /* AppDelegate.m */,
-				FED04B961A27A0AA009491B0 /* ViewController.h */,
-				FED04B971A27A0AA009491B0 /* ViewController.m */,
-				FED04B991A27A0AA009491B0 /* Main.storyboard */,
+				FEF29DB01A2B391500589D36 /* VKDelegate.h */,
+				FEF29DB11A2B391500589D36 /* VKDelegate.m */,
+				FED04B991A27A0AA009491B0 /* Root.storyboard */,
 				FED04B9C1A27A0AA009491B0 /* Images.xcassets */,
 				FED04B9E1A27A0AA009491B0 /* LaunchScreen.xib */,
 				FED04B8F1A27A0AA009491B0 /* Supporting Files */,
-				FEF29DB01A2B391500589D36 /* VKDelegate.h */,
-				FEF29DB11A2B391500589D36 /* VKDelegate.m */,
+				FE3527A21A2CBFB800FEBA6B /* AUVAuthentificationViewController.h */,
+				FE3527A31A2CBFB800FEBA6B /* AUVAuthentificationViewController.m */,
 			);
 			path = AudioVK;
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FED04B9B1A27A0AA009491B0 /* Main.storyboard in Resources */,
+				FED04B9B1A27A0AA009491B0 /* Root.storyboard in Resources */,
 				FED04BA01A27A0AA009491B0 /* LaunchScreen.xib in Resources */,
 				FED04B9D1A27A0AA009491B0 /* Images.xcassets in Resources */,
 			);
@@ -234,21 +234,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEF29DB21A2B391500589D36 /* VKDelegate.m in Sources */,
-				FED04B981A27A0AA009491B0 /* ViewController.m in Sources */,
 				FED04B951A27A0AA009491B0 /* AppDelegate.m in Sources */,
 				FED04B921A27A0AA009491B0 /* main.m in Sources */,
+				FE3527A41A2CBFB800FEBA6B /* AUVAuthentificationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FED04B991A27A0AA009491B0 /* Main.storyboard */ = {
+		FED04B991A27A0AA009491B0 /* Root.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FED04B9A1A27A0AA009491B0 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Root.storyboard;
 			sourceTree = "<group>";
 		};
 		FED04B9E1A27A0AA009491B0 /* LaunchScreen.xib */ = {
