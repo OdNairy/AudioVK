@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		9A42FBCB9D66CD2FB34BF8C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26192FE02FA55A7D09DFEB7E /* libPods.a */; };
 		FE3527A41A2CBFB800FEBA6B /* AUVAuthentificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3527A31A2CBFB800FEBA6B /* AUVAuthentificationViewController.m */; };
+		FEA1D2961A2DEC5000B8747D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1D2951A2DEC5000B8747D /* AVFoundation.framework */; };
+		FEA1D2981A2DEC6800B8747D /* motionblock1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FEA1D2971A2DEC6800B8747D /* motionblock1.mp4 */; };
+		FEA1D29B1A2DF94100B8747D /* AUVBackgroundVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */; };
 		FED04B921A27A0AA009491B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FED04B911A27A0AA009491B0 /* main.m */; };
 		FED04B951A27A0AA009491B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FED04B941A27A0AA009491B0 /* AppDelegate.m */; };
 		FED04B9B1A27A0AA009491B0 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FED04B991A27A0AA009491B0 /* Root.storyboard */; };
@@ -23,6 +26,10 @@
 		6EC6A98FD00749B45EE5CF14 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FE3527A21A2CBFB800FEBA6B /* AUVAuthentificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUVAuthentificationViewController.h; sourceTree = "<group>"; };
 		FE3527A31A2CBFB800FEBA6B /* AUVAuthentificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUVAuthentificationViewController.m; sourceTree = "<group>"; };
+		FEA1D2951A2DEC5000B8747D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		FEA1D2971A2DEC6800B8747D /* motionblock1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = motionblock1.mp4; sourceTree = "<group>"; };
+		FEA1D2991A2DF94100B8747D /* AUVBackgroundVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUVBackgroundVideoView.h; sourceTree = "<group>"; };
+		FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUVBackgroundVideoView.m; sourceTree = "<group>"; };
 		FED04B8C1A27A0AA009491B0 /* AudioVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED04B901A27A0AA009491B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FED04B911A27A0AA009491B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -42,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEA1D2961A2DEC5000B8747D /* AVFoundation.framework in Frameworks */,
 				9A42FBCB9D66CD2FB34BF8C9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +69,7 @@
 		D2AE61D987B9A1E76DCC763E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FEA1D2951A2DEC5000B8747D /* AVFoundation.framework */,
 				26192FE02FA55A7D09DFEB7E /* libPods.a */,
 			);
 			name = Frameworks;
@@ -69,6 +78,7 @@
 		FED04B831A27A0AA009491B0 = {
 			isa = PBXGroup;
 			children = (
+				FEA1D2971A2DEC6800B8747D /* motionblock1.mp4 */,
 				FED04B8E1A27A0AA009491B0 /* AudioVK */,
 				FED04BA81A27A0AB009491B0 /* AudioVKTests */,
 				FED04B8D1A27A0AA009491B0 /* Products */,
@@ -98,6 +108,8 @@
 				FED04B8F1A27A0AA009491B0 /* Supporting Files */,
 				FE3527A21A2CBFB800FEBA6B /* AUVAuthentificationViewController.h */,
 				FE3527A31A2CBFB800FEBA6B /* AUVAuthentificationViewController.m */,
+				FEA1D2991A2DF94100B8747D /* AUVBackgroundVideoView.h */,
+				FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */,
 			);
 			path = AudioVK;
 			sourceTree = "<group>";
@@ -189,6 +201,7 @@
 			files = (
 				FED04B9B1A27A0AA009491B0 /* Root.storyboard in Resources */,
 				FED04BA01A27A0AA009491B0 /* LaunchScreen.xib in Resources */,
+				FEA1D2981A2DEC6800B8747D /* motionblock1.mp4 in Resources */,
 				FED04B9D1A27A0AA009491B0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEA1D29B1A2DF94100B8747D /* AUVBackgroundVideoView.m in Sources */,
 				FEF29DB21A2B391500589D36 /* VKDelegate.m in Sources */,
 				FED04B951A27A0AA009491B0 /* AppDelegate.m in Sources */,
 				FED04B921A27A0AA009491B0 /* main.m in Sources */,

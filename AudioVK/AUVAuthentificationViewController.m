@@ -12,6 +12,8 @@
 #import "VKDelegate.h"
 #import <Chameleon.h>
 
+#import <AVFoundation/AVFoundation.h>
+
 #define PERMISSIONS_ARRAY (@[@"audio",@"email",@"offline"])
 
 @interface AUVAuthentificationViewController (NotificationMethods)
@@ -35,7 +37,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self subscribeForNotifications];
+    
+    [self applyShadowForNavigationBar];
+    [self.backgroundView playVideoByPath:[[NSBundle mainBundle] pathForResource:@"motionblock1" ofType:@"mp4"] inLoop:YES];
+}
 
+#pragma mark - UI
+- (void)applyShadowForNavigationBar{
     CALayer* layer =     self.navigationController.navigationBar.layer;
     layer.shadowOffset = CGSizeMake(0, 1);
     layer.shadowOpacity = 0.8;
@@ -49,7 +57,18 @@
 }
 
 -(IBAction)signInButtonTapped{
-    [self flatify];
+    
+//    AVAsset* avAsset = [AVAsset assetWithURL:[NSURL fileURLWithPath:filePath]];
+//    AVPlayerItem* avPlayerItem =[[AVPlayerItem alloc]initWithAsset:avAsset];
+//    AVPlayer* avPlayer = [[AVPlayer alloc]initWithPlayerItem:avPlayerItem];
+//
+//    AVPlayerLayer* avPlayerLayer =[AVPlayerLayer playerLayerWithPlayer:avPlayer];
+//    avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+//    avPlayerLayer.frame = self.view.bounds;
+//    [self.view.layer insertSublayer:avPlayerLayer atIndex:0];
+//    avPlayerLayer.opacity = 0.5;
+//    [avPlayer seekToTime:kCMTimeZero];
+//    [avPlayer play];
 }
 #pragma mark - Custom Setters and Getters
 -(void)setVkUserEmail:(NSString *)vkUserEmail{

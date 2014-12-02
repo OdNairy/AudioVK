@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AUVBackgroundVideoView.h"
 
 @interface AUVAuthentificationViewController : UIViewController
+@property (nonatomic, weak) IBOutlet AUVBackgroundVideoView* backgroundView;
 @property (nonatomic, weak) IBOutlet UITextField* emailTextField;
 @property (nonatomic, weak) IBOutlet UITextField* passwordTextField;
 @end
