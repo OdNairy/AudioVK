@@ -43,7 +43,6 @@
     [Parse setApplicationId:@"7Ky1DZqyCKlzex4hgiCsFj2Lg1CHVAKtf5GLhBF8"
                   clientKey:@"QE4JrBZPVhvPgtjbKnCHdLswZcgYSRKH8MtYTk4X"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation

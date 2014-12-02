@@ -12,6 +12,8 @@
 		FEA1D2961A2DEC5000B8747D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1D2951A2DEC5000B8747D /* AVFoundation.framework */; };
 		FEA1D2981A2DEC6800B8747D /* motionblock1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FEA1D2971A2DEC6800B8747D /* motionblock1.mp4 */; };
 		FEA1D29B1A2DF94100B8747D /* AUVBackgroundVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */; };
+		FEA1D29D1A2E08A900B8747D /* motionblock2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FEA1D29C1A2E08A900B8747D /* motionblock2.mp4 */; };
+		FEA1D29F1A2E099000B8747D /* moments.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FEA1D29E1A2E099000B8747D /* moments.mp4 */; };
 		FED04B921A27A0AA009491B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FED04B911A27A0AA009491B0 /* main.m */; };
 		FED04B951A27A0AA009491B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FED04B941A27A0AA009491B0 /* AppDelegate.m */; };
 		FED04B9B1A27A0AA009491B0 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FED04B991A27A0AA009491B0 /* Root.storyboard */; };
@@ -30,6 +32,8 @@
 		FEA1D2971A2DEC6800B8747D /* motionblock1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = motionblock1.mp4; sourceTree = "<group>"; };
 		FEA1D2991A2DF94100B8747D /* AUVBackgroundVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUVBackgroundVideoView.h; sourceTree = "<group>"; };
 		FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUVBackgroundVideoView.m; sourceTree = "<group>"; };
+		FEA1D29C1A2E08A900B8747D /* motionblock2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = motionblock2.mp4; sourceTree = "<group>"; };
+		FEA1D29E1A2E099000B8747D /* moments.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = moments.mp4; sourceTree = "<group>"; };
 		FED04B8C1A27A0AA009491B0 /* AudioVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED04B901A27A0AA009491B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FED04B911A27A0AA009491B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				FEA1D2971A2DEC6800B8747D /* motionblock1.mp4 */,
+				FEA1D29C1A2E08A900B8747D /* motionblock2.mp4 */,
+				FEA1D29E1A2E099000B8747D /* moments.mp4 */,
 				FED04B8E1A27A0AA009491B0 /* AudioVK */,
 				FED04BA81A27A0AB009491B0 /* AudioVKTests */,
 				FED04B8D1A27A0AA009491B0 /* Products */,
@@ -201,6 +207,8 @@
 			files = (
 				FED04B9B1A27A0AA009491B0 /* Root.storyboard in Resources */,
 				FED04BA01A27A0AA009491B0 /* LaunchScreen.xib in Resources */,
+				FEA1D29D1A2E08A900B8747D /* motionblock2.mp4 in Resources */,
+				FEA1D29F1A2E099000B8747D /* moments.mp4 in Resources */,
 				FEA1D2981A2DEC6800B8747D /* motionblock1.mp4 in Resources */,
 				FED04B9D1A27A0AA009491B0 /* Images.xcassets in Resources */,
 			);

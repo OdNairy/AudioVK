@@ -39,12 +39,12 @@
     [self subscribeForNotifications];
     
     [self applyShadowForNavigationBar];
-    [self.backgroundView playVideoByPath:[[NSBundle mainBundle] pathForResource:@"motionblock1" ofType:@"mp4"] inLoop:YES];
+    [self.backgroundView playVideoByPath:[[NSBundle mainBundle] pathForResource:@"moments" ofType:@"mp4"] inLoop:YES];
 }
 
 #pragma mark - UI
 - (void)applyShadowForNavigationBar{
-    CALayer* layer =     self.navigationController.navigationBar.layer;
+    CALayer* layer = self.navigationController.navigationBar.layer;
     layer.shadowOffset = CGSizeMake(0, 1);
     layer.shadowOpacity = 0.8;
     layer.masksToBounds = NO;
@@ -57,6 +57,12 @@
 }
 
 -(IBAction)signInButtonTapped{
+    VKRequest* audioRequest = [VKRequest requestWithMethod:@"audio.get" andParameters:@{@"owner_id":self.vkUserId,@"count":@"6000"} andHttpMethod:@"GET" classOfModel:[VKAudios class]];
+    [audioRequest executeWithResultBlock:^(VKResponse *response) {
+        
+    } errorBlock:^(NSError *error) {
+        
+    }];
     
 //    AVAsset* avAsset = [AVAsset assetWithURL:[NSURL fileURLWithPath:filePath]];
 //    AVPlayerItem* avPlayerItem =[[AVPlayerItem alloc]initWithAsset:avAsset];
