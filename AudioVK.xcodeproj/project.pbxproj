@@ -14,6 +14,9 @@
 		FEA1D29B1A2DF94100B8747D /* AUVBackgroundVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */; };
 		FEA1D29D1A2E08A900B8747D /* motionblock2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FEA1D29C1A2E08A900B8747D /* motionblock2.mp4 */; };
 		FEA1D29F1A2E099000B8747D /* moments.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FEA1D29E1A2E099000B8747D /* moments.mp4 */; };
+		FEA1D2E71A2E512500B8747D /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1D2E61A2E512500B8747D /* Accounts.framework */; };
+		FEA1D2E91A2E512A00B8747D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1D2E81A2E512A00B8747D /* Social.framework */; };
+		FEB71AE81A2F568000D56C29 /* AVKStartPromoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB71AE71A2F568000D56C29 /* AVKStartPromoViewController.m */; };
 		FED04B921A27A0AA009491B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FED04B911A27A0AA009491B0 /* main.m */; };
 		FED04B951A27A0AA009491B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FED04B941A27A0AA009491B0 /* AppDelegate.m */; };
 		FED04B9B1A27A0AA009491B0 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FED04B991A27A0AA009491B0 /* Root.storyboard */; };
@@ -34,6 +37,10 @@
 		FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUVBackgroundVideoView.m; sourceTree = "<group>"; };
 		FEA1D29C1A2E08A900B8747D /* motionblock2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = motionblock2.mp4; sourceTree = "<group>"; };
 		FEA1D29E1A2E099000B8747D /* moments.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = moments.mp4; sourceTree = "<group>"; };
+		FEA1D2E61A2E512500B8747D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		FEA1D2E81A2E512A00B8747D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		FEB71AE61A2F568000D56C29 /* AVKStartPromoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKStartPromoViewController.h; path = Controllers/AVKStartPromoViewController.h; sourceTree = "<group>"; };
+		FEB71AE71A2F568000D56C29 /* AVKStartPromoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKStartPromoViewController.m; path = Controllers/AVKStartPromoViewController.m; sourceTree = "<group>"; };
 		FED04B8C1A27A0AA009491B0 /* AudioVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED04B901A27A0AA009491B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FED04B911A27A0AA009491B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEA1D2E91A2E512A00B8747D /* Social.framework in Frameworks */,
+				FEA1D2E71A2E512500B8747D /* Accounts.framework in Frameworks */,
 				FEA1D2961A2DEC5000B8747D /* AVFoundation.framework in Frameworks */,
 				9A42FBCB9D66CD2FB34BF8C9 /* libPods.a in Frameworks */,
 			);
@@ -73,6 +82,8 @@
 		D2AE61D987B9A1E76DCC763E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FEA1D2E81A2E512A00B8747D /* Social.framework */,
+				FEA1D2E61A2E512500B8747D /* Accounts.framework */,
 				FEA1D2951A2DEC5000B8747D /* AVFoundation.framework */,
 				26192FE02FA55A7D09DFEB7E /* libPods.a */,
 			);
@@ -116,6 +127,8 @@
 				FE3527A31A2CBFB800FEBA6B /* AUVAuthentificationViewController.m */,
 				FEA1D2991A2DF94100B8747D /* AUVBackgroundVideoView.h */,
 				FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */,
+				FEB71AE61A2F568000D56C29 /* AVKStartPromoViewController.h */,
+				FEB71AE71A2F568000D56C29 /* AVKStartPromoViewController.m */,
 			);
 			path = AudioVK;
 			sourceTree = "<group>";
@@ -258,6 +271,7 @@
 				FEF29DB21A2B391500589D36 /* VKDelegate.m in Sources */,
 				FED04B951A27A0AA009491B0 /* AppDelegate.m in Sources */,
 				FED04B921A27A0AA009491B0 /* main.m in Sources */,
+				FEB71AE81A2F568000D56C29 /* AVKStartPromoViewController.m in Sources */,
 				FE3527A41A2CBFB800FEBA6B /* AUVAuthentificationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

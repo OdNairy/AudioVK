@@ -77,7 +77,7 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
 }
 
 - (void)vkSdkPerformToken:(VKAccessToken*)token{
-    NSLog(@"Token: %@",token);
+    NSLog(@"Token: %@",token.accessToken);
     NSLog(@"Email: %@",token.email);
     
     NSMutableDictionary* newTokenUserInfo = [NSMutableDictionary dictionary];
