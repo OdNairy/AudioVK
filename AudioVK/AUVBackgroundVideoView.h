@@ -10,4 +10,6 @@
 
 @interface AUVBackgroundVideoView : UIView
 -(void)playVideoByPath:(NSString*)filePath inLoop:(BOOL)inLoop;
+- (void)pause;
+- (void)play;
 @end

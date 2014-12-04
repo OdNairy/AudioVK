@@ -7,6 +7,10 @@
 //
 
 #import "AVKStartPromoViewController.h"
+#import "VKDelegate.h"
+#import <VKSdk.h>
+
+#define PERMISSIONS_ARRAY (@[@"audio",@"email",@"offline"])
 
 @interface AVKStartPromoViewController ()
 
@@ -17,21 +21,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(resumeVideoPlaying)
+                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(pauseVideoPlaying)
+                                                 name:UIApplicationWillResignActiveNotification object:nil];
+    [self.backgroundView playVideoByPath:[[NSBundle mainBundle] pathForResource:@"moments" ofType:@"mp4"] inLoop:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self resumeVideoPlaying];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self pauseVideoPlaying];
 }
-*/
+
+- (void)resumeVideoPlaying {
+    [self.backgroundView play];
+}
+
+- (void)pauseVideoPlaying {
+    [self.backgroundView pause];
+}
+
+#pragma mark - IB actions
+- (IBAction)vkAuthentificationButtonTapped{
+    [VKDelegate sharedDelegate].rootVC = self.navigationController;
+    [VKSdk authorize:PERMISSIONS_ARRAY revokeAccess:YES];
+}
+
 
 @end

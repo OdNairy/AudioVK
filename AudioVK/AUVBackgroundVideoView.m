@@ -21,6 +21,14 @@
     return [AVPlayerLayer class];
 }
 
+- (void)pause{
+    [self.avPlayer pause];
+}
+
+- (void)play{
+    [self.avPlayer play];
+}
+
 - (void)playVideoByPath:(NSString *)filePath inLoop:(BOOL)inLoop{
     AVAsset* avAsset;
     if (inLoop) {
@@ -30,8 +38,9 @@
     }
     
     AVPlayerItem* avPlayerItem = [[AVPlayerItem alloc] initWithAsset:avAsset];
-    self.avPlayer = [[AVPlayer alloc]initWithPlayerItem:avPlayerItem];
+    self.avPlayer = [[AVPlayer alloc] initWithPlayerItem:avPlayerItem];
     
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:NULL];
     self.layer.player = self.avPlayer;
     self.layer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     [self.avPlayer seekToTime:kCMTimeZero];

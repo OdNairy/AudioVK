@@ -16,7 +16,6 @@
 
 #import <Parse/Parse.h>
 
-#define PERMISSIONS_ARRAY (@[@"audio",@"email",@"offline"])
 
 @interface AUVAuthentificationViewController (NotificationMethods)
 - (void)subscribeForNotifications;
@@ -45,6 +44,18 @@
     [self.backgroundView playVideoByPath:[[NSBundle mainBundle] pathForResource:@"moments" ofType:@"mp4"] inLoop:YES];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    if (self.parentViewController) {
+        [self.navigationController setNavigationBarHidden:YES animated:animated];
+    }
+}
+
 #pragma mark - UI
 - (void)applyShadowForNavigationBar{
     CALayer* layer = self.navigationController.navigationBar.layer;
@@ -55,8 +66,8 @@
 
 #pragma mark - IB actions
 - (IBAction)vkAuthentificationButtonTapped{
-    [VKDelegate sharedDelegate].rootVC = self.navigationController;
-    [VKSdk authorize:PERMISSIONS_ARRAY revokeAccess:YES];
+//    [VKDelegate sharedDelegate].rootVC = self.navigationController;
+//    [VKSdk authorize:PERMISSIONS_ARRAY revokeAccess:YES];
     
 //    PFUser* user = [PFUser user];
 //    user.username = @"OdNairy";

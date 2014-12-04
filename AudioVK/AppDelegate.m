@@ -17,23 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self application:application initializeServicesWithOptions:launchOptions];
-    
-    PFUser *user = [PFUser user];
-    user.username = @"OdNairy";
-    user.password = @"sdfljikw";
-    user.email = @"odnairy@gmail.com";
-    
-    // other fields can be set if you want to save more information
-    user[@"phone"] = @"375259333256";
-    
-//    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (!error) {
-//            // Hooray! Let them use the app now.
-//        } else {
-//            NSString *errorString = [error userInfo][@"error"];
-//            // Show the errorString somewhere and let the user try again.
-//        }
-//    }];
 
     return YES;
 }

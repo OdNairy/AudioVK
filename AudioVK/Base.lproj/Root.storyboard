@@ -6,6 +6,67 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Start Promo View Controller-->
+        <scene sceneID="2RZ-IA-C2w">
+            <objects>
+                <viewController id="xQU-hk-UGW" customClass="AVKStartPromoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oFe-Ys-s7m"/>
+                        <viewControllerLayoutGuide type="bottom" id="kjc-1r-Iha"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gEx-Hf-efd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecf-ND-RHQ" customClass="AUVBackgroundVideoView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGf-GK-35I">
+                                <rect key="frame" x="0.0" y="540" width="300" height="60"/>
+                                <color key="backgroundColor" red="0.9212072491645813" green="0.84832113981246948" blue="0.62377804517745972" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="dzS-yp-feN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4U-KD-jhT">
+                                <rect key="frame" x="300" y="540" width="300" height="60"/>
+                                <color key="backgroundColor" red="0.25005361437797546" green="0.30566063523292542" blue="0.58369332551956177" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Log in by VK">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="BGf-GK-35I" firstAttribute="leading" secondItem="gEx-Hf-efd" secondAttribute="leadingMargin" constant="-16" id="1F7-oD-6ks"/>
+                            <constraint firstItem="kjc-1r-Iha" firstAttribute="top" secondItem="O4U-KD-jhT" secondAttribute="bottom" id="9WZ-HL-ani"/>
+                            <constraint firstItem="kjc-1r-Iha" firstAttribute="top" secondItem="BGf-GK-35I" secondAttribute="bottom" id="AMs-t1-rIM"/>
+                            <constraint firstItem="kjc-1r-Iha" firstAttribute="top" secondItem="ecf-ND-RHQ" secondAttribute="bottom" constant="60" id="PmD-EN-F5P"/>
+                            <constraint firstItem="BGf-GK-35I" firstAttribute="width" secondItem="O4U-KD-jhT" secondAttribute="width" id="QuT-hn-YoH"/>
+                            <constraint firstItem="BGf-GK-35I" firstAttribute="top" secondItem="ecf-ND-RHQ" secondAttribute="bottom" id="WGi-5Z-dDq"/>
+                            <constraint firstItem="O4U-KD-jhT" firstAttribute="top" secondItem="ecf-ND-RHQ" secondAttribute="bottom" id="ei2-9k-qcN"/>
+                            <constraint firstItem="ecf-ND-RHQ" firstAttribute="leading" secondItem="gEx-Hf-efd" secondAttribute="leadingMargin" constant="-16" id="iQj-dF-a38"/>
+                            <constraint firstItem="ecf-ND-RHQ" firstAttribute="top" secondItem="oFe-Ys-s7m" secondAttribute="bottom" constant="-20" id="iaQ-iO-qhp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ecf-ND-RHQ" secondAttribute="trailing" constant="-16" id="jIt-4l-cg7"/>
+                            <constraint firstItem="O4U-KD-jhT" firstAttribute="leading" secondItem="BGf-GK-35I" secondAttribute="trailing" id="k7M-Ur-gvr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="O4U-KD-jhT" secondAttribute="trailing" constant="-16" id="pdq-Tx-zu6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VkP-Se-8jP"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="ecf-ND-RHQ" id="J3t-IU-13c"/>
+                        <outlet property="loginByVKButton" destination="O4U-KD-jhT" id="zKR-AG-ZI9"/>
+                        <outlet property="signInButton" destination="BGf-GK-35I" id="A8x-1D-6Ov"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sMI-RP-XsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11" y="446"/>
+        </scene>
         <!--Authentification-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -42,9 +103,6 @@
                                     <color key="titleColor" red="0.38823529410000002" green="0.51372549020000002" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="132" y="161" width="65" height="36"/>
-                                </variation>
                                 <connections>
                                     <action selector="signInButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="mT6-Tg-6w8"/>
                                 </connections>
@@ -172,9 +230,6 @@
                             <mask key="constraints">
                                 <exclude reference="We8-3Z-iaT"/>
                                 <exclude reference="pn1-i6-iIM"/>
-                                <exclude reference="D0z-Jc-R7D"/>
-                                <exclude reference="c9K-zR-Thn"/>
-                                <exclude reference="wJa-C4-c4d"/>
                                 <exclude reference="E8m-K5-i85"/>
                                 <exclude reference="Hh8-ie-zgO"/>
                                 <exclude reference="OVI-Qs-D80"/>
@@ -186,6 +241,12 @@
                                 <exclude reference="aox-BH-Bva"/>
                                 <exclude reference="nIz-Nf-BHa"/>
                                 <exclude reference="uGN-pa-X9u"/>
+                                <exclude reference="3BN-X2-D05"/>
+                                <exclude reference="iqO-Xf-xHx"/>
+                                <exclude reference="uKj-kf-Plt"/>
+                                <exclude reference="D0z-Jc-R7D"/>
+                                <exclude reference="c9K-zR-Thn"/>
+                                <exclude reference="wJa-C4-c4d"/>
                                 <exclude reference="9xZ-jG-Gxb"/>
                                 <exclude reference="CBJ-sQ-T3e"/>
                                 <exclude reference="FVE-Nr-XXE"/>
@@ -197,9 +258,6 @@
                                 <exclude reference="NGZ-Fw-Evb"/>
                                 <exclude reference="Oau-vg-Ssq"/>
                                 <exclude reference="shY-5L-S0Y"/>
-                                <exclude reference="3BN-X2-D05"/>
-                                <exclude reference="iqO-Xf-xHx"/>
-                                <exclude reference="uKj-kf-Plt"/>
                                 <exclude reference="Cll-lg-P56"/>
                                 <exclude reference="Km7-fL-yi0"/>
                                 <exclude reference="dLm-Co-9nw"/>
@@ -223,11 +281,11 @@
                                 <include reference="aox-BH-Bva"/>
                                 <include reference="nIz-Nf-BHa"/>
                                 <include reference="uGN-pa-X9u"/>
+                                <include reference="uKj-kf-Plt"/>
                                 <include reference="9xZ-jG-Gxb"/>
                                 <include reference="CBJ-sQ-T3e"/>
                                 <include reference="mqH-Aa-EST"/>
                                 <include reference="NGZ-Fw-Evb"/>
-                                <include reference="uKj-kf-Plt"/>
                                 <include reference="Cll-lg-P56"/>
                                 <include reference="Km7-fL-yi0"/>
                                 <exclude reference="TC3-PZ-TGD"/>
@@ -247,13 +305,15 @@
                             <mask key="constraints">
                                 <include reference="We8-3Z-iaT"/>
                                 <include reference="pn1-i6-iIM"/>
-                                <include reference="D0z-Jc-R7D"/>
-                                <include reference="c9K-zR-Thn"/>
-                                <include reference="wJa-C4-c4d"/>
                                 <include reference="E8m-K5-i85"/>
                                 <include reference="DtD-J9-G8P"/>
                                 <include reference="FG6-lY-Iwx"/>
                                 <include reference="JH5-lo-I8E"/>
+                                <include reference="3BN-X2-D05"/>
+                                <include reference="iqO-Xf-xHx"/>
+                                <include reference="D0z-Jc-R7D"/>
+                                <include reference="c9K-zR-Thn"/>
+                                <include reference="wJa-C4-c4d"/>
                                 <include reference="FVE-Nr-XXE"/>
                                 <include reference="Qu2-xJ-mkd"/>
                                 <include reference="e0I-iW-Fbb"/>
@@ -261,8 +321,6 @@
                                 <include reference="0sX-FQ-A42"/>
                                 <include reference="Oau-vg-Ssq"/>
                                 <include reference="shY-5L-S0Y"/>
-                                <include reference="3BN-X2-D05"/>
-                                <include reference="iqO-Xf-xHx"/>
                                 <exclude reference="TC3-PZ-TGD"/>
                                 <exclude reference="ldx-P7-vAu"/>
                                 <include reference="nhX-FG-tAL"/>
@@ -285,7 +343,7 @@
         <!--Navigation Controller-->
         <scene sceneID="yiE-rQ-l1N">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="man-Yh-L50" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="man-Yh-L50" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JgR-sg-CXk">
@@ -298,7 +356,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="VoW-pp-tg3"/>
+                        <segue destination="xQU-hk-UGW" kind="relationship" relationship="rootViewController" id="Wic-Kj-Ldf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8b-VI-yx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
