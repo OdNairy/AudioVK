@@ -32,6 +32,14 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
     return delegate;
 }
 
+#pragma mark Custom Getters and Setters
+- (NSMutableArray *)targetsActions{
+    if (!_targetsActions) {
+        _targetsActions = [NSMutableArray array];
+    }
+    return _targetsActions;
+}
+
 #pragma mark - VKSDK protocol implementation
 - (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError{
     NSLog(@"Need captcha");
@@ -71,6 +79,7 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
  */
 - (void)vkSdkReceivedNewToken:(VKAccessToken *)token{
     [self vkSdkPerformToken:token];
+    [self sendActionsForAccessTokenEvents:(VKAccessTokenEventReceivedNew) vkAccessToken:token];
 }
 
 - (void)vkSdkAcceptedUserToken:(VKAccessToken *)token{
@@ -80,6 +89,7 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
 
 - (void)vkSdkRenewedToken:(VKAccessToken *)newToken{
     NSLog(@"Renewed token");
+    [self sendActionsForAccessTokenEvents:(VKAccessTokenEventRenewed) vkAccessToken:newToken];
     [self vkSdkPerformToken:newToken];
 }
 
@@ -125,12 +135,12 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
     }
 }
 
-- (void)sendActionsForAccessTokenEvents:(VKAccessTokenEvents)accessTokenEvents{
+- (void)sendActionsForAccessTokenEvents:(VKAccessTokenEvents)accessTokenEvents vkAccessToken:(VKAccessToken*)vkAccessToken{
     for (NSInteger i = 0; i < self.targetsActions.count; i++) {
         AUVTargetActionPair* pair = self.targetsActions[i];
         if (pair->_eventMask & accessTokenEvents) {
             // call action for target
-            ((void (*)(id, SEL))[pair->_target methodForSelector:pair->_action])(pair->_target, pair->_action);
+            ((void (*)(id, SEL, id))[pair->_target methodForSelector:pair->_action])(pair->_target, pair->_action, vkAccessToken);
         }
     }
 }

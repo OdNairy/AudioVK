@@ -1,0 +1,17 @@
+//
+//  AudioVK.pch
+//  AudioVK
+//
+//  Created by Roman Gardukevich on 05.12.14.
+//  Copyright (c) 2014 Roman Gardukevich. All rights reserved.
+//
+
+#ifndef AudioVK_AudioVK_pch
+#define AudioVK_AudioVK_pch
+
+#import <VKSdk.h>
+#import <Parse/Parse.h>
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif

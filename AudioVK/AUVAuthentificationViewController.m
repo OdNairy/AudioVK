@@ -8,13 +8,10 @@
 
 #import "AUVAuthentificationViewController.h"
 
-#import <VKSdk.h>
 #import "VKDelegate.h"
 #import <Chameleon.h>
 
 #import <AVFoundation/AVFoundation.h>
-
-#import <Parse/Parse.h>
 
 
 @interface AUVAuthentificationViewController (NotificationMethods)

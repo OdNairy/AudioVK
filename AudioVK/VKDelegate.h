@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Roman Gardukevich. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <VKSdk.h>
 
 UIKIT_EXTERN NSString *const kVkDelegateUserIdKey;
 UIKIT_EXTERN NSString *const kVkDelegateUserEmailKey;
@@ -37,5 +35,5 @@ typedef NS_OPTIONS(NSUInteger, VKAccessTokenEvents) {
 - (void)addTarget:(id)target action:(SEL)action forAccessTokenEvents:(VKAccessTokenEvents)accessTokenEvents;
 - (void)removeTarget:(id)target action:(SEL)action forAccessTokenEvents:(VKAccessTokenEvents)accessTokenEvents;
 
-- (void)sendActionsForAccessTokenEvents:(VKAccessTokenEvents)accessTokenEvents;
+- (void)sendActionsForAccessTokenEvents:(VKAccessTokenEvents)accessTokenEvents vkAccessToken:(VKAccessToken*)vkAccessToken;
 @end

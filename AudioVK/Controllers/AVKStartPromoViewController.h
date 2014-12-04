@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Roman Gardukevich. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "AUVBackgroundVideoView.h"
 
 @interface AVKStartPromoViewController : UIViewController
