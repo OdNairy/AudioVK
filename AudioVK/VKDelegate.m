@@ -15,7 +15,13 @@ NSString *const kVkDelegateUserAccessTokenKey = @"kVkDelegateUserTokenKey";
 NSString *const kVkDelegateNewTokenWasGiven = @"kVkDelegateNewTokenWasGiven";
 NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenied";
 
+@interface VKDelegate ()
+@property (nonatomic, strong) NSMutableArray* targetsActions;
+@end
+
 @implementation VKDelegate
+
+
 
 +(instancetype)sharedDelegate{
     static dispatch_once_t onceToken;
@@ -26,6 +32,7 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
     return delegate;
 }
 
+#pragma mark - VKSDK protocol implementation
 - (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError{
     NSLog(@"Need captcha");
 }
@@ -89,5 +96,42 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
                                                                          object:self
                                                                        userInfo:newTokenUserInfo];
     [[NSNotificationCenter defaultCenter] postNotification:newTokenNotification];
+}
+@end
+
+@interface AUVTargetActionPair : NSObject{
+    @package
+    SEL _action;
+    int _eventMask;
+    id _target;
+}
+@end
+@implementation AUVTargetActionPair
+@end
+
+@implementation VKDelegate(TargetAction)
+-(void)addTarget:(id)target action:(SEL)action forAccessTokenEvents:(VKAccessTokenEvents)accessTokenEvents{
+    AUVTargetActionPair* pair = [[AUVTargetActionPair alloc] init];
+    pair->_action = action; pair->_target = target; pair->_eventMask = accessTokenEvents;
+    [self.targetsActions addObject:pair];
+}
+-(void)removeTarget:(id)target action:(SEL)action forAccessTokenEvents:(VKAccessTokenEvents)accessTokenEvents{
+    for (NSInteger i = 0; i< self.targetsActions.count; i++){
+        AUVTargetActionPair* pair = self.targetsActions[i];
+        pair->_eventMask = pair->_eventMask & !accessTokenEvents;   // remove event mask
+        if (!pair->_eventMask) {
+            [self.targetsActions removeObjectAtIndex:i];
+        }
+    }
+}
+
+- (void)sendActionsForAccessTokenEvents:(VKAccessTokenEvents)accessTokenEvents{
+    for (NSInteger i = 0; i < self.targetsActions.count; i++) {
+        AUVTargetActionPair* pair = self.targetsActions[i];
+        if (pair->_eventMask & accessTokenEvents) {
+            // call action for target
+            ((void (*)(id, SEL))[pair->_target methodForSelector:pair->_action])(pair->_target, pair->_action);
+        }
+    }
 }
 @end
