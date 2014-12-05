@@ -30,6 +30,8 @@
 }
 
 - (void)playVideoByPath:(NSString *)filePath inLoop:(BOOL)inLoop{
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:NULL];
+
     AVAsset* avAsset;
     if (inLoop) {
         avAsset = [self makeAssetCompositionForPath:filePath];
@@ -40,7 +42,6 @@
     AVPlayerItem* avPlayerItem = [[AVPlayerItem alloc] initWithAsset:avAsset];
     self.avPlayer = [[AVPlayer alloc] initWithPlayerItem:avPlayerItem];
     
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:NULL];
     self.layer.player = self.avPlayer;
     self.layer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     [self.avPlayer seekToTime:kCMTimeZero];

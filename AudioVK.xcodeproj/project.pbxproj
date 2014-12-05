@@ -22,6 +22,7 @@
 		FED04B9B1A27A0AA009491B0 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FED04B991A27A0AA009491B0 /* Root.storyboard */; };
 		FED04B9D1A27A0AA009491B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FED04B9C1A27A0AA009491B0 /* Images.xcassets */; };
 		FED04BA01A27A0AA009491B0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED04B9E1A27A0AA009491B0 /* LaunchScreen.xib */; };
+		FED566491A3237CB006E1549 /* VKStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = FED566481A3237CB006E1549 /* VKStorage.m */; };
 		FEF29DB21A2B391500589D36 /* VKDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF29DB11A2B391500589D36 /* VKDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,8 @@
 		FED04BAA1A27A0AB009491B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FED04BAB1A27A0AB009491B0 /* AudioVKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioVKTests.m; sourceTree = "<group>"; };
 		FED5663E1A311E40006E1549 /* AudioVK.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioVK.pch; sourceTree = "<group>"; };
+		FED566471A3237CB006E1549 /* VKStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKStorage.h; path = Helpers/VKStorage.h; sourceTree = "<group>"; };
+		FED566481A3237CB006E1549 /* VKStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKStorage.m; path = Helpers/VKStorage.m; sourceTree = "<group>"; };
 		FEF29DB01A2B391500589D36 /* VKDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKDelegate.h; sourceTree = "<group>"; };
 		FEF29DB11A2B391500589D36 /* VKDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +119,7 @@
 		FED04B8E1A27A0AA009491B0 /* AudioVK */ = {
 			isa = PBXGroup;
 			children = (
+				FED566461A323795006E1549 /* Helpers */,
 				FED04B931A27A0AA009491B0 /* AppDelegate.h */,
 				FED04B941A27A0AA009491B0 /* AppDelegate.m */,
 				FEF29DB01A2B391500589D36 /* VKDelegate.h */,
@@ -159,6 +163,15 @@
 				FED04BAA1A27A0AB009491B0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FED566461A323795006E1549 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FED566471A3237CB006E1549 /* VKStorage.h */,
+				FED566481A3237CB006E1549 /* VKStorage.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +287,7 @@
 				FED04B951A27A0AA009491B0 /* AppDelegate.m in Sources */,
 				FED04B921A27A0AA009491B0 /* main.m in Sources */,
 				FEB71AE81A2F568000D56C29 /* AVKStartPromoViewController.m in Sources */,
+				FED566491A3237CB006E1549 /* VKStorage.m in Sources */,
 				FE3527A41A2CBFB800FEBA6B /* AUVAuthentificationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

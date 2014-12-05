@@ -9,18 +9,10 @@
 #import "AUVAuthentificationViewController.h"
 
 #import "VKDelegate.h"
+#import "VKStorage.h"
 #import <Chameleon.h>
 
 #import <AVFoundation/AVFoundation.h>
-
-
-@interface AUVAuthentificationViewController (NotificationMethods)
-- (void)subscribeForNotifications;
-- (void)unsubscribeFromNotifications;
-
-- (void)vkAccessNewTokenWasGiven:(NSNotification*)accessTokenNotification;
-- (void)vkAccessAccessHasBeenDenied:(NSNotification*)accessDeniedNotification;
-@end
 
 @interface AUVAuthentificationViewController ()
 @property (nonatomic, copy) NSString* vkUserId;
@@ -28,22 +20,33 @@
 @property (nonatomic, copy) NSString* vkUserEmail;
 
 @property (nonatomic, assign) BOOL isInSignUpState;
+
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint* signInTopConstraint;
+@property (nonatomic, weak) IBOutlet UILabel* emailLabel;
+@property (nonatomic, weak) IBOutlet UITextField* emailTextField;
 @end
 
 @implementation AUVAuthentificationViewController
 
+-(void)awakeFromNib{
+    self.state = AUVAuthentificationVCStateSignIn;
+}
+
 #pragma mark - Lifecycle common usage
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self subscribeForNotifications];
+    self.emailTextField.text = self.vkAccessToken.email;
     
     [self applyShadowForNavigationBar];
     [self.backgroundView playVideoByPath:[[NSBundle mainBundle] pathForResource:@"moments" ofType:@"mp4"] inLoop:YES];
 }
 
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:animated];
+    self.signInTopConstraint.constant = self.state == AUVAuthentificationVCStateSignIn? 20: 80;
+    self.emailLabel.hidden = self.emailTextField.hidden = self.state == AUVAuthentificationVCStateSignIn;
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -51,6 +54,10 @@
     if (self.parentViewController) {
         [self.navigationController setNavigationBarHidden:YES animated:animated];
     }
+}
+
+-(BOOL)prefersStatusBarHidden{
+    return NO;
 }
 
 #pragma mark - UI
@@ -63,26 +70,13 @@
 
 #pragma mark - IB actions
 - (IBAction)vkAuthentificationButtonTapped{
-//    [VKDelegate sharedDelegate].rootVC = self.navigationController;
-//    [VKSdk authorize:PERMISSIONS_ARRAY revokeAccess:YES];
-    
-//    PFUser* user = [PFUser user];
-//    user.username = @"OdNairy";
-//    user.password = @"s";
-//    user[@"phone"] = @"375259333256";
-//    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        
-//    }];
-    
-    
-//    [PFTwitterUtils logInWithBlock:^(PFUser *user, NSError *error) {
-//        
-//    }];
+    [VKDelegate sharedDelegate].rootVC = self.navigationController;
+    [VKSdk authorize:@[VK_PER_EMAIL, VK_PER_OFFLINE, VK_PER_AUDIO]];
 }
 
 -(IBAction)signInButtonTapped{
-    if (!self.isInSignUpState) {
-        [PFUser logInWithUsernameInBackground:self.emailTextField.text
+    if (self.state == AUVAuthentificationVCStateSignIn) {
+        [PFUser logInWithUsernameInBackground:self.loginTextField.text
                                      password:self.passwordTextField.text
                                         block:^(PFUser *user, NSError *error) {
                                             NSLog(@"Sign in as user: %@",user);
@@ -92,23 +86,30 @@
         
     }else {
         PFUser* user = [PFUser user];
-        user.username = self.emailTextField.text;
+        user.username = self.loginTextField.text;
         user.password = self.passwordTextField.text;
-        user[@"VKAccessToken"] = self.vkUserAccessToken;
+        user.email = self.emailTextField.text;
+        user[@"VKAccessToken"] = self.vkAccessToken.accessToken;
         
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            
-            VKRequest* req = [VKRequest requestWithMethod:@"storage.set" andParameters:@{@"key":@"AudioVKSessionToken",@"value":user.sessionToken} andHttpMethod:@"GET"];
-            [req executeWithResultBlock:^(VKResponse *response) {
-                if ([response.json isEqualToNumber:@1]) {
-                    NSLog(@"Sign up as user: %@ [token: %@]",[PFUser currentUser],[PFUser currentUser].sessionToken);
-                }else {
-                    NSLog(@"Sign up failed");
-                }
-                [self resetUIToSignInAction];
-            } errorBlock:^(NSError *error) {
-                [self resetUIToSignInAction];
-            }];
+            [[[VKStorage sharedStorage] setValue:user.sessionToken forKey:@"AudioVKSessionToken"]
+             continueWithSuccessBlock:^id(BFTask *task) {
+                 NSLog(@"Sign up as user: %@ [token: %@]",[PFUser currentUser],[PFUser currentUser].sessionToken);
+                 [self performSegueWithIdentifier:@"ShowDashboard" sender:self];
+                 return nil;
+             }];
+//            
+//            VKRequest* req = [VKRequest requestWithMethod:@"storage.set" andParameters:@{@"key":@"AudioVKSessionToken",@"value":user.sessionToken} andHttpMethod:@"GET"];
+//            [req executeWithResultBlock:^(VKResponse *response) {
+//                if ([response.json isEqualToNumber:@1]) {
+//                    NSLog(@"Sign up as user: %@ [token: %@]",[PFUser currentUser],[PFUser currentUser].sessionToken);
+//                }else {
+//                    NSLog(@"Sign up failed");
+//                }
+//                [self resetUIToSignInAction];
+//            } errorBlock:^(NSError *error) {
+//                [self resetUIToSignInAction];
+//            }];
         }];
     }
 }
@@ -141,60 +142,10 @@
 #pragma mark - Debug methods
 
 #pragma mark - Custom Setters and Getters
-- (void)setVkUserEmail:(NSString *)vkUserEmail{
-    _vkUserEmail = vkUserEmail;
-    self.emailTextField.text = vkUserEmail;
+- (void)setVkAccessToken:(VKAccessToken *)vkAccessToken{
+    _vkAccessToken = vkAccessToken;
+    if (vkAccessToken.email.length) {
+        self.emailTextField.text = vkAccessToken.email;
+    }
 }
-
-#pragma mark - Lifecycle rary usage
-- (void)dealloc{
-    [self unsubscribeFromNotifications];
-}
-
-@end
-
-
-@implementation AUVAuthentificationViewController (NotificationMethods)
-
-- (void)subscribeForNotifications{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(vkAccessNewTokenWasGiven:)
-                                                 name:kVkDelegateNewTokenWasGiven object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(vkAccessAccessHasBeenDenied:)
-                                                 name:kVkDelegateAccessHasBeenDenied object:nil];
-}
-
-- (void)unsubscribeFromNotifications {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)vkAccessNewTokenWasGiven:(NSNotification*)accessTokenNotification{
-    self.vkUserId = accessTokenNotification.userInfo[kVkDelegateUserIdKey];
-    self.vkUserAccessToken = accessTokenNotification.userInfo[kVkDelegateUserAccessTokenKey];
-    self.vkUserEmail = accessTokenNotification.userInfo[kVkDelegateUserEmailKey];
-    
-    VKRequest* req = [VKRequest requestWithMethod:@"storage.get" andParameters:@{@"key":@"AudioVKSessionToken"} andHttpMethod:@"GET"];
-    [req executeWithResultBlock:^(VKResponse *response) {
-        NSString* sessionToken = (NSString*)response.json;
-        if (!sessionToken.length) {
-            [self performSignUpUIAction];
-        }else {
-            [PFUser becomeInBackground:sessionToken block:^(PFUser *user, NSError *error) {
-                NSLog(@"Become user: %@",user);
-            }];
-        }
-    } errorBlock:^(NSError *error) {
-        
-    }];
-}
-
-- (void)vkAccessAccessHasBeenDenied:(NSNotification*)accessDeniedNotification{
-    self.vkUserId = nil;
-    self.vkUserAccessToken = nil;
-    self.vkUserEmail = nil;
-}
-
-
-
 @end

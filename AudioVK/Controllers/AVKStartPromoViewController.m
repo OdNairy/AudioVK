@@ -8,11 +8,12 @@
 
 #import "AVKStartPromoViewController.h"
 #import "VKDelegate.h"
+#import "VKStorage.h"
+#import "AUVAuthentificationViewController.h"
 
 #define PERMISSIONS_ARRAY (@[VK_PER_OFFLINE,VK_PER_AUDIO, VK_PER_EMAIL])
 
 @interface AVKStartPromoViewController ()
-
 @end
 
 @implementation AVKStartPromoViewController
@@ -36,6 +37,11 @@
     [self resumeVideoPlaying];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self pauseVideoPlaying];
@@ -49,6 +55,10 @@
     [self.backgroundView pause];
 }
 
+-(BOOL)prefersStatusBarHidden{
+    return YES;
+}
+
 #pragma mark - IB actions
 - (IBAction)vkAuthentificationButtonTapped{
     [VKDelegate sharedDelegate].rootVC = self.navigationController;
@@ -56,13 +66,50 @@
     [VKSdk authorize:PERMISSIONS_ARRAY];
 }
 
+
+- (void)showSignUpForm{
+    AUVAuthentificationViewController* authentificationVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([AUVAuthentificationViewController class])];
+    authentificationVC.state = AUVAuthentificationVCStateSignUp;
+    authentificationVC.vkAccessToken = [VKSdk getAccessToken];
+    [self.navigationController pushViewController:authentificationVC animated:YES];
+}
+
+- (void)showDashboard{
+    [self performSegueWithIdentifier:@"ShowDashboard" sender:self];
+}
+
 #pragma mark - Target Action
 - (IBAction)vkAccessTokenHasBeenReceived:(VKAccessToken*)accessToken{
-    [self performSegueWithIdentifier:@"ShowLogIn" sender:self];
+    NSString *const AVKSessionTokenStorageKey = @"AudioVKSessionToken";
+    [[[[VKStorage sharedStorage] valueForKey:AVKSessionTokenStorageKey]
+      continueWithBlock:^id(BFTask *task) {
+          NSString* sessionToken = task.result;
+          if (sessionToken.length) {
+              return [PFUser becomeInBackground:sessionToken];
+          }else {
+              // Need sign up
+              [self showSignUpForm];
+              return nil;
+          }
+      }]
+     continueWithBlock:^id(BFTask *task) {
+         if (task.result && !task.error) {
+             [self showDashboard];
+         }else if (task.error.code == kPFErrorObjectNotFound){
+             [[VKStorage sharedStorage] setNilValueForKey:AVKSessionTokenStorageKey];
+             [self showSignUpForm];
+         } else {
+             return task;
+         }
+         return nil;
+     }];
+    return;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
+    if ([segue.identifier isEqualToString:@"ShowDashboard"]) {
+        [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    }
 }
 
 @end

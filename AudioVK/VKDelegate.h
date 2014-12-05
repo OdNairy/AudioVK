@@ -19,8 +19,11 @@ typedef NS_OPTIONS(NSUInteger, VKAccessTokenEvents) {
     VKAccessTokenEventRenewed               = 1 <<  1,      // on multiple touchdowns (tap count > 1)
     VKAccessTokenEventHasExpired            = 1 <<  2,
     VKAccessTokenEventCaptchaNeeded         = 1 <<  3,
+    VKAccessTokenEventAccepted              = 1 <<  4,
     
-    VKAccessTokenEventReceived              = VKAccessTokenEventRenewed | VKAccessTokenEventReceivedNew
+    VKAccessTokenEventDenied                = 1 << 10,
+    
+    VKAccessTokenEventReceived              = VKAccessTokenEventRenewed | VKAccessTokenEventReceivedNew | VKAccessTokenEventAccepted
 };
 
 @interface VKDelegate : NSObject<VKSdkDelegate>

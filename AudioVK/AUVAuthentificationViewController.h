@@ -8,12 +8,21 @@
 
 #import "AUVBackgroundVideoView.h"
 
+typedef NS_ENUM(NSUInteger, AUVAuthentificationVCState) {
+    AUVAuthentificationVCStateSignIn,
+    AUVAuthentificationVCStateSignUp
+};
+
+
+
 @interface AUVAuthentificationViewController : UIViewController
 @property (nonatomic, weak) IBOutlet AUVBackgroundVideoView* backgroundView;
 
 @property (nonatomic, weak) IBOutlet UIButton* signInButton;
 
-@property (nonatomic, weak) IBOutlet UITextField* emailTextField;
+@property (nonatomic, weak) IBOutlet UITextField* loginTextField;
 @property (nonatomic, weak) IBOutlet UITextField* passwordTextField;
 
+@property (nonatomic) AUVAuthentificationVCState state;
+@property (nonatomic, strong) VKAccessToken* vkAccessToken;
 @end

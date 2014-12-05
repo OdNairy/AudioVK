@@ -58,8 +58,7 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
  @param authorizationError error that describes authorization error
  */
 - (void)vkSdkUserDeniedAccess:(VKError *)authorizationError{
-    NSLog(@"User denied access");
-    [[NSNotificationCenter defaultCenter] postNotificationName:kVkDelegateAccessHasBeenDenied object:self];
+    [self sendActionsForAccessTokenEvents:(VKAccessTokenEventDenied) vkAccessToken:(id)authorizationError];
 }
 
 /**
@@ -78,34 +77,16 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
  @param newToken new token for API requests
  */
 - (void)vkSdkReceivedNewToken:(VKAccessToken *)token{
-    [self vkSdkPerformToken:token];
     [self sendActionsForAccessTokenEvents:(VKAccessTokenEventReceivedNew) vkAccessToken:token];
 }
 
 - (void)vkSdkAcceptedUserToken:(VKAccessToken *)token{
-    NSLog(@"Accepted token");
-    [self vkSdkPerformToken:token];
+    [self sendActionsForAccessTokenEvents:(VKAccessTokenEventAccepted) vkAccessToken:token];
 }
 
 - (void)vkSdkRenewedToken:(VKAccessToken *)newToken{
     NSLog(@"Renewed token");
     [self sendActionsForAccessTokenEvents:(VKAccessTokenEventRenewed) vkAccessToken:newToken];
-    [self vkSdkPerformToken:newToken];
-}
-
-- (void)vkSdkPerformToken:(VKAccessToken*)token{
-    NSLog(@"Token: %@",token.accessToken);
-    NSLog(@"Email: %@",token.email);
-    
-    NSMutableDictionary* newTokenUserInfo = [NSMutableDictionary dictionary];
-    newTokenUserInfo[kVkDelegateUserIdKey] = token.userId;
-    newTokenUserInfo[kVkDelegateUserAccessTokenKey] = token.accessToken;
-    if (token.email)
-        newTokenUserInfo[kVkDelegateUserEmailKey] = token.email;
-    NSNotification* newTokenNotification = [[NSNotification alloc] initWithName:(NSString*)kVkDelegateNewTokenWasGiven
-                                                                         object:self
-                                                                       userInfo:newTokenUserInfo];
-    [[NSNotificationCenter defaultCenter] postNotification:newTokenNotification];
 }
 @end
 
