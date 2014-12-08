@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9A42FBCB9D66CD2FB34BF8C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26192FE02FA55A7D09DFEB7E /* libPods.a */; };
 		FE3527A41A2CBFB800FEBA6B /* AUVAuthentificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3527A31A2CBFB800FEBA6B /* AUVAuthentificationViewController.m */; };
+		FE3F2C461A346E0300967FD9 /* AUVAuthentificationRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3F2C451A346E0300967FD9 /* AUVAuthentificationRootViewController.m */; };
+		FE3F2C481A346F6000967FD9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3F2C471A346F6000967FD9 /* MediaPlayer.framework */; };
+		FE3F2C4A1A34706100967FD9 /* 5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FE3F2C491A34706100967FD9 /* 5.mp4 */; };
+		FE3F2C4D1A34B14F00967FD9 /* AUVProxyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3F2C4C1A34B14F00967FD9 /* AUVProxyNavigationController.m */; };
 		FEA1D2961A2DEC5000B8747D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1D2951A2DEC5000B8747D /* AVFoundation.framework */; };
 		FEA1D2981A2DEC6800B8747D /* motionblock1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FEA1D2971A2DEC6800B8747D /* motionblock1.mp4 */; };
 		FEA1D29B1A2DF94100B8747D /* AUVBackgroundVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */; };
@@ -32,6 +36,12 @@
 		6EC6A98FD00749B45EE5CF14 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FE3527A21A2CBFB800FEBA6B /* AUVAuthentificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUVAuthentificationViewController.h; sourceTree = "<group>"; };
 		FE3527A31A2CBFB800FEBA6B /* AUVAuthentificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUVAuthentificationViewController.m; sourceTree = "<group>"; };
+		FE3F2C441A346E0300967FD9 /* AUVAuthentificationRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUVAuthentificationRootViewController.h; sourceTree = "<group>"; };
+		FE3F2C451A346E0300967FD9 /* AUVAuthentificationRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUVAuthentificationRootViewController.m; sourceTree = "<group>"; };
+		FE3F2C471A346F6000967FD9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		FE3F2C491A34706100967FD9 /* 5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5.mp4; sourceTree = "<group>"; };
+		FE3F2C4B1A34B14F00967FD9 /* AUVProxyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUVProxyNavigationController.h; sourceTree = "<group>"; };
+		FE3F2C4C1A34B14F00967FD9 /* AUVProxyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUVProxyNavigationController.m; sourceTree = "<group>"; };
 		FEA1D2951A2DEC5000B8747D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FEA1D2971A2DEC6800B8747D /* motionblock1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = motionblock1.mp4; sourceTree = "<group>"; };
 		FEA1D2991A2DF94100B8747D /* AUVBackgroundVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUVBackgroundVideoView.h; sourceTree = "<group>"; };
@@ -64,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE3F2C481A346F6000967FD9 /* MediaPlayer.framework in Frameworks */,
 				FEA1D2E91A2E512A00B8747D /* Social.framework in Frameworks */,
 				FEA1D2E71A2E512500B8747D /* Accounts.framework in Frameworks */,
 				FEA1D2961A2DEC5000B8747D /* AVFoundation.framework in Frameworks */,
@@ -86,6 +97,7 @@
 		D2AE61D987B9A1E76DCC763E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FE3F2C471A346F6000967FD9 /* MediaPlayer.framework */,
 				FEA1D2E81A2E512A00B8747D /* Social.framework */,
 				FEA1D2E61A2E512500B8747D /* Accounts.framework */,
 				FEA1D2951A2DEC5000B8747D /* AVFoundation.framework */,
@@ -100,6 +112,7 @@
 				FEA1D2971A2DEC6800B8747D /* motionblock1.mp4 */,
 				FEA1D29C1A2E08A900B8747D /* motionblock2.mp4 */,
 				FEA1D29E1A2E099000B8747D /* moments.mp4 */,
+				FE3F2C491A34706100967FD9 /* 5.mp4 */,
 				FED04B8E1A27A0AA009491B0 /* AudioVK */,
 				FED04BA81A27A0AB009491B0 /* AudioVKTests */,
 				FED04B8D1A27A0AA009491B0 /* Products */,
@@ -134,6 +147,10 @@
 				FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */,
 				FEB71AE61A2F568000D56C29 /* AVKStartPromoViewController.h */,
 				FEB71AE71A2F568000D56C29 /* AVKStartPromoViewController.m */,
+				FE3F2C441A346E0300967FD9 /* AUVAuthentificationRootViewController.h */,
+				FE3F2C451A346E0300967FD9 /* AUVAuthentificationRootViewController.m */,
+				FE3F2C4B1A34B14F00967FD9 /* AUVProxyNavigationController.h */,
+				FE3F2C4C1A34B14F00967FD9 /* AUVProxyNavigationController.m */,
 			);
 			path = AudioVK;
 			sourceTree = "<group>";
@@ -238,6 +255,7 @@
 				FEA1D29D1A2E08A900B8747D /* motionblock2.mp4 in Resources */,
 				FEA1D29F1A2E099000B8747D /* moments.mp4 in Resources */,
 				FEA1D2981A2DEC6800B8747D /* motionblock1.mp4 in Resources */,
+				FE3F2C4A1A34706100967FD9 /* 5.mp4 in Resources */,
 				FED04B9D1A27A0AA009491B0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,12 +300,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE3F2C461A346E0300967FD9 /* AUVAuthentificationRootViewController.m in Sources */,
 				FEA1D29B1A2DF94100B8747D /* AUVBackgroundVideoView.m in Sources */,
 				FEF29DB21A2B391500589D36 /* VKDelegate.m in Sources */,
 				FED04B951A27A0AA009491B0 /* AppDelegate.m in Sources */,
 				FED04B921A27A0AA009491B0 /* main.m in Sources */,
 				FEB71AE81A2F568000D56C29 /* AVKStartPromoViewController.m in Sources */,
 				FED566491A3237CB006E1549 /* VKStorage.m in Sources */,
+				FE3F2C4D1A34B14F00967FD9 /* AUVProxyNavigationController.m in Sources */,
 				FE3527A41A2CBFB800FEBA6B /* AUVAuthentificationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

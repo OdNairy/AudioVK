@@ -38,7 +38,9 @@
 
 - (BFTask*)setValue:(id)value forUndefinedKey:(NSString *)key{
     BFTaskCompletionSource* task = [BFTaskCompletionSource taskCompletionSource];
-    VKRequest* req = [VKRequest requestWithMethod:@"storage.set" andParameters:@{@"key":key,@"value":value} andHttpMethod:@"GET"];
+    NSDictionary* params = @{@"key":key};
+    if (value) [params setValue:value forKey:@"value"];
+    VKRequest* req = [VKRequest requestWithMethod:@"storage.set" andParameters:params andHttpMethod:@"GET"];
     [req setCompleteBlock:^(VKResponse *response) {
         [task setResult:response.json];
     }];
@@ -47,12 +49,6 @@
 }
 
 - (BFTask*)setNilValueForKey:(NSString *)key{
-    BFTaskCompletionSource* task = [BFTaskCompletionSource taskCompletionSource];
-    VKRequest* req = [VKRequest requestWithMethod:@"storage.set" andParameters:@{@"key":key} andHttpMethod:@"GET"];
-    [req setCompleteBlock:^(VKResponse *response) {
-        [task setResult:response.json];
-    }];
-    [req start];
-    return task.task;
+    return [self setValue:nil forUndefinedKey:key];
 }
 @end

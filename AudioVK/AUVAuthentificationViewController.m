@@ -44,16 +44,12 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
     self.signInTopConstraint.constant = self.state == AUVAuthentificationVCStateSignIn? 20: 80;
     self.emailLabel.hidden = self.emailTextField.hidden = self.state == AUVAuthentificationVCStateSignIn;
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    if (self.parentViewController) {
-        [self.navigationController setNavigationBarHidden:YES animated:animated];
-    }
 }
 
 -(BOOL)prefersStatusBarHidden{

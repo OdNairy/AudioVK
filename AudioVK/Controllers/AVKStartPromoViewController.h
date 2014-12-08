@@ -9,8 +9,6 @@
 #import "AUVBackgroundVideoView.h"
 
 @interface AVKStartPromoViewController : UIViewController
-@property (nonatomic, weak) IBOutlet AUVBackgroundVideoView* backgroundView;
-
 @property (nonatomic, weak) IBOutlet UIButton* signInButton;
 @property (nonatomic, weak) IBOutlet UIButton* loginByVKButton;
 @end

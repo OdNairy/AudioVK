@@ -11,6 +11,8 @@
 #import "VKStorage.h"
 #import "AUVAuthentificationViewController.h"
 
+#import <LiveFrost.h>
+
 #define PERMISSIONS_ARRAY (@[VK_PER_OFFLINE,VK_PER_AUDIO, VK_PER_EMAIL])
 
 @interface AVKStartPromoViewController ()
@@ -20,21 +22,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(resumeVideoPlaying)
-                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(pauseVideoPlaying)
-                                                 name:UIApplicationWillResignActiveNotification object:nil];
-    [self.backgroundView playVideoByPath:[[NSBundle mainBundle] pathForResource:@"moments" ofType:@"mp4"] inLoop:YES];
+
     [[VKDelegate sharedDelegate] addTarget:self action:@selector(vkAccessTokenHasBeenReceived:) forAccessTokenEvents:(VKAccessTokenEventReceived)];
+//    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame:self.view.bounds];
+//    [self.view insertSubview:toolbar atIndex:1];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self resumeVideoPlaying];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -44,15 +39,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [self pauseVideoPlaying];
-}
-
-- (void)resumeVideoPlaying {
-    [self.backgroundView play];
-}
-
-- (void)pauseVideoPlaying {
-    [self.backgroundView pause];
 }
 
 -(BOOL)prefersStatusBarHidden{
@@ -92,7 +78,7 @@
               return nil;
           }
       }]
-     continueWithBlock:^id(BFTask *task) {
+     continueWithExecutor:[BFExecutor mainThreadExecutor] withBlock:^id(BFTask *task) {
          if (task.result && !task.error) {
              [self showDashboard];
          }else if (task.error.code == kPFErrorObjectNotFound){

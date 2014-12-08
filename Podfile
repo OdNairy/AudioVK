@@ -6,3 +6,5 @@ inhibit_all_warnings!
 pod 'VK-ios-sdk'
 pod 'Parse'
 pod 'ChameleonFramework'
+pod 'FXBlurView'
+pod 'LiveFrost'
