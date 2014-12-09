@@ -8,6 +8,9 @@
 
 #import "VKStorage.h"
 
+NSString *const AVKSessionTokenStorageKey = @"AudioVKSessionToken";
+
+
 @implementation VKStorage
 +(instancetype)sharedStorage{
     static dispatch_once_t onceToken;

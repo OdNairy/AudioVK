@@ -16,8 +16,6 @@ typedef NS_ENUM(NSUInteger, AUVAuthentificationVCState) {
 
 
 @interface AUVAuthentificationViewController : UIViewController
-@property (nonatomic, weak) IBOutlet AUVBackgroundVideoView* backgroundView;
-
 @property (nonatomic, weak) IBOutlet UIButton* signInButton;
 
 @property (nonatomic, weak) IBOutlet UITextField* loginTextField;

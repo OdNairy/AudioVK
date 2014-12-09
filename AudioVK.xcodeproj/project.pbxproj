@@ -132,25 +132,9 @@
 		FED04B8E1A27A0AA009491B0 /* AudioVK */ = {
 			isa = PBXGroup;
 			children = (
-				FED566461A323795006E1549 /* Helpers */,
-				FED04B931A27A0AA009491B0 /* AppDelegate.h */,
-				FED04B941A27A0AA009491B0 /* AppDelegate.m */,
-				FEF29DB01A2B391500589D36 /* VKDelegate.h */,
-				FEF29DB11A2B391500589D36 /* VKDelegate.m */,
-				FED04B991A27A0AA009491B0 /* Root.storyboard */,
-				FED04B9C1A27A0AA009491B0 /* Images.xcassets */,
-				FED04B9E1A27A0AA009491B0 /* LaunchScreen.xib */,
+				FED830421A377375009846EA /* Singletones */,
+				FED830401A377356009846EA /* Controllers */,
 				FED04B8F1A27A0AA009491B0 /* Supporting Files */,
-				FE3527A21A2CBFB800FEBA6B /* AUVAuthentificationViewController.h */,
-				FE3527A31A2CBFB800FEBA6B /* AUVAuthentificationViewController.m */,
-				FEA1D2991A2DF94100B8747D /* AUVBackgroundVideoView.h */,
-				FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */,
-				FEB71AE61A2F568000D56C29 /* AVKStartPromoViewController.h */,
-				FEB71AE71A2F568000D56C29 /* AVKStartPromoViewController.m */,
-				FE3F2C441A346E0300967FD9 /* AUVAuthentificationRootViewController.h */,
-				FE3F2C451A346E0300967FD9 /* AUVAuthentificationRootViewController.m */,
-				FE3F2C4B1A34B14F00967FD9 /* AUVProxyNavigationController.h */,
-				FE3F2C4C1A34B14F00967FD9 /* AUVProxyNavigationController.m */,
 			);
 			path = AudioVK;
 			sourceTree = "<group>";
@@ -158,6 +142,9 @@
 		FED04B8F1A27A0AA009491B0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FED04B991A27A0AA009491B0 /* Root.storyboard */,
+				FED04B9C1A27A0AA009491B0 /* Images.xcassets */,
+				FED04B9E1A27A0AA009491B0 /* LaunchScreen.xib */,
 				FED04B901A27A0AA009491B0 /* Info.plist */,
 				FED04B911A27A0AA009491B0 /* main.m */,
 				FED5663E1A311E40006E1549 /* AudioVK.pch */,
@@ -182,13 +169,50 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FED566461A323795006E1549 /* Helpers */ = {
+		FED8303E1A377340009846EA /* Authentification */ = {
 			isa = PBXGroup;
 			children = (
+				FE3F2C441A346E0300967FD9 /* AUVAuthentificationRootViewController.h */,
+				FE3F2C451A346E0300967FD9 /* AUVAuthentificationRootViewController.m */,
+				FEB71AE61A2F568000D56C29 /* AVKStartPromoViewController.h */,
+				FEB71AE71A2F568000D56C29 /* AVKStartPromoViewController.m */,
+				FE3527A21A2CBFB800FEBA6B /* AUVAuthentificationViewController.h */,
+				FE3527A31A2CBFB800FEBA6B /* AUVAuthentificationViewController.m */,
+				FEA1D2991A2DF94100B8747D /* AUVBackgroundVideoView.h */,
+				FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */,
+			);
+			name = Authentification;
+			sourceTree = "<group>";
+		};
+		FED830401A377356009846EA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FED830411A377368009846EA /* Common */,
+				FED8303E1A377340009846EA /* Authentification */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FED830411A377368009846EA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FE3F2C4B1A34B14F00967FD9 /* AUVProxyNavigationController.h */,
+				FE3F2C4C1A34B14F00967FD9 /* AUVProxyNavigationController.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		FED830421A377375009846EA /* Singletones */ = {
+			isa = PBXGroup;
+			children = (
+				FED04B931A27A0AA009491B0 /* AppDelegate.h */,
+				FED04B941A27A0AA009491B0 /* AppDelegate.m */,
+				FEF29DB01A2B391500589D36 /* VKDelegate.h */,
+				FEF29DB11A2B391500589D36 /* VKDelegate.m */,
 				FED566471A3237CB006E1549 /* VKStorage.h */,
 				FED566481A3237CB006E1549 /* VKStorage.m */,
 			);
-			name = Helpers;
+			name = Singletones;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

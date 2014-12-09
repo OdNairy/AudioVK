@@ -8,6 +8,8 @@
 
 #import "AUVAuthentificationViewController.h"
 
+#import "AUVAuthentificationRootViewController.h"
+
 #import "VKDelegate.h"
 #import "VKStorage.h"
 #import <Chameleon.h>
@@ -24,6 +26,8 @@
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint* signInTopConstraint;
 @property (nonatomic, weak) IBOutlet UILabel* emailLabel;
 @property (nonatomic, weak) IBOutlet UITextField* emailTextField;
+
+@property(nonatomic,readonly) AUVAuthentificationRootViewController *parentViewController;
 @end
 
 @implementation AUVAuthentificationViewController
@@ -38,23 +42,16 @@
     self.emailTextField.text = self.vkAccessToken.email;
     
     [self applyShadowForNavigationBar];
-    [self.backgroundView playVideoByPath:[[NSBundle mainBundle] pathForResource:@"moments" ofType:@"mp4"] inLoop:YES];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    NSLog(@"%s",__PRETTY_FUNCTION__);
     self.signInTopConstraint.constant = self.state == AUVAuthentificationVCStateSignIn? 20: 80;
     self.emailLabel.hidden = self.emailTextField.hidden = self.state == AUVAuthentificationVCStateSignIn;
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-}
-
--(BOOL)prefersStatusBarHidden{
-    return NO;
-}
 
 #pragma mark - UI
 - (void)applyShadowForNavigationBar{
@@ -66,8 +63,7 @@
 
 #pragma mark - IB actions
 - (IBAction)vkAuthentificationButtonTapped{
-    [VKDelegate sharedDelegate].rootVC = self.navigationController;
-    [VKSdk authorize:@[VK_PER_EMAIL, VK_PER_OFFLINE, VK_PER_AUDIO]];
+    [self.parentViewController signInByVKAction];
 }
 
 -(IBAction)signInButtonTapped{
@@ -88,40 +84,18 @@
         user[@"VKAccessToken"] = self.vkAccessToken.accessToken;
         
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            [[[VKStorage sharedStorage] setValue:user.sessionToken forKey:@"AudioVKSessionToken"]
+            [[[VKStorage sharedStorage] setValue:user.sessionToken forKey:AVKSessionTokenStorageKey]
              continueWithSuccessBlock:^id(BFTask *task) {
                  NSLog(@"Sign up as user: %@ [token: %@]",[PFUser currentUser],[PFUser currentUser].sessionToken);
-                 [self performSegueWithIdentifier:@"ShowDashboard" sender:self];
+//                 [self performSegueWithIdentifier:@"ShowDashboard" sender:self];
                  return nil;
              }];
-//            
-//            VKRequest* req = [VKRequest requestWithMethod:@"storage.set" andParameters:@{@"key":@"AudioVKSessionToken",@"value":user.sessionToken} andHttpMethod:@"GET"];
-//            [req executeWithResultBlock:^(VKResponse *response) {
-//                if ([response.json isEqualToNumber:@1]) {
-//                    NSLog(@"Sign up as user: %@ [token: %@]",[PFUser currentUser],[PFUser currentUser].sessionToken);
-//                }else {
-//                    NSLog(@"Sign up failed");
-//                }
-//                [self resetUIToSignInAction];
-//            } errorBlock:^(NSError *error) {
-//                [self resetUIToSignInAction];
-//            }];
         }];
     }
 }
 
-- (IBAction)resetVKStorage{
-    VKRequest* req = [VKRequest requestWithMethod:@"storage.set" andParameters:@{@"key":@"AudioVKSessionToken"} andHttpMethod:@"GET"];
-    [req executeWithResultBlock:^(VKResponse *response) {
-        if ([response.json isEqualToNumber:@1]) {
-            NSLog(@"Sign up as user: %@ [token: %@]",[PFUser currentUser],[PFUser currentUser].sessionToken);
-        }else {
-            NSLog(@"Sign up failed");
-        }
-    } errorBlock:^(NSError *error) {
-        
-    }];
-
+- (IBAction)hideKeyboardGestureTapped{
+    [self.view endEditing:YES];
 }
 
 - (void)performSignUpUIAction{

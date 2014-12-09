@@ -9,6 +9,8 @@
 #import "VKApiObject.h"
 #import <Bolts.h>
 
+extern NSString *const AVKSessionTokenStorageKey;
+
 @interface VKStorage : VKApiObject
 + (instancetype)sharedStorage;
 
