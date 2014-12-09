@@ -47,11 +47,19 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSLog(@"%s",__PRETTY_FUNCTION__);
-    self.signInTopConstraint.constant = self.state == AUVAuthentificationVCStateSignIn? 20: 80;
-    self.emailLabel.hidden = self.emailTextField.hidden = self.state == AUVAuthentificationVCStateSignIn;
+    [self updateStateUI];
 }
 
+-(void)setState:(AUVAuthentificationVCState)state{
+    _state = state;
+    [self updateStateUI];
+}
+
+- (void)updateStateUI{
+    self.signInTopConstraint.constant = self.state == AUVAuthentificationVCStateSignIn? 20: 80;
+    self.emailLabel.hidden = self.emailTextField.hidden = self.state == AUVAuthentificationVCStateSignIn;
+
+}
 
 #pragma mark - UI
 - (void)applyShadowForNavigationBar{
