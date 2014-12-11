@@ -8,10 +8,10 @@
 
 #import "AVKStartPromoViewController.h"
 
-#import "AUVAuthentificationRootViewController.h"
+#import "AUVAuthenticationRootViewController.h"
 
 @interface AVKStartPromoViewController ()
-@property(nonatomic,readonly) AUVAuthentificationRootViewController *parentViewController;
+@property(nonatomic,readonly) AUVAuthenticationRootViewController *parentViewController;
 @end
 
 @implementation AVKStartPromoViewController
