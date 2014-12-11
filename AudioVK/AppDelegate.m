@@ -17,7 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self application:application initializeServicesWithOptions:launchOptions];
-
     return YES;
 }
 
