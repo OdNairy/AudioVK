@@ -8,10 +8,10 @@
 
 #import "AVKStartPromoViewController.h"
 
-#import "AUVAuthenticationRootViewController.h"
+#import "AVKAuthenticationRootViewController.h"
 
 @interface AVKStartPromoViewController ()
-@property(nonatomic,readonly) AUVAuthenticationRootViewController *parentViewController;
+@property(nonatomic,readonly) AVKAuthenticationRootViewController *parentViewController;
 @end
 
 @implementation AVKStartPromoViewController
@@ -22,7 +22,7 @@
 }
 
 #pragma mark - IB actions
-- (IBAction)vkAuthentificationButtonTapped{
+- (IBAction)vkAuthenticationButtonTapped{
     [self.parentViewController signInByVKAction];
 }
 

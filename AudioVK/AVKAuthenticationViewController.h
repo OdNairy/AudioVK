@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Roman Gardukevich. All rights reserved.
 //
 
-#import "AUVBackgroundVideoView.h"
+#import "AVKBackgroundVideoView.h"
 
 typedef NS_ENUM(NSUInteger, AUVAuthentificationVCState) {
-    AUVAuthentificationVCStateSignIn,
-    AUVAuthentificationVCStateSignUp
+    AUVAuthenticationVCStateSignIn,
+    AUVAuthenticationVCStateSignUp
 };
 
 
-@interface AUVAuthenticationViewController : UIViewController
+@interface AVKAuthenticationViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UIButton* signInButton;
 
 @property (nonatomic) AUVAuthentificationVCState state;

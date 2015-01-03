@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Roman Gardukevich. All rights reserved.
 //
 
-#import "AUVBackgroundVideoView.h"
+#import "AVKBackgroundVideoView.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface AUVBackgroundVideoView ()
+@interface AVKBackgroundVideoView ()
 @property (nonatomic,readonly,retain) AVPlayerLayer  *layer;
 @property (nonatomic, strong) AVPlayer* avPlayer;
 @end
 
-@implementation AUVBackgroundVideoView
+@implementation AVKBackgroundVideoView
 @dynamic layer;
 
 +(Class)layerClass{

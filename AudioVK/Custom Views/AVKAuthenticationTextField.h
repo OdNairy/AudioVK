@@ -10,7 +10,7 @@
 #import <UIView+NibLoading.h>
 
 IB_DESIGNABLE
-@interface AUVAuthenticationTextField : NibLoadedView
+@interface AVKAuthenticationTextField : NibLoadedView
 @property (nonatomic, strong) IBInspectable IBOutlet UITextField* textField;
 
 @property (nonatomic, copy) IBInspectable NSString* text;

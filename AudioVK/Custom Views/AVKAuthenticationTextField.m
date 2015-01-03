@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Roman Gardukevich. All rights reserved.
 //
 
-#import "AUVAuthenticationTextField.h"
+#import "AVKAuthenticationTextField.h"
 #import <Chameleon.h>
 
-@interface AUVAuthenticationTextField ()
+@interface AVKAuthenticationTextField ()
 
 @property (nonatomic, strong) IBOutlet UIImageView* imageView;
 @end
 
-@implementation AUVAuthenticationTextField
+@implementation AVKAuthenticationTextField
 @dynamic secureTextEntry, placeholder,text,  leftImageName;
 
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
@@ -36,8 +36,10 @@
 }
 
 -(void)setPlaceholder:(NSString *)placeholder{
+//    UIColor* foregroundColor = [UIColor colorWithRed:224.0/255 green:190.0/255 blue:153.0/255 alpha:0.7];
+    UIColor* foregroundColor = [UIColor colorWithRed:119/255 green:107/255 blue:96/255 alpha:0.7];
     self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholder
-                                                                           attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1],
+                                                                           attributes:@{NSForegroundColorAttributeName: foregroundColor,
                                                                                         NSFontAttributeName: [UIFont systemFontOfSize:18]}];
 }
 

@@ -5,7 +5,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AUVAuthenticationTextField">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AVKAuthenticationTextField">
             <connections>
                 <outlet property="imageView" destination="fFx-fX-0qt" id="Tyf-91-x0D"/>
                 <outlet property="textField" destination="S6t-g2-2Zf" id="jzK-os-La2"/>
@@ -18,11 +18,11 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Dr-wA-IS8" userLabel="Text Field Background View">
                     <rect key="frame" x="50" y="0.0" width="270" height="50"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.44" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="0.44" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgimgimg" translatesAutoresizingMaskIntoConstraints="NO" id="fFx-fX-0qt">
                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="0.70000000000000007" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="fFx-fX-0qt" secondAttribute="height" multiplier="1:1" id="dXW-fA-F7y"/>
                     </constraints>

@@ -41,7 +41,7 @@ NSString *const AVKSessionTokenStorageKey = @"AudioVKSessionToken";
 
 - (BFTask*)setValue:(id)value forUndefinedKey:(NSString *)key{
     BFTaskCompletionSource* task = [BFTaskCompletionSource taskCompletionSource];
-    NSDictionary* params = @{@"key":key};
+    NSMutableDictionary* params = [NSMutableDictionary dictionaryWithDictionary:@{@"key":key}];
     if (value) [params setValue:value forKey:@"value"];
     VKRequest* req = [VKRequest requestWithMethod:@"storage.set" andParameters:params andHttpMethod:@"GET"];
     [req setCompleteBlock:^(VKResponse *response) {

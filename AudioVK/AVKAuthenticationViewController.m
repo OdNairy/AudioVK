@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Roman Gardukevich. All rights reserved.
 //
 
-#import "AUVAuthenticationViewController.h"
+#import "AVKAuthenticationViewController.h"
 
-#import "AUVAuthenticationRootViewController.h"
-#import "AUVAuthenticationTextField.h"
+#import "AVKAuthenticationRootViewController.h"
+#import "AVKAuthenticationTextField.h"
 
 #import "VKDelegate.h"
 #import "VKStorage.h"
@@ -17,7 +17,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-@interface AUVAuthenticationViewController ()
+@interface AVKAuthenticationViewController ()
 @property (nonatomic, copy) NSString* vkUserId;
 @property (nonatomic, copy) NSString* vkUserAccessToken;
 @property (nonatomic, copy) NSString* vkUserEmail;
@@ -26,17 +26,17 @@
 
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint* signInTopConstraint;
 
-@property (nonatomic, weak) IBOutlet AUVAuthenticationTextField * loginTextFieldWrapper;
-@property (nonatomic, weak) IBOutlet AUVAuthenticationTextField * passwordTextFieldWrapper;
-@property (nonatomic, weak) IBOutlet AUVAuthenticationTextField * emailTextFieldWrapper;
+@property (nonatomic, weak) IBOutlet AVKAuthenticationTextField * loginTextFieldWrapper;
+@property (nonatomic, weak) IBOutlet AVKAuthenticationTextField * passwordTextFieldWrapper;
+@property (nonatomic, weak) IBOutlet AVKAuthenticationTextField * emailTextFieldWrapper;
 
-@property(nonatomic,readonly) AUVAuthenticationRootViewController *parentViewController;
+@property(nonatomic,readonly) AVKAuthenticationRootViewController *parentViewController;
 @end
 
-@implementation AUVAuthenticationViewController
+@implementation AVKAuthenticationViewController
 
 -(void)awakeFromNib{
-    self.state = AUVAuthentificationVCStateSignIn;
+    self.state = AUVAuthenticationVCStateSignIn;
 }
 
 #pragma mark - Lifecycle common usage
@@ -66,8 +66,18 @@
 }
 
 - (void)updateStateUI{
-    self.signInTopConstraint.constant = self.state == AUVAuthentificationVCStateSignIn? 34: 80;
-    self.emailTextFieldWrapper.hidden = self.state == AUVAuthentificationVCStateSignIn;
+    self.signInTopConstraint.constant = self.state == AUVAuthenticationVCStateSignIn ? 34: 80;
+    self.emailTextFieldWrapper.hidden = self.state == AUVAuthenticationVCStateSignIn;
+    [self.signInButton setTitle:[self titleForCurrentState]
+                       forState:(UIControlStateNormal)];
+}
+
+- (NSString*)titleForCurrentState{
+    if (self.state == AUVAuthenticationVCStateSignUp) {
+        return NSLocalizedString(@"Sign UP", @"Sign up button title on authentication screen");
+    }else {
+        return NSLocalizedString(@"Sign IN", @"Sign IN button title on authentication screen");
+    }
 }
 
 #pragma mark - UI
@@ -79,7 +89,7 @@
 }
 
 #pragma mark - IB actions
-- (IBAction)vkAuthentificationButtonTapped{
+- (IBAction)vkAuthenticationButtonTapped {
     [self.parentViewController signInByVKAction];
 }
 
@@ -88,13 +98,16 @@
     NSString* password = self.passwordTextFieldWrapper.text;
     NSString* email = self.emailTextFieldWrapper.text;
     
-    if (self.state == AUVAuthentificationVCStateSignIn) {
+    if (self.state == AUVAuthenticationVCStateSignIn) {
         [PFUser logInWithUsernameInBackground:login
                                      password:password
                                         block:^(PFUser *user, NSError *error) {
-                                            NSLog(@"Sign in as user: %@",user);
-                                            self.vkUserAccessToken = user[@"VKAccessToken"];
-                                            [user saveEventually];
+                                            if (user && !error) {
+                                                NSLog(@"Sign in as user: %@",user);
+                                                self.vkUserAccessToken = user[@"VKAccessToken"];
+                                                [user saveEventually];
+                                                [self.parentViewController presentDashboardViewController];
+                                            }
                                         }];
         
     }else {
@@ -108,6 +121,7 @@
             [[[VKStorage sharedStorage] setValue:user.sessionToken forKey:AVKSessionTokenStorageKey]
              continueWithSuccessBlock:^id(BFTask *task) {
                  NSLog(@"Sign up as user: %@ [token: %@]",[PFUser currentUser],[PFUser currentUser].sessionToken);
+                 [self.parentViewController presentDashboardViewController];
 //                 [self performSegueWithIdentifier:@"ShowDashboard" sender:self];
                  return nil;
              }];

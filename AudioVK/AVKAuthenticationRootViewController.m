@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Roman Gardukevich. All rights reserved.
 //
 
-#import "AUVAuthenticationRootViewController.h"
+#import "AVKAuthenticationRootViewController.h"
 
 #import "AVKStartPromoViewController.h"
-#import "AUVAuthenticationViewController.h"
+#import "AVKAuthenticationViewController.h"
 
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
@@ -24,15 +24,15 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
     AVKDirectionToRight
 };
 
-@interface AUVAuthenticationRootViewController ()
+@interface AVKAuthenticationRootViewController ()
 @property (nonatomic, strong) MPMoviePlayerController* player;
 @property (nonatomic, weak) IBOutlet UIView* contentView;
 
 @property (nonatomic, strong) AVKStartPromoViewController* startViewController;
-@property (nonatomic, strong) AUVAuthenticationViewController * authentificationVC;
+@property (nonatomic, strong) AVKAuthenticationViewController * authentificationVC;
 @end
 
-@implementation AUVAuthenticationRootViewController
+@implementation AVKAuthenticationRootViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -71,7 +71,7 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
 
 - (void)displaySignUpViewController{
     [self displayAuthentificationViewController];
-    self.authentificationVC.state = AUVAuthentificationVCStateSignUp;
+    self.authentificationVC.state = AUVAuthenticationVCStateSignUp;
     self.authentificationVC.vkAccessToken = [VKSdk getAccessToken];
 
 }
@@ -109,7 +109,17 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
     
 }
 - (void)presentDashboardViewController{
+    UIViewController* dashboardRootVC = [[UIStoryboard storyboardWithName:@"Dashboard" bundle:nil] instantiateInitialViewController];
+    dashboardRootVC = [dashboardRootVC.storyboard instantiateViewControllerWithIdentifier:@"AVKAudioListTableViewController"];
+
+    CATransition *transition = [CATransition animation];
+    transition.duration = .3;
+    transition.type = kCATransitionReveal;
+    transition.subtype = kCATransitionFromBottom;
     
+    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+
+    [self.navigationController pushViewController:dashboardRootVC animated:NO];
 }
 
 #pragma mark - Authentification Root Protocol Implementation

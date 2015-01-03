@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AUVProxyNavigationController : UINavigationController
+@interface AVKProxyNavigationController : UINavigationController
 
 @end

@@ -8,16 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol AUVAuthentificationRootProtocol <NSObject>
+@protocol AVKAuthentificationRootProtocol <NSObject>
 @required
 - (void)signInAction;
 - (void)signInByVKAction;
+
+- (void)presentDashboardViewController;
 
 - (void)popToRootVC;
 @end
 
 
-@interface AUVAuthenticationRootViewController : UIViewController<AUVAuthentificationRootProtocol>
+@interface AVKAuthenticationRootViewController : UIViewController<AVKAuthentificationRootProtocol>
 
 
 @end

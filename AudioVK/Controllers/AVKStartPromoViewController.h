@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Roman Gardukevich. All rights reserved.
 //
 
-#import "AUVBackgroundVideoView.h"
+#import "AVKBackgroundVideoView.h"
 
 @interface AVKStartPromoViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UIButton* signInButton;

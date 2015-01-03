@@ -8,18 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		9A42FBCB9D66CD2FB34BF8C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26192FE02FA55A7D09DFEB7E /* libPods.a */; };
-		FE3527A41A2CBFB800FEBA6B /* AUVAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3527A31A2CBFB800FEBA6B /* AUVAuthenticationViewController.m */; };
-		FE3F2C461A346E0300967FD9 /* AUVAuthenticationRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3F2C451A346E0300967FD9 /* AUVAuthenticationRootViewController.m */; };
+		FE2BDF4E1A3A4CE2004D307E /* AVKDashboardRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BDF4D1A3A4CE2004D307E /* AVKDashboardRootViewController.m */; };
+		FE2BDF511A3A4D00004D307E /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE2BDF4F1A3A4D00004D307E /* Dashboard.storyboard */; };
+		FE3527A41A2CBFB800FEBA6B /* AVKAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3527A31A2CBFB800FEBA6B /* AVKAuthenticationViewController.m */; };
+		FE3F2C461A346E0300967FD9 /* AVKAuthenticationRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3F2C451A346E0300967FD9 /* AVKAuthenticationRootViewController.m */; };
 		FE3F2C481A346F6000967FD9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3F2C471A346F6000967FD9 /* MediaPlayer.framework */; };
 		FE3F2C4A1A34706100967FD9 /* 5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FE3F2C491A34706100967FD9 /* 5.mp4 */; };
-		FE3F2C4D1A34B14F00967FD9 /* AUVProxyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3F2C4C1A34B14F00967FD9 /* AUVProxyNavigationController.m */; };
+		FE3F2C4D1A34B14F00967FD9 /* AVKProxyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3F2C4C1A34B14F00967FD9 /* AVKProxyNavigationController.m */; };
 		FEA1D2961A2DEC5000B8747D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1D2951A2DEC5000B8747D /* AVFoundation.framework */; };
 		FEA1D2981A2DEC6800B8747D /* motionblock1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FEA1D2971A2DEC6800B8747D /* motionblock1.mp4 */; };
-		FEA1D29B1A2DF94100B8747D /* AUVBackgroundVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */; };
+		FEA1D29B1A2DF94100B8747D /* AVKBackgroundVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1D29A1A2DF94100B8747D /* AVKBackgroundVideoView.m */; };
 		FEA1D29D1A2E08A900B8747D /* motionblock2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FEA1D29C1A2E08A900B8747D /* motionblock2.mp4 */; };
 		FEA1D29F1A2E099000B8747D /* moments.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FEA1D29E1A2E099000B8747D /* moments.mp4 */; };
 		FEA1D2E71A2E512500B8747D /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1D2E61A2E512500B8747D /* Accounts.framework */; };
 		FEA1D2E91A2E512A00B8747D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1D2E81A2E512A00B8747D /* Social.framework */; };
+		FEA2F7EE1A3C730B00648938 /* AVKAudioListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2F7ED1A3C730B00648938 /* AVKAudioListTableViewController.m */; };
 		FEB71AE81A2F568000D56C29 /* AVKStartPromoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB71AE71A2F568000D56C29 /* AVKStartPromoViewController.m */; };
 		FED04B921A27A0AA009491B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FED04B911A27A0AA009491B0 /* main.m */; };
 		FED04B951A27A0AA009491B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FED04B941A27A0AA009491B0 /* AppDelegate.m */; };
@@ -27,8 +30,8 @@
 		FED04B9D1A27A0AA009491B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FED04B9C1A27A0AA009491B0 /* Images.xcassets */; };
 		FED04BA01A27A0AA009491B0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED04B9E1A27A0AA009491B0 /* LaunchScreen.xib */; };
 		FED566491A3237CB006E1549 /* VKStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = FED566481A3237CB006E1549 /* VKStorage.m */; };
-		FEECE1C71A38425200095DC4 /* AUVAuthenticationTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FEECE1C61A38425200095DC4 /* AUVAuthenticationTextField.m */; };
-		FEECE1C91A38433800095DC4 /* AUVAuthenticationTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEECE1C81A38433800095DC4 /* AUVAuthenticationTextField.xib */; };
+		FEECE1C71A38425200095DC4 /* AVKAuthenticationTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FEECE1C61A38425200095DC4 /* AVKAuthenticationTextField.m */; };
+		FEECE1C91A38433800095DC4 /* AVKAuthenticationTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEECE1C81A38433800095DC4 /* AVKAuthenticationTextField.xib */; };
 		FEF29DB21A2B391500589D36 /* VKDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF29DB11A2B391500589D36 /* VKDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -36,22 +39,27 @@
 		26192FE02FA55A7D09DFEB7E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6323733BB1DAF4BE6E4ECD71 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6EC6A98FD00749B45EE5CF14 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		FE3527A21A2CBFB800FEBA6B /* AUVAuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUVAuthenticationViewController.h; sourceTree = "<group>"; };
-		FE3527A31A2CBFB800FEBA6B /* AUVAuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUVAuthenticationViewController.m; sourceTree = "<group>"; };
-		FE3F2C441A346E0300967FD9 /* AUVAuthenticationRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUVAuthenticationRootViewController.h; sourceTree = "<group>"; };
-		FE3F2C451A346E0300967FD9 /* AUVAuthenticationRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUVAuthenticationRootViewController.m; sourceTree = "<group>"; };
+		FE2BDF4C1A3A4CE2004D307E /* AVKDashboardRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKDashboardRootViewController.h; path = Controllers/Dashboard/AVKDashboardRootViewController.h; sourceTree = "<group>"; };
+		FE2BDF4D1A3A4CE2004D307E /* AVKDashboardRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKDashboardRootViewController.m; path = Controllers/Dashboard/AVKDashboardRootViewController.m; sourceTree = "<group>"; };
+		FE2BDF501A3A4D00004D307E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard.storyboard; sourceTree = "<group>"; };
+		FE3527A21A2CBFB800FEBA6B /* AVKAuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVKAuthenticationViewController.h; sourceTree = "<group>"; };
+		FE3527A31A2CBFB800FEBA6B /* AVKAuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVKAuthenticationViewController.m; sourceTree = "<group>"; };
+		FE3F2C441A346E0300967FD9 /* AVKAuthenticationRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVKAuthenticationRootViewController.h; sourceTree = "<group>"; };
+		FE3F2C451A346E0300967FD9 /* AVKAuthenticationRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVKAuthenticationRootViewController.m; sourceTree = "<group>"; };
 		FE3F2C471A346F6000967FD9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		FE3F2C491A34706100967FD9 /* 5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5.mp4; sourceTree = "<group>"; };
-		FE3F2C4B1A34B14F00967FD9 /* AUVProxyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUVProxyNavigationController.h; sourceTree = "<group>"; };
-		FE3F2C4C1A34B14F00967FD9 /* AUVProxyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUVProxyNavigationController.m; sourceTree = "<group>"; };
+		FE3F2C4B1A34B14F00967FD9 /* AVKProxyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVKProxyNavigationController.h; sourceTree = "<group>"; };
+		FE3F2C4C1A34B14F00967FD9 /* AVKProxyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVKProxyNavigationController.m; sourceTree = "<group>"; };
 		FEA1D2951A2DEC5000B8747D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FEA1D2971A2DEC6800B8747D /* motionblock1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = motionblock1.mp4; sourceTree = "<group>"; };
-		FEA1D2991A2DF94100B8747D /* AUVBackgroundVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUVBackgroundVideoView.h; sourceTree = "<group>"; };
-		FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUVBackgroundVideoView.m; sourceTree = "<group>"; };
+		FEA1D2991A2DF94100B8747D /* AVKBackgroundVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVKBackgroundVideoView.h; sourceTree = "<group>"; };
+		FEA1D29A1A2DF94100B8747D /* AVKBackgroundVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVKBackgroundVideoView.m; sourceTree = "<group>"; };
 		FEA1D29C1A2E08A900B8747D /* motionblock2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = motionblock2.mp4; sourceTree = "<group>"; };
 		FEA1D29E1A2E099000B8747D /* moments.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = moments.mp4; sourceTree = "<group>"; };
 		FEA1D2E61A2E512500B8747D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		FEA1D2E81A2E512A00B8747D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		FEA2F7EC1A3C730B00648938 /* AVKAudioListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKAudioListTableViewController.h; path = Controllers/Dashboard/AVKAudioListTableViewController.h; sourceTree = "<group>"; };
+		FEA2F7ED1A3C730B00648938 /* AVKAudioListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKAudioListTableViewController.m; path = Controllers/Dashboard/AVKAudioListTableViewController.m; sourceTree = "<group>"; };
 		FEB71AE61A2F568000D56C29 /* AVKStartPromoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKStartPromoViewController.h; path = Controllers/AVKStartPromoViewController.h; sourceTree = "<group>"; };
 		FEB71AE71A2F568000D56C29 /* AVKStartPromoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKStartPromoViewController.m; path = Controllers/AVKStartPromoViewController.m; sourceTree = "<group>"; };
 		FED04B8C1A27A0AA009491B0 /* AudioVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,9 +75,9 @@
 		FED5663E1A311E40006E1549 /* AudioVK.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioVK.pch; sourceTree = "<group>"; };
 		FED566471A3237CB006E1549 /* VKStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKStorage.h; path = Helpers/VKStorage.h; sourceTree = "<group>"; };
 		FED566481A3237CB006E1549 /* VKStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKStorage.m; path = Helpers/VKStorage.m; sourceTree = "<group>"; };
-		FEECE1C51A38425200095DC4 /* AUVAuthenticationTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUVAuthenticationTextField.h; path = "Custom Views/AUVAuthenticationTextField.h"; sourceTree = "<group>"; };
-		FEECE1C61A38425200095DC4 /* AUVAuthenticationTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AUVAuthenticationTextField.m; path = "Custom Views/AUVAuthenticationTextField.m"; sourceTree = "<group>"; };
-		FEECE1C81A38433800095DC4 /* AUVAuthenticationTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AUVAuthenticationTextField.xib; path = "Custom Views/AUVAuthenticationTextField.xib"; sourceTree = "<group>"; };
+		FEECE1C51A38425200095DC4 /* AVKAuthenticationTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKAuthenticationTextField.h; path = "Custom Views/AVKAuthenticationTextField.h"; sourceTree = "<group>"; };
+		FEECE1C61A38425200095DC4 /* AVKAuthenticationTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKAuthenticationTextField.m; path = "Custom Views/AVKAuthenticationTextField.m"; sourceTree = "<group>"; };
+		FEECE1C81A38433800095DC4 /* AVKAuthenticationTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AVKAuthenticationTextField.xib; path = "Custom Views/AVKAuthenticationTextField.xib"; sourceTree = "<group>"; };
 		FEF29DB01A2B391500589D36 /* VKDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKDelegate.h; sourceTree = "<group>"; };
 		FEF29DB11A2B391500589D36 /* VKDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +119,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FE2BDF4B1A3A4CA2004D307E /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				FE2BDF4C1A3A4CE2004D307E /* AVKDashboardRootViewController.h */,
+				FE2BDF4D1A3A4CE2004D307E /* AVKDashboardRootViewController.m */,
+				FEA2F7EC1A3C730B00648938 /* AVKAudioListTableViewController.h */,
+				FEA2F7ED1A3C730B00648938 /* AVKAudioListTableViewController.m */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
 		FED04B831A27A0AA009491B0 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				FED04B991A27A0AA009491B0 /* Root.storyboard */,
+				FE2BDF4F1A3A4D00004D307E /* Dashboard.storyboard */,
 				FED04B9C1A27A0AA009491B0 /* Images.xcassets */,
 				FED04B9E1A27A0AA009491B0 /* LaunchScreen.xib */,
 				FED04B901A27A0AA009491B0 /* Info.plist */,
@@ -177,14 +197,14 @@
 		FED8303E1A377340009846EA /* Authentification */ = {
 			isa = PBXGroup;
 			children = (
-				FE3F2C441A346E0300967FD9 /* AUVAuthenticationRootViewController.h */,
-				FE3F2C451A346E0300967FD9 /* AUVAuthenticationRootViewController.m */,
+				FE3F2C441A346E0300967FD9 /* AVKAuthenticationRootViewController.h */,
+				FE3F2C451A346E0300967FD9 /* AVKAuthenticationRootViewController.m */,
 				FEB71AE61A2F568000D56C29 /* AVKStartPromoViewController.h */,
 				FEB71AE71A2F568000D56C29 /* AVKStartPromoViewController.m */,
-				FE3527A21A2CBFB800FEBA6B /* AUVAuthenticationViewController.h */,
-				FE3527A31A2CBFB800FEBA6B /* AUVAuthenticationViewController.m */,
-				FEA1D2991A2DF94100B8747D /* AUVBackgroundVideoView.h */,
-				FEA1D29A1A2DF94100B8747D /* AUVBackgroundVideoView.m */,
+				FE3527A21A2CBFB800FEBA6B /* AVKAuthenticationViewController.h */,
+				FE3527A31A2CBFB800FEBA6B /* AVKAuthenticationViewController.m */,
+				FEA1D2991A2DF94100B8747D /* AVKBackgroundVideoView.h */,
+				FEA1D29A1A2DF94100B8747D /* AVKBackgroundVideoView.m */,
 			);
 			name = Authentification;
 			sourceTree = "<group>";
@@ -195,6 +215,7 @@
 				FEECE1C41A38423400095DC4 /* Custom Views */,
 				FED830411A377368009846EA /* Common */,
 				FED8303E1A377340009846EA /* Authentification */,
+				FE2BDF4B1A3A4CA2004D307E /* Dashboard */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -202,8 +223,8 @@
 		FED830411A377368009846EA /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				FE3F2C4B1A34B14F00967FD9 /* AUVProxyNavigationController.h */,
-				FE3F2C4C1A34B14F00967FD9 /* AUVProxyNavigationController.m */,
+				FE3F2C4B1A34B14F00967FD9 /* AVKProxyNavigationController.h */,
+				FE3F2C4C1A34B14F00967FD9 /* AVKProxyNavigationController.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -224,9 +245,9 @@
 		FEECE1C41A38423400095DC4 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				FEECE1C51A38425200095DC4 /* AUVAuthenticationTextField.h */,
-				FEECE1C61A38425200095DC4 /* AUVAuthenticationTextField.m */,
-				FEECE1C81A38433800095DC4 /* AUVAuthenticationTextField.xib */,
+				FEECE1C51A38425200095DC4 /* AVKAuthenticationTextField.h */,
+				FEECE1C61A38425200095DC4 /* AVKAuthenticationTextField.m */,
+				FEECE1C81A38433800095DC4 /* AVKAuthenticationTextField.xib */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -264,6 +285,11 @@
 				TargetAttributes = {
 					FED04B8B1A27A0AA009491B0 = {
 						CreatedOnToolsVersion = 6.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -292,11 +318,12 @@
 			files = (
 				FED04B9B1A27A0AA009491B0 /* Root.storyboard in Resources */,
 				FED04BA01A27A0AA009491B0 /* LaunchScreen.xib in Resources */,
-				FEECE1C91A38433800095DC4 /* AUVAuthenticationTextField.xib in Resources */,
+				FEECE1C91A38433800095DC4 /* AVKAuthenticationTextField.xib in Resources */,
 				FEA1D29D1A2E08A900B8747D /* motionblock2.mp4 in Resources */,
 				FEA1D29F1A2E099000B8747D /* moments.mp4 in Resources */,
 				FEA1D2981A2DEC6800B8747D /* motionblock1.mp4 in Resources */,
 				FE3F2C4A1A34706100967FD9 /* 5.mp4 in Resources */,
+				FE2BDF511A3A4D00004D307E /* Dashboard.storyboard in Resources */,
 				FED04B9D1A27A0AA009491B0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,22 +368,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE3F2C461A346E0300967FD9 /* AUVAuthenticationRootViewController.m in Sources */,
-				FEA1D29B1A2DF94100B8747D /* AUVBackgroundVideoView.m in Sources */,
+				FE3F2C461A346E0300967FD9 /* AVKAuthenticationRootViewController.m in Sources */,
+				FEA2F7EE1A3C730B00648938 /* AVKAudioListTableViewController.m in Sources */,
+				FEA1D29B1A2DF94100B8747D /* AVKBackgroundVideoView.m in Sources */,
 				FEF29DB21A2B391500589D36 /* VKDelegate.m in Sources */,
 				FED04B951A27A0AA009491B0 /* AppDelegate.m in Sources */,
 				FED04B921A27A0AA009491B0 /* main.m in Sources */,
-				FEECE1C71A38425200095DC4 /* AUVAuthenticationTextField.m in Sources */,
+				FEECE1C71A38425200095DC4 /* AVKAuthenticationTextField.m in Sources */,
 				FEB71AE81A2F568000D56C29 /* AVKStartPromoViewController.m in Sources */,
 				FED566491A3237CB006E1549 /* VKStorage.m in Sources */,
-				FE3F2C4D1A34B14F00967FD9 /* AUVProxyNavigationController.m in Sources */,
-				FE3527A41A2CBFB800FEBA6B /* AUVAuthenticationViewController.m in Sources */,
+				FE3F2C4D1A34B14F00967FD9 /* AVKProxyNavigationController.m in Sources */,
+				FE2BDF4E1A3A4CE2004D307E /* AVKDashboardRootViewController.m in Sources */,
+				FE3527A41A2CBFB800FEBA6B /* AVKAuthenticationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		FE2BDF4F1A3A4D00004D307E /* Dashboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE2BDF501A3A4D00004D307E /* Base */,
+			);
+			name = Dashboard.storyboard;
+			sourceTree = "<group>";
+		};
 		FED04B991A27A0AA009491B0 /* Root.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -7,7 +7,7 @@
 //
 
 
-@interface AUVBackgroundVideoView : UIView
+@interface AVKBackgroundVideoView : UIView
 -(void)playVideoByPath:(NSString*)filePath inLoop:(BOOL)inLoop;
 - (void)pause;
 - (void)play;

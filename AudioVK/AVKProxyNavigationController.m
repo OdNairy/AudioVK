@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Roman Gardukevich. All rights reserved.
 //
 
-#import "AUVProxyNavigationController.h"
+#import "AVKProxyNavigationController.h"
 
-@interface AUVProxyNavigationController ()
+@interface AVKProxyNavigationController ()
 
 @end
 
-@implementation AUVProxyNavigationController
+@implementation AVKProxyNavigationController
 
 -(BOOL)shouldAutorotate{
     return [self.topViewController shouldAutorotate];

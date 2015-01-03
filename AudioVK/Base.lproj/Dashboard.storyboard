@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Io5-n4-mKa">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dashboard Root View Controller-->
+        <scene sceneID="B7V-5t-G1w">
+            <objects>
+                <viewController id="Io5-n4-mKa" customClass="AVKDashboardRootViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QRP-3j-gLg"/>
+                        <viewControllerLayoutGuide type="bottom" id="xcF-bD-QxY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9CK-n0-8H5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is Dashboard VC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6z-06-K9y">
+                                <rect key="frame" x="217" y="33" width="165.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPH-EK-dWX">
+                                <rect key="frame" x="277" y="62" width="53" height="30"/>
+                                <state key="normal" title="Log out">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout" destination="Io5-n4-mKa" eventType="touchUpInside" id="irG-Q8-wGi"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ESF-zz-ylB">
+                                <rect key="frame" x="16" y="112" width="568" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="vgd-S1-iSb"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.46666666666666667" green="0.41960784313725491" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ESF-zz-ylB" firstAttribute="leading" secondItem="9CK-n0-8H5" secondAttribute="leadingMargin" id="0jX-JH-LCz"/>
+                            <constraint firstItem="ESF-zz-ylB" firstAttribute="top" secondItem="SPH-EK-dWX" secondAttribute="bottom" constant="20" id="9cc-34-BLU"/>
+                            <constraint firstItem="SPH-EK-dWX" firstAttribute="top" secondItem="O6z-06-K9y" secondAttribute="bottom" constant="8.5" id="CVZ-mR-b0Q"/>
+                            <constraint firstAttribute="centerX" secondItem="O6z-06-K9y" secondAttribute="centerX" id="G7Q-lc-Q0Y"/>
+                            <constraint firstItem="ESF-zz-ylB" firstAttribute="trailing" secondItem="9CK-n0-8H5" secondAttribute="trailingMargin" id="ec0-Ic-9Od"/>
+                            <constraint firstItem="O6z-06-K9y" firstAttribute="top" secondItem="QRP-3j-gLg" secondAttribute="bottom" constant="13" id="uMC-wC-IvE"/>
+                            <constraint firstItem="SPH-EK-dWX" firstAttribute="centerX" secondItem="O6z-06-K9y" secondAttribute="centerX" constant="3.75" id="wbJ-ip-Oxx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="ESF-zz-ylB" id="eN3-2v-ZNv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hPd-ww-pFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="500" y="363"/>
+        </scene>
+        <!--Audio List Table View Controller-->
+        <scene sceneID="vkv-bW-PBU">
+            <objects>
+                <tableViewController storyboardIdentifier="AVKAudioListTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GTa-ZA-DXF" customClass="AVKAudioListTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="sZO-yk-sid">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DefaultCell" textLabel="zBV-Lc-Jyz" detailTextLabel="ozD-ww-lrk" style="IBUITableViewCellStyleSubtitle" id="jBd-3E-SDq">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jBd-3E-SDq" id="eZE-k3-pC4">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zBV-Lc-Jyz">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ozD-ww-lrk">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GTa-ZA-DXF" id="3zb-Ki-Oeh"/>
+                            <outlet property="delegate" destination="GTa-ZA-DXF" id="VEy-FC-rnB"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sbh-Yz-mG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1170" y="363"/>
+        </scene>
+    </scenes>
+</document>
