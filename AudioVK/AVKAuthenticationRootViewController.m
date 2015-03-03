@@ -36,6 +36,8 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:nil action:nil];
+
     [self setupBackgroundVideo];
 
     [self displayStartViewController];
@@ -108,9 +110,9 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
     }
     
 }
-- (void)presentDashboardViewController{
-    UIViewController* dashboardRootVC = [[UIStoryboard storyboardWithName:@"Dashboard" bundle:nil] instantiateInitialViewController];
-    dashboardRootVC = [dashboardRootVC.storyboard instantiateViewControllerWithIdentifier:@"AVKAudioListTableViewController"];
+- (void)presentHomeViewController{
+    UIViewController* dashboardRootVC = [[UIStoryboard storyboardWithName:@"Player" bundle:nil] instantiateInitialViewController];
+//    dashboardRootVC = [dashboardRootVC.storyboard instantiateViewControllerWithIdentifier:@"AVKPlayerRootViewController"];
 
     CATransition *transition = [CATransition animation];
     transition.duration = .3;
@@ -143,8 +145,11 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
 - (void)vkAccessTokenHasBeenReceived:(VKAccessToken*)accessToken{
     // wait to get app changing animating complete
     [[[[BFTask taskWithDelay:500] continueWithBlock:^id(BFTask *task) {
+        NSLog(@"%s",__PRETTY_FUNCTION__);
         return [[VKStorage sharedStorage] valueForKey:AVKSessionTokenStorageKey];
     }] continueWithBlock:^id(BFTask *task) {
+        NSLog(@"%s",__PRETTY_FUNCTION__);
+
         NSString* sessionToken = task.result;
         if (sessionToken.length) {
             return [PFUser becomeInBackground:sessionToken];
@@ -154,8 +159,10 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
             return nil;
         }
     }] continueWithExecutor:[BFExecutor mainThreadExecutor] withBlock:^id(BFTask *task) {
+        NSLog(@"%s",__PRETTY_FUNCTION__);
+
         if (task.result && !task.error) {
-             [self presentDashboardViewController];
+             [self presentHomeViewController];
          }else if (task.error.code == kPFErrorObjectNotFound){
              [[VKStorage sharedStorage] setNilValueForKey:AVKSessionTokenStorageKey];
              [self displaySignUpViewController];

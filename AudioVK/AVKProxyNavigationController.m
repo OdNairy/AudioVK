@@ -14,6 +14,7 @@
 
 @implementation AVKProxyNavigationController
 
+
 -(BOOL)shouldAutorotate{
     return [self.topViewController shouldAutorotate];
 }

@@ -13,7 +13,7 @@
 - (void)signInAction;
 - (void)signInByVKAction;
 
-- (void)presentDashboardViewController;
+- (void)presentHomeViewController;
 
 - (void)popToRootVC;
 @end

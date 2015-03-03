@@ -11,44 +11,81 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 
+#import "iTunesInfoViewController.h"
+
 @interface AVKAudioListTableViewController ()
 @property (nonatomic, strong) NSArray* audios;
 @property (nonatomic, strong) AVQueuePlayer* audioPlayer;
+
 @end
 
 @implementation AVKAudioListTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor colorWithWhite:.96 alpha:1];
+    [self.refreshControl addTarget:self action:@selector(pullToRefreshAction) forControlEvents:(UIControlEventValueChanged)];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    [self loadTracks];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+}
+
+- (void)loadTracks{
     VKRequest* req = [VKRequest requestWithMethod:@"audio.get" andParameters:@{@"owner_id":VKSdk.getAccessToken.userId} andHttpMethod:@"GET" classOfModel:[VKAudios class]];
     [req setCompleteBlock:^(VKResponse *resp) {
         self.audios = [(VKAudios*)resp.parsedModel items];
         [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
     }];
     [req start];
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
 }
 
-
+- (void)pullToRefreshAction{
+    [self loadTracks];
+}
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     // Return the number of sections.
-    return 1;
+    if (self.audios.count) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        return 1;
+        
+    } else {
+        
+        // Display a message when the table is empty
+        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+        
+        messageLabel.text = @"No data is currently available. Please pull down to refresh.";
+        messageLabel.textColor = [UIColor blackColor];
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = NSTextAlignmentCenter;
+        messageLabel.font = [UIFont fontWithName:@"Palatino-Italic" size:20];
+        [messageLabel sizeToFit];
+        
+        self.tableView.backgroundView = messageLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
+    }
+    
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return self.audios.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell" forIndexPath:indexPath];
@@ -57,7 +94,6 @@
     cell.textLabel.text = audio.title;
     cell.detailTextLabel.text = audio.artist;
     
-    // Configure the cell...
     
     return cell;
 }
@@ -99,6 +135,13 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    VKAudio* audio = self.audios[indexPath.row];
+    iTunesInfoViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"iTunesInfoViewController"];
+    vc.audio = audio;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    return;
+    
     if (self.audioPlayer.rate > 0) {
         self.audioPlayer.rate = 0;
     } else {

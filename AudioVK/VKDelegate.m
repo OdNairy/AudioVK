@@ -42,7 +42,7 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
 
 #pragma mark - VKSDK protocol implementation
 - (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError{
-    NSLog(@"Need captcha");
+    NSLog(@"%s",__PRETTY_FUNCTION__);
 }
 
 /**
@@ -50,7 +50,7 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
  @param expiredToken old token that has expired
  */
 - (void)vkSdkTokenHasExpired:(VKAccessToken *)expiredToken{
-    NSLog(@"Token expired");
+    NSLog(@"%s",__PRETTY_FUNCTION__);
 }
 
 /**
@@ -58,6 +58,7 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
  @param authorizationError error that describes authorization error
  */
 - (void)vkSdkUserDeniedAccess:(VKError *)authorizationError{
+    NSLog(@"%s",__PRETTY_FUNCTION__);
     [self sendActionsForAccessTokenEvents:(VKAccessTokenEventDenied) vkAccessToken:(id)authorizationError];
 }
 
@@ -77,15 +78,17 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
  @param newToken new token for API requests
  */
 - (void)vkSdkReceivedNewToken:(VKAccessToken *)token{
+    NSLog(@"%s",__PRETTY_FUNCTION__);
     [self sendActionsForAccessTokenEvents:(VKAccessTokenEventReceivedNew) vkAccessToken:token];
 }
 
 - (void)vkSdkAcceptedUserToken:(VKAccessToken *)token{
+    NSLog(@"%s",__PRETTY_FUNCTION__);
     [self sendActionsForAccessTokenEvents:(VKAccessTokenEventAccepted) vkAccessToken:token];
 }
 
 - (void)vkSdkRenewedToken:(VKAccessToken *)newToken{
-    NSLog(@"Renewed token");
+    NSLog(@"%s",__PRETTY_FUNCTION__);
     [self sendActionsForAccessTokenEvents:(VKAccessTokenEventRenewed) vkAccessToken:newToken];
 }
 @end

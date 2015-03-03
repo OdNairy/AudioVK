@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import <VKSdk.h>
 #import "VKDelegate.h"
 #import <Parse/Parse.h>
+#import <BFTask.h>
 
 @interface AppDelegate ()
 @end
@@ -17,15 +19,49 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self application:application initializeServicesWithOptions:launchOptions];
+//    [PFUser logInWithUsernameInBackground:@"OdNairy" password:@"sdfljikw" block:^(PFUser *user, NSError *error) {
+//        [self runTestCode];
+//        
+//    }];
     return YES;
+}
+
+- (void)runTestCode{
+    PFQuery* adminQ = [PFRole query];
+    [adminQ whereKey:@"name" equalTo:@"admins"];
+//    [[[moderatorsQ getFirstObjectInBackground] continueWithBlock:^id(BFTask *task) {
+//        PFRole* moderatorRole = task.result;
+//        return moderatorRole.roles.query.findObjectsInBackground;
+//    }] continueWithBlock:^id(BFTask *task) {
+//        return nil;
+//    }];
+    
+    PFQuery* odnairyUser = [PFUser query];
+    [odnairyUser whereKey:@"username" equalTo:@"OdNairy"];
+
+    BFTask* userTask = odnairyUser.getFirstObjectInBackground;
+    BFTask* adminsTask = adminQ.getFirstObjectInBackground;
+    
+    
+//    BFTask* task =  [BFTask taskForCompletionOfAllTasks:@[userTask, adminsTask]];
+//    [task continueWithBlock:^id(BFTask *task) {
+//        NSLog(@"user: %@",userTask.result);
+//        NSLog(@"admin role: %@",adminsTask.result);
+//        PFRole* role = adminsTask.result;
+//        return nil;
+//    }];
+    
 }
 
 - (void)application:(UIApplication *)application initializeServicesWithOptions:(NSDictionary*)launchOptions{
     [VKSdk initializeWithDelegate:[VKDelegate sharedDelegate] andAppId:@"4657523"];
-    [Parse setApplicationId:@"7Ky1DZqyCKlzex4hgiCsFj2Lg1CHVAKtf5GLhBF8"
-                  clientKey:@"QE4JrBZPVhvPgtjbKnCHdLswZcgYSRKH8MtYTk4X"];
-    [PFTwitterUtils initializeWithConsumerKey:@"mU6FRz89p9NOwIoPtQkWN0Ujb" consumerSecret:@"tq5Hcz6fu17vRiv8f1Idt9L2JkBi85XhF3Nantx1B4ufhrEwxD"];
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        [Parse enableLocalDatastore];
+        [Parse setApplicationId:@"7Ky1DZqyCKlzex4hgiCsFj2Lg1CHVAKtf5GLhBF8"
+                      clientKey:@"QE4JrBZPVhvPgtjbKnCHdLswZcgYSRKH8MtYTk4X"];
+        [PFTwitterUtils initializeWithConsumerKey:@"mU6FRz89p9NOwIoPtQkWN0Ujb" consumerSecret:@"tq5Hcz6fu17vRiv8f1Idt9L2JkBi85XhF3Nantx1B4ufhrEwxD"];
+        [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+//    });
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation

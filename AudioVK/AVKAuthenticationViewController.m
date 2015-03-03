@@ -45,6 +45,11 @@
     self.emailTextFieldWrapper.textField.text = self.vkAccessToken.email;
     
     [self applyShadowForNavigationBar];
+    [[[[PFUser query] fromPin] getFirstObjectInBackground] continueWithSuccessBlock:^id(BFTask *task) {
+        PFUser* user = task.result;
+        return user;
+//        [PFUser become:user.sessionToken];
+    }];
 }
 
 
@@ -106,7 +111,10 @@
                                                 NSLog(@"Sign in as user: %@",user);
                                                 self.vkUserAccessToken = user[@"VKAccessToken"];
                                                 [user saveEventually];
-                                                [self.parentViewController presentDashboardViewController];
+                                                [user pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                                    
+                                                }];
+                                                [self.parentViewController presentHomeViewController];
                                             }
                                         }];
         
@@ -121,7 +129,11 @@
             [[[VKStorage sharedStorage] setValue:user.sessionToken forKey:AVKSessionTokenStorageKey]
              continueWithSuccessBlock:^id(BFTask *task) {
                  NSLog(@"Sign up as user: %@ [token: %@]",[PFUser currentUser],[PFUser currentUser].sessionToken);
-                 [self.parentViewController presentDashboardViewController];
+                 [[[PFUser currentUser] pinInBackground] continueWithSuccessBlock:^id(BFTask *task) {
+                     NSLog(@"PIN task: %@",task.result);
+                     return nil;
+                 }];
+                 [self.parentViewController presentHomeViewController];
 //                 [self performSegueWithIdentifier:@"ShowDashboard" sender:self];
                  return nil;
              }];

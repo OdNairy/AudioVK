@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kgi-bg-5AD">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Player Root View Controller-->
+        <scene sceneID="IcF-Jr-lJi">
+            <objects>
+                <viewController storyboardIdentifier="AVKPlayerRootViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Kgi-bg-5AD" customClass="AVKPlayerRootViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Gm-8S-tqV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dfb-pV-hcW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xby-t5-hA1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AVKPlayerRootViewController" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ky-ow-epS">
+                                <rect key="frame" x="186" y="289" width="228" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="1Ky-ow-epS" secondAttribute="centerX" id="5K9-nk-y8k"/>
+                            <constraint firstAttribute="centerY" secondItem="1Ky-ow-epS" secondAttribute="centerY" constant="0.5" id="Esj-bk-qGP"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eer-WG-rfu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-161" y="396"/>
+        </scene>
+        <!--Playing Now View Controller-->
+        <scene sceneID="7ay-H8-uZL">
+            <objects>
+                <viewController storyboardIdentifier="AVKPlayingNowViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xY1-fU-H8y" customClass="AVKPlayingNowViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WTr-Dn-HC9"/>
+                        <viewControllerLayoutGuide type="bottom" id="I6S-Rd-oig"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2e4-OH-ESe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AVKPlayingNowViewController" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqI-WG-3Db">
+                                <rect key="frame" x="182" y="289" width="234.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhY-x1-CpN">
+                                <rect key="frame" x="275.5" y="575" width="49" height="21"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="jIc-HA-wxY"/>
+                                    <constraint firstAttribute="width" secondItem="UhY-x1-CpN" secondAttribute="height" multiplier="7:3" id="vjG-yt-bKO"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="dots">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showMeButtonTapped:" destination="xY1-fU-H8y" eventType="touchUpInside" id="8a0-bJ-GYT"/>
+                                    <outletCollection property="gestureRecognizers" destination="y8B-7O-El3" appends="YES" id="JIo-AY-1Oq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="UhY-x1-CpN" secondAttribute="centerX" id="5iA-8D-dFz"/>
+                            <constraint firstAttribute="centerY" secondItem="aqI-WG-3Db" secondAttribute="centerY" constant="0.5" id="LNw-MP-MJK"/>
+                            <constraint firstItem="I6S-Rd-oig" firstAttribute="top" secondItem="UhY-x1-CpN" secondAttribute="bottom" constant="4" id="YcM-dL-RgI"/>
+                            <constraint firstAttribute="centerX" secondItem="aqI-WG-3Db" secondAttribute="centerX" id="o2a-xD-r04"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="panningView" destination="UhY-x1-CpN" id="y7X-Yp-zUW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xzl-yD-RCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="y8B-7O-El3">
+                    <connections>
+                        <action selector="panning:" destination="xY1-fU-H8y" id="voj-4f-DbA"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="580" y="396"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dots" width="196" height="84"/>
+    </resources>
+</document>
