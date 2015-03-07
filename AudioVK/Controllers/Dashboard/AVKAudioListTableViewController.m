@@ -140,7 +140,7 @@
     vc.audio = audio;
     [self.navigationController pushViewController:vc animated:YES];
     
-    return;
+//    return;
     
     if (self.audioPlayer.rate > 0) {
         self.audioPlayer.rate = 0;

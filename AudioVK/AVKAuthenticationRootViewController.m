@@ -16,6 +16,7 @@
 
 #import "VKDelegate.h"
 #import "VKStorage.h"
+#import <VKSdk.h>
 
 #import <ChameleonFramework/Chameleon.h>
 
@@ -112,7 +113,6 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
 }
 - (void)presentHomeViewController{
     UIViewController* dashboardRootVC = [[UIStoryboard storyboardWithName:@"Player" bundle:nil] instantiateInitialViewController];
-//    dashboardRootVC = [dashboardRootVC.storyboard instantiateViewControllerWithIdentifier:@"AVKPlayerRootViewController"];
 
     CATransition *transition = [CATransition animation];
     transition.duration = .3;

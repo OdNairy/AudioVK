@@ -24,7 +24,6 @@
     self.view.layer.shadowColor = UIColor.blackColor.CGColor;
     self.view.translatesAutoresizingMaskIntoConstraints = NO;
 
-    // Do any additional setup after loading the view.
 }
 
 - (void)configurePlayingNowConstraints{
@@ -99,7 +98,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self configurePlayingNowConstraints];
+//    [self configurePlayingNowConstraints];
 }
 
 -(IBAction)showMeButtonTapped:(id)sender{
@@ -110,7 +109,6 @@
     }
     [UIView animateWithDuration:.4 animations:^{
         self.topConstraint.constant = self.expanded?self.max:self.min;
-
         [self.view layoutIfNeeded];
     }];
 }

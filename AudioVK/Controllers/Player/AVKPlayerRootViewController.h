@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AVKViewController.h"
 #import "AVKPlayerProtocol.h"
+#import "AVKMyMusicPlaylistViewController.h"
 
 @class AVKPlayingNowViewController, AVKPlaylistViewController;
 
@@ -17,7 +18,7 @@
 @property (nonatomic, strong) AVKPlayingNowViewController* playingNowVC;
 
 @property (nonatomic, strong) AVKPlaylistViewController* currentPlaylistVC;
-@property (nonatomic, strong) AVKPlaylistViewController* myMusicVC;
+@property (nonatomic, strong) AVKMyMusicPlaylistViewController* myMusicVC;
 @property (nonatomic, strong) AVKPlaylistViewController* playlistsVC;
 @end
 

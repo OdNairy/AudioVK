@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="man-Yh-L50">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="man-Yh-L50">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -18,11 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGf-GK-35I">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGf-GK-35I">
                                 <rect key="frame" x="0.0" y="540" width="300" height="60"/>
                                 <color key="backgroundColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="iY7-NM-0SB"/>
+                                    <constraint firstAttribute="height" constant="60" id="qpR-Fp-8C8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
                                 <state key="normal" title="Sign In">
@@ -43,7 +44,7 @@
                                     <action selector="signInButtonTapped" destination="xQU-hk-UGW" eventType="touchUpInside" id="8al-C4-haF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4U-KD-jhT">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4U-KD-jhT">
                                 <rect key="frame" x="300" y="540" width="300" height="60"/>
                                 <color key="backgroundColor" red="0.49744248390197754" green="0.64893847703933716" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
@@ -67,6 +68,7 @@
                             <constraint firstItem="O4U-KD-jhT" firstAttribute="height" secondItem="BGf-GK-35I" secondAttribute="height" id="XzH-kM-5Tm"/>
                             <constraint firstItem="O4U-KD-jhT" firstAttribute="leading" secondItem="BGf-GK-35I" secondAttribute="trailing" id="k7M-Ur-gvr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O4U-KD-jhT" secondAttribute="trailing" constant="-16" id="pdq-Tx-zu6"/>
+                            <constraint firstItem="O4U-KD-jhT" firstAttribute="height" secondItem="BGf-GK-35I" secondAttribute="height" id="ziO-NX-Dhc"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -468,6 +470,6 @@
         <image name="back_highlighted" width="18" height="31"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nyY-mN-huS"/>
+        <segue reference="E8a-Jm-PGH"/>
     </inferredMetricsTieBreakers>
 </document>

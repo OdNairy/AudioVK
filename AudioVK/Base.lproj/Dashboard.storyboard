@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Io5-n4-mKa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GTa-ZA-DXF">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -19,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is Dashboard VC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6z-06-K9y">
-                                <rect key="frame" x="217" y="33" width="165.5" height="20.5"/>
+                                <rect key="frame" x="217" y="33" width="166" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -62,7 +63,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPd-ww-pFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="500" y="363"/>
+            <point key="canvasLocation" x="444" y="363"/>
         </scene>
         <!--BLA ABL ABL-->
         <scene sceneID="vkv-bW-PBU">
@@ -234,16 +235,16 @@
                                 <exclude reference="x7z-JR-3qH"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="CHw-VJ-8Zb"/>
-                                <exclude reference="Gbv-Mz-cXC"/>
-                                <exclude reference="s8O-SQ-p3e"/>
+                                <exclude reference="aXL-gw-snb"/>
                                 <exclude reference="OYm-eU-mXj"/>
                                 <exclude reference="scY-8b-yb1"/>
                                 <exclude reference="zfZ-98-Zjm"/>
+                                <exclude reference="CHw-VJ-8Zb"/>
+                                <exclude reference="Gbv-Mz-cXC"/>
+                                <exclude reference="s8O-SQ-p3e"/>
                                 <exclude reference="BrO-Es-QXX"/>
                                 <exclude reference="Isw-a9-5Eg"/>
                                 <exclude reference="b45-Em-61a"/>
-                                <exclude reference="aXL-gw-snb"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -253,16 +254,16 @@
                                 <include reference="x7z-JR-3qH"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="CHw-VJ-8Zb"/>
-                                <include reference="Gbv-Mz-cXC"/>
-                                <include reference="s8O-SQ-p3e"/>
+                                <include reference="aXL-gw-snb"/>
                                 <include reference="OYm-eU-mXj"/>
                                 <include reference="scY-8b-yb1"/>
                                 <include reference="zfZ-98-Zjm"/>
+                                <include reference="CHw-VJ-8Zb"/>
+                                <include reference="Gbv-Mz-cXC"/>
+                                <include reference="s8O-SQ-p3e"/>
                                 <include reference="BrO-Es-QXX"/>
                                 <include reference="Isw-a9-5Eg"/>
                                 <include reference="b45-Em-61a"/>
-                                <include reference="aXL-gw-snb"/>
                             </mask>
                         </variation>
                     </view>

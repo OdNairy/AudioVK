@@ -35,6 +35,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Proxima Nova Bold.otf</string>
+		<string>Proxima Nova Light.ttf</string>
+		<string>Proxima Nova Regular.otf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

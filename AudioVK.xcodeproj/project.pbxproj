@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A398D701AA5CF7C007709A9 /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A398D6D1AA5CF7C007709A9 /* Proxima Nova Bold.otf */; };
+		8A398D711AA5CF7C007709A9 /* Proxima Nova Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A398D6E1AA5CF7C007709A9 /* Proxima Nova Light.ttf */; };
+		8A398D721AA5CF7C007709A9 /* Proxima Nova Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A398D6F1AA5CF7C007709A9 /* Proxima Nova Regular.otf */; };
+		8A398D761AA5D29F007709A9 /* TrackWithArtworkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A398D751AA5D29F007709A9 /* TrackWithArtworkCell.m */; };
+		8A398D791AA5D3B0007709A9 /* VKAudioDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A398D781AA5D3B0007709A9 /* VKAudioDataSource.m */; };
+		8A398D7D1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A398D7C1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m */; };
 		9A42FBCB9D66CD2FB34BF8C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26192FE02FA55A7D09DFEB7E /* libPods.a */; };
 		FE14ECD51A581D19000CBC7F /* AVKMusicPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE14ECD41A581D19000CBC7F /* AVKMusicPlayerViewController.m */; };
 		FE2BDF4E1A3A4CE2004D307E /* AVKDashboardRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BDF4D1A3A4CE2004D307E /* AVKDashboardRootViewController.m */; };
@@ -16,7 +22,6 @@
 		FE3F2C481A346F6000967FD9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3F2C471A346F6000967FD9 /* MediaPlayer.framework */; };
 		FE3F2C4A1A34706100967FD9 /* 5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FE3F2C491A34706100967FD9 /* 5.mp4 */; };
 		FE3F2C4D1A34B14F00967FD9 /* AVKProxyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3F2C4C1A34B14F00967FD9 /* AVKProxyNavigationController.m */; };
-		FE9B39431A745FD900370BCB /* Untitled-1.png in Resources */ = {isa = PBXBuildFile; fileRef = FE9B39421A745FD900370BCB /* Untitled-1.png */; };
 		FEA1D2961A2DEC5000B8747D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1D2951A2DEC5000B8747D /* AVFoundation.framework */; };
 		FEA1D2981A2DEC6800B8747D /* motionblock1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FEA1D2971A2DEC6800B8747D /* motionblock1.mp4 */; };
 		FEA1D29B1A2DF94100B8747D /* AVKBackgroundVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1D29A1A2DF94100B8747D /* AVKBackgroundVideoView.m */; };
@@ -47,6 +52,15 @@
 /* Begin PBXFileReference section */
 		26192FE02FA55A7D09DFEB7E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F858DAA223496C2344782A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8A398D6D1AA5CF7C007709A9 /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
+		8A398D6E1AA5CF7C007709A9 /* Proxima Nova Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Light.ttf"; sourceTree = "<group>"; };
+		8A398D6F1AA5CF7C007709A9 /* Proxima Nova Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Regular.otf"; sourceTree = "<group>"; };
+		8A398D741AA5D29F007709A9 /* TrackWithArtworkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackWithArtworkCell.h; path = Player/Cells/TrackWithArtworkCell.h; sourceTree = "<group>"; };
+		8A398D751AA5D29F007709A9 /* TrackWithArtworkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackWithArtworkCell.m; path = Player/Cells/TrackWithArtworkCell.m; sourceTree = "<group>"; };
+		8A398D771AA5D3B0007709A9 /* VKAudioDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKAudioDataSource.h; sourceTree = "<group>"; };
+		8A398D781AA5D3B0007709A9 /* VKAudioDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKAudioDataSource.m; sourceTree = "<group>"; };
+		8A398D7B1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKTrackWithArtworkListDataSource.h; path = "Business Logic/AVKTrackWithArtworkListDataSource.h"; sourceTree = "<group>"; };
+		8A398D7C1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKTrackWithArtworkListDataSource.m; path = "Business Logic/AVKTrackWithArtworkListDataSource.m"; sourceTree = "<group>"; };
 		F29EE0A9E85A307141F93799 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FE14ECD31A581D19000CBC7F /* AVKMusicPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKMusicPlayerViewController.h; path = Controllers/Dashboard/AVKMusicPlayerViewController.h; sourceTree = "<group>"; };
 		FE14ECD41A581D19000CBC7F /* AVKMusicPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKMusicPlayerViewController.m; path = Controllers/Dashboard/AVKMusicPlayerViewController.m; sourceTree = "<group>"; };
@@ -61,7 +75,6 @@
 		FE3F2C491A34706100967FD9 /* 5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 5.mp4; path = ../5.mp4; sourceTree = "<group>"; };
 		FE3F2C4B1A34B14F00967FD9 /* AVKProxyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVKProxyNavigationController.h; sourceTree = "<group>"; };
 		FE3F2C4C1A34B14F00967FD9 /* AVKProxyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVKProxyNavigationController.m; sourceTree = "<group>"; };
-		FE9B39421A745FD900370BCB /* Untitled-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Untitled-1.png"; sourceTree = "<group>"; };
 		FEA1D2951A2DEC5000B8747D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FEA1D2971A2DEC6800B8747D /* motionblock1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = motionblock1.mp4; path = ../motionblock1.mp4; sourceTree = "<group>"; };
 		FEA1D2991A2DF94100B8747D /* AVKBackgroundVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVKBackgroundVideoView.h; sourceTree = "<group>"; };
@@ -124,6 +137,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A398D6C1AA5CF4D007709A9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8A398D6D1AA5CF7C007709A9 /* Proxima Nova Bold.otf */,
+				8A398D6E1AA5CF7C007709A9 /* Proxima Nova Light.ttf */,
+				8A398D6F1AA5CF7C007709A9 /* Proxima Nova Regular.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		8A398D731AA5D26E007709A9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8A398D741AA5D29F007709A9 /* TrackWithArtworkCell.h */,
+				8A398D751AA5D29F007709A9 /* TrackWithArtworkCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		8A398D7A1AA5D823007709A9 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				8A398D771AA5D3B0007709A9 /* VKAudioDataSource.h */,
+				8A398D781AA5D3B0007709A9 /* VKAudioDataSource.m */,
+				8A398D7B1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.h */,
+				8A398D7C1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m */,
+			);
+			name = "Business Logic";
+			sourceTree = "<group>";
+		};
 		A48B5A31FDD84AB969D9EFC3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +207,7 @@
 		FEC1EE421A6FD40D00B57A1E /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				8A398D731AA5D26E007709A9 /* Cells */,
 				FEDD602F1A73F99200D91B1C /* AVKPlayerProtocol.h */,
 				FEC1EE4C1A6FD56400B57A1E /* Player.storyboard */,
 				FEC1EE431A6FD43E00B57A1E /* AVKPlayerRootViewController.h */,
@@ -208,6 +252,7 @@
 		FED04B8F1A27A0AA009491B0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8A398D6C1AA5CF4D007709A9 /* Fonts */,
 				FEA1D2971A2DEC6800B8747D /* motionblock1.mp4 */,
 				FEA1D29C1A2E08A900B8747D /* motionblock2.mp4 */,
 				FEA1D29E1A2E099000B8747D /* moments.mp4 */,
@@ -272,7 +317,6 @@
 		FED830411A377368009846EA /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				FE9B39421A745FD900370BCB /* Untitled-1.png */,
 				FEC1EE511A701AFA00B57A1E /* AVKViewController.h */,
 				FEC1EE521A701AFA00B57A1E /* AVKViewController.m */,
 				FE3F2C4B1A34B14F00967FD9 /* AVKProxyNavigationController.h */,
@@ -290,6 +334,7 @@
 				FEF29DB11A2B391500589D36 /* VKDelegate.m */,
 				FED566471A3237CB006E1549 /* VKStorage.h */,
 				FED566481A3237CB006E1549 /* VKStorage.m */,
+				8A398D7A1AA5D823007709A9 /* Business Logic */,
 			);
 			name = Singletones;
 			sourceTree = "<group>";
@@ -369,10 +414,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FED04B9B1A27A0AA009491B0 /* Root.storyboard in Resources */,
+				8A398D701AA5CF7C007709A9 /* Proxima Nova Bold.otf in Resources */,
+				8A398D711AA5CF7C007709A9 /* Proxima Nova Light.ttf in Resources */,
 				FED04BA01A27A0AA009491B0 /* LaunchScreen.xib in Resources */,
-				FE9B39431A745FD900370BCB /* Untitled-1.png in Resources */,
 				FEECE1C91A38433800095DC4 /* AVKAuthenticationTextField.xib in Resources */,
 				FEA1D29D1A2E08A900B8747D /* motionblock2.mp4 in Resources */,
+				8A398D721AA5CF7C007709A9 /* Proxima Nova Regular.otf in Resources */,
 				FEA1D29F1A2E099000B8747D /* moments.mp4 in Resources */,
 				FEA1D2981A2DEC6800B8747D /* motionblock1.mp4 in Resources */,
 				FE3F2C4A1A34706100967FD9 /* 5.mp4 in Resources */,
@@ -434,6 +481,7 @@
 				FED04B951A27A0AA009491B0 /* AppDelegate.m in Sources */,
 				FED04B921A27A0AA009491B0 /* main.m in Sources */,
 				FEECE1C71A38425200095DC4 /* AVKAuthenticationTextField.m in Sources */,
+				8A398D761AA5D29F007709A9 /* TrackWithArtworkCell.m in Sources */,
 				FE14ECD51A581D19000CBC7F /* AVKMusicPlayerViewController.m in Sources */,
 				FEE91A8C1A684FA20019392C /* iTunesInfoViewController.m in Sources */,
 				FEB71AE81A2F568000D56C29 /* AVKStartPromoViewController.m in Sources */,
@@ -441,6 +489,8 @@
 				FE3F2C4D1A34B14F00967FD9 /* AVKProxyNavigationController.m in Sources */,
 				FE2BDF4E1A3A4CE2004D307E /* AVKDashboardRootViewController.m in Sources */,
 				FE3527A41A2CBFB800FEBA6B /* AVKAuthenticationViewController.m in Sources */,
+				8A398D7D1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m in Sources */,
+				8A398D791AA5D3B0007709A9 /* VKAudioDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
