@@ -11,7 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-#import "iTunesInfoViewController.h"
+#import "AVKiTunesInfoViewController.h"
 
 @interface AVKAudioListTableViewController ()
 @property (nonatomic, strong) NSArray* audios;
@@ -136,7 +136,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     VKAudio* audio = self.audios[indexPath.row];
-    iTunesInfoViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"iTunesInfoViewController"];
+    AVKiTunesInfoViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AVKiTunesInfoViewController"];
     vc.audio = audio;
     [self.navigationController pushViewController:vc animated:YES];
     
@@ -171,7 +171,7 @@
         [[AVAudioSession sharedInstance] setActive: YES error: nil];
         AVURLAsset* audioAsset = [AVURLAsset URLAssetWithURL:[NSURL fileURLWithPath:audio.url ] options:nil];
         // get the duration of sound to be played in seconds
-        CMTime audioDuration = audioAsset.duration;
+//        CMTime audioDuration = audioAsset.duration;
         
 //        Float64 duration = CMTimeGetSeconds(self.audioPlayer.currentItem.duration);
         

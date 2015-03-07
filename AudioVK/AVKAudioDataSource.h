@@ -1,5 +1,5 @@
 //
-//  VKAudioDataSource.h
+//  AVKAudioDataSource.h
 //  AudioVK
 //
 //  Created by Intellectsoft on 03/03/15.
@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <BFTask.h>
 
-@interface VKAudioDataSource : NSObject
+@interface AVKAudioDataSource : NSObject
 @property (nonatomic, readonly) NSArray* audios;
 
-@property (nonatomic, readonly) NSUInteger count;
+@property (nonatomic, readonly) NSUInteger totalCount;
 @property (nonatomic, readonly) NSUInteger pageCount;
 @property (nonatomic, readonly) NSUInteger audiosPerPage;
 /* Check @param initialLoaded first get @param audios. If @param initalLoaded equals NO call @method load

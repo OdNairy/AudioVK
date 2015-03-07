@@ -11,8 +11,8 @@
 #import "AVKAuthenticationRootViewController.h"
 #import "AVKAuthenticationTextField.h"
 
-#import "VKDelegate.h"
-#import "VKStorage.h"
+#import "AVKDelegate.h"
+#import "AVKStorage.h"
 #import <Chameleon.h>
 
 #import <AVFoundation/AVFoundation.h>
@@ -126,7 +126,7 @@
         user[@"VKAccessToken"] = self.vkAccessToken.accessToken;
         
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            [[[VKStorage sharedStorage] setValue:user.sessionToken forKey:AVKSessionTokenStorageKey]
+            [[[AVKStorage sharedStorage] setValue:user.sessionToken forKey:AVKSessionTokenStorageKey]
              continueWithSuccessBlock:^id(BFTask *task) {
                  NSLog(@"Sign up as user: %@ [token: %@]",[PFUser currentUser],[PFUser currentUser].sessionToken);
                  [[[PFUser currentUser] pinInBackground] continueWithSuccessBlock:^id(BFTask *task) {

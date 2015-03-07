@@ -16,7 +16,7 @@ UIKIT_EXTERN NSString *const kVkDelegateAccessHasBeenDenied;
 
 typedef NS_OPTIONS(NSUInteger, VKAccessTokenEvents) {
     VKAccessTokenEventReceivedNew           = 1 <<  0,      // on all touch downs
-    VKAccessTokenEventRenewed               = 1 <<  1,      // on multiple touchdowns (tap count > 1)
+    VKAccessTokenEventRenewed               = 1 <<  1,      // on multiple touchdowns (tap totalCount > 1)
     VKAccessTokenEventHasExpired            = 1 <<  2,
     VKAccessTokenEventCaptchaNeeded         = 1 <<  3,
     VKAccessTokenEventAccepted              = 1 <<  4,
@@ -26,7 +26,7 @@ typedef NS_OPTIONS(NSUInteger, VKAccessTokenEvents) {
     VKAccessTokenEventReceived              = VKAccessTokenEventRenewed | VKAccessTokenEventReceivedNew | VKAccessTokenEventAccepted
 };
 
-@interface VKDelegate : NSObject<VKSdkDelegate>
+@interface AVKDelegate : NSObject<VKSdkDelegate>
 @property (nonatomic, weak) UIViewController* rootVC;
 + (instancetype)sharedDelegate;
 
@@ -34,7 +34,7 @@ typedef NS_OPTIONS(NSUInteger, VKAccessTokenEvents) {
 @end
 
 
-@interface VKDelegate (TargetAction)
+@interface AVKDelegate (TargetAction)
 - (void)addTarget:(id)target action:(SEL)action forAccessTokenEvents:(VKAccessTokenEvents)accessTokenEvents;
 - (void)removeTarget:(id)target action:(SEL)action forAccessTokenEvents:(VKAccessTokenEvents)accessTokenEvents;
 

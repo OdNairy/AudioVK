@@ -1,14 +1,14 @@
 //
-//  TrackWithArtworkCell.m
+//  AVKTrackWithArtworkCell.m
 //  AudioVK
 //
 //  Created by Intellectsoft on 03/03/15.
 //  Copyright (c) 2015 Roman Gardukevich. All rights reserved.
 //
 
-#import "TrackWithArtworkCell.h"
+#import "AVKTrackWithArtworkCell.h"
 
-@implementation TrackWithArtworkCell
+@implementation AVKTrackWithArtworkCell
 
 - (void)awakeFromNib {
     // Initialization code

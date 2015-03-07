@@ -1,21 +1,21 @@
 //
-//  AppDelegate.m
+//  AVKAppDelegate.m
 //  AudioVK
 //
 //  Created by Roman Gardukevich on 27.11.14.
 //  Copyright (c) 2014 Roman Gardukevich. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "AVKAppDelegate.h"
 #import <VKSdk.h>
-#import "VKDelegate.h"
+#import "AVKDelegate.h"
 #import <Parse/Parse.h>
 #import <BFTask.h>
 
-@interface AppDelegate ()
+@interface AVKAppDelegate ()
 @end
 
-@implementation AppDelegate
+@implementation AVKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self application:application initializeServicesWithOptions:launchOptions];
@@ -39,8 +39,8 @@
     PFQuery* odnairyUser = [PFUser query];
     [odnairyUser whereKey:@"username" equalTo:@"OdNairy"];
 
-    BFTask* userTask = odnairyUser.getFirstObjectInBackground;
-    BFTask* adminsTask = adminQ.getFirstObjectInBackground;
+//    BFTask* userTask = odnairyUser.getFirstObjectInBackground;
+//    BFTask* adminsTask = adminQ.getFirstObjectInBackground;
     
     
 //    BFTask* task =  [BFTask taskForCompletionOfAllTasks:@[userTask, adminsTask]];
@@ -54,7 +54,7 @@
 }
 
 - (void)application:(UIApplication *)application initializeServicesWithOptions:(NSDictionary*)launchOptions{
-    [VKSdk initializeWithDelegate:[VKDelegate sharedDelegate] andAppId:@"4657523"];
+    [VKSdk initializeWithDelegate:[AVKDelegate sharedDelegate] andAppId:@"4657523"];
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         [Parse enableLocalDatastore];
         [Parse setApplicationId:@"7Ky1DZqyCKlzex4hgiCsFj2Lg1CHVAKtf5GLhBF8"

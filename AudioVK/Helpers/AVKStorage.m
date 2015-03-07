@@ -1,22 +1,22 @@
 //
-//  VKStorage.m
+//  AVKStorage.m
 //  AudioVK
 //
 //  Created by Roman Gardukevich on 05.12.14.
 //  Copyright (c) 2014 Roman Gardukevich. All rights reserved.
 //
 
-#import "VKStorage.h"
+#import "AVKStorage.h"
 
 NSString *const AVKSessionTokenStorageKey = @"AudioVKSessionToken";
 
 
-@implementation VKStorage
+@implementation AVKStorage
 +(instancetype)sharedStorage{
     static dispatch_once_t onceToken;
-    static VKStorage* storage;
+    static AVKStorage * storage;
     dispatch_once(&onceToken, ^{
-        storage = [[VKStorage alloc] init];
+        storage = [[AVKStorage alloc] init];
     });
     return storage;
 }

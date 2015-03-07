@@ -177,7 +177,7 @@
         <!--I Tunes Info View Controller-->
         <scene sceneID="zQ9-b4-2JE">
             <objects>
-                <viewController storyboardIdentifier="iTunesInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="S9M-op-ez2" customClass="iTunesInfoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AVKiTunesInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="S9M-op-ez2" customClass="AVKiTunesInfoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7f0-6A-vEP"/>
                         <viewControllerLayoutGuide type="bottom" id="PsW-nY-0Sw"/>

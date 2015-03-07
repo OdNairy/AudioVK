@@ -14,8 +14,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 
-#import "VKDelegate.h"
-#import "VKStorage.h"
+#import "AVKDelegate.h"
+#import "AVKStorage.h"
 #import <VKSdk.h>
 
 #import <ChameleonFramework/Chameleon.h>
@@ -43,7 +43,7 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
 
     [self displayStartViewController];
     
-    [[VKDelegate sharedDelegate] addTarget:self
+    [[AVKDelegate sharedDelegate] addTarget:self
                                     action:@selector(vkAccessTokenHasBeenReceived:)
                       forAccessTokenEvents:(VKAccessTokenEventReceived)];
 
@@ -130,7 +130,7 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
 }
 
 - (void)signInByVKAction{
-    [VKDelegate sharedDelegate].rootVC = self.navigationController;
+    [AVKDelegate sharedDelegate].rootVC = self.navigationController;
     [VKSdk authorize:@[VK_PER_EMAIL, VK_PER_OFFLINE, VK_PER_AUDIO]];
 }
 
@@ -146,7 +146,7 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
     // wait to get app changing animating complete
     [[[[BFTask taskWithDelay:500] continueWithBlock:^id(BFTask *task) {
         NSLog(@"%s",__PRETTY_FUNCTION__);
-        return [[VKStorage sharedStorage] valueForKey:AVKSessionTokenStorageKey];
+        return [[AVKStorage sharedStorage] valueForKey:AVKSessionTokenStorageKey];
     }] continueWithBlock:^id(BFTask *task) {
         NSLog(@"%s",__PRETTY_FUNCTION__);
 
@@ -164,7 +164,7 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
         if (task.result && !task.error) {
              [self presentHomeViewController];
          }else if (task.error.code == kPFErrorObjectNotFound){
-             [[VKStorage sharedStorage] setNilValueForKey:AVKSessionTokenStorageKey];
+             [[AVKStorage sharedStorage] setNilValueForKey:AVKSessionTokenStorageKey];
              [self displaySignUpViewController];
          } else {
              return task;

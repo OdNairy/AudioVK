@@ -1,5 +1,5 @@
 //
-//  VKStorage.h
+//  AVKStorage.h
 //  AudioVK
 //
 //  Created by Roman Gardukevich on 05.12.14.
@@ -11,7 +11,7 @@
 
 extern NSString *const AVKSessionTokenStorageKey;
 
-@interface VKStorage : VKApiObject
+@interface AVKStorage : VKApiObject
 + (instancetype)sharedStorage;
 
 - (BFTask*)valueForKey:(NSString *)key;

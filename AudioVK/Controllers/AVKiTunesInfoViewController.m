@@ -1,12 +1,12 @@
 //
-//  iTunesInfoViewController.m
+//  AVKiTunesInfoViewController.m
 //  AudioVK
 //
 //  Created by Roman Gardukevich on 1/15/15.
 //  Copyright (c) 2015 Roman Gardukevich. All rights reserved.
 //
 
-#import "iTunesInfoViewController.h"
+#import "AVKiTunesInfoViewController.h"
 #import <Regexer.h>
 
 NSString *encode(NSString *string)
@@ -17,11 +17,11 @@ NSString *encode(NSString *string)
     return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, str, NULL, charset, encoding));
 }
 
-@interface iTunesInfoViewController ()
+@interface AVKiTunesInfoViewController ()
 
 @end
 
-@implementation iTunesInfoViewController
+@implementation AVKiTunesInfoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

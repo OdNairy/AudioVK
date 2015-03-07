@@ -1,5 +1,5 @@
 //
-//  TrackWithArtworkCell.h
+//  AVKTrackWithArtworkCell.h
 //  AudioVK
 //
 //  Created by Intellectsoft on 03/03/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TrackWithArtworkCell : UITableViewCell
+@interface AVKTrackWithArtworkCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *artworkImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;

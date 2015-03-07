@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@class VKAudioDataSource;
+@class AVKAudioDataSource;
 @interface AVKTrackWithArtworkListDataSource : NSObject<UITableViewDataSource>
--(instancetype)initWithAudioDataSource:(VKAudioDataSource*)dataSource;
+-(instancetype)initWithAudioDataSource:(AVKAudioDataSource *)dataSource;
+-(BFTask*)load;
+-(BFTask*)reload;
 @end

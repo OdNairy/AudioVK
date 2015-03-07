@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Roman Gardukevich. All rights reserved.
 //
 
-#import "VKDelegate.h"
+#import "AVKDelegate.h"
 
 NSString *const kVkDelegateUserIdKey = @"kVkDelegateUserIdKey";
 NSString *const kVkDelegateUserEmailKey = @"kVkDelegateUserEmailKey";
@@ -15,19 +15,19 @@ NSString *const kVkDelegateUserAccessTokenKey = @"kVkDelegateUserTokenKey";
 NSString *const kVkDelegateNewTokenWasGiven = @"kVkDelegateNewTokenWasGiven";
 NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenied";
 
-@interface VKDelegate ()
+@interface AVKDelegate ()
 @property (nonatomic, strong) NSMutableArray* targetsActions;
 @end
 
-@implementation VKDelegate
+@implementation AVKDelegate
 
 
 
 +(instancetype)sharedDelegate{
     static dispatch_once_t onceToken;
-    static VKDelegate* delegate;
+    static AVKDelegate * delegate;
     dispatch_once(&onceToken, ^{
-        delegate = [[VKDelegate alloc] init];
+        delegate = [[AVKDelegate alloc] init];
     });
     return delegate;
 }
@@ -103,7 +103,7 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
 @implementation AUVTargetActionPair
 @end
 
-@implementation VKDelegate(TargetAction)
+@implementation AVKDelegate (TargetAction)
 -(void)addTarget:(id)target action:(SEL)action forAccessTokenEvents:(VKAccessTokenEvents)accessTokenEvents{
     AUVTargetActionPair* pair = [[AUVTargetActionPair alloc] init];
     pair->_action = action; pair->_target = target; pair->_eventMask = accessTokenEvents;

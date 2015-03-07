@@ -1,5 +1,5 @@
 //
-//  iTunesInfoViewController.h
+//  AVKiTunesInfoViewController.h
 //  AudioVK
 //
 //  Created by Roman Gardukevich on 1/15/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iTunesInfoViewController : UIViewController
+@interface AVKiTunesInfoViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UIImageView* artworkImageView;
 @property (nonatomic, weak) IBOutlet UITextView* textView;
 @property (nonatomic, weak) IBOutlet UILabel* searchTermLabel;

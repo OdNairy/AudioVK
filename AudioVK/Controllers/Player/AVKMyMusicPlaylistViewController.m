@@ -7,20 +7,32 @@
 //
 
 #import "AVKMyMusicPlaylistViewController.h"
+#import "AVKTrackWithArtworkListDataSource.h"
+#import "AVKAudioDataSource.h"
 
 @interface AVKMyMusicPlaylistViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet AVKTrackWithArtworkListDataSource* dataSource;
 @end
 
 @implementation AVKMyMusicPlaylistViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UILabel* label = [[UILabel alloc] initWithFrame:self.view.bounds];
-    [label setText:NSStringFromClass(self.class)];
-    [self.view addSubview:label];
-    // Do any additional setup after loading the view.
+    
+    AVKAudioDataSource* audioDataSource = [[AVKAudioDataSource alloc] initWithUserId:[VKSdk getAccessToken].userId];
+    self.dataSource = [[AVKTrackWithArtworkListDataSource alloc] initWithAudioDataSource:audioDataSource];
+    
+    [[self.dataSource load] continueWithBlock:^id(BFTask *task) {
+        [self.tableView reloadData];
+        return nil;
+    }];
+}
+
+-(void)setDataSource:(AVKTrackWithArtworkListDataSource *)dataSource{
+    _dataSource = dataSource;
+    self.tableView.dataSource = dataSource;
 }
 
 
