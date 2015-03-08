@@ -9,6 +9,9 @@
 #import "AVKArtworkLoader.h"
 #import <Regexer.h>
 
+@interface AVKArtworkLoader ()
+@property (nonatomic, strong) NSMutableDictionary* cache;
+@end
 
 @implementation AVKArtworkLoader
 NSString *encodeString(NSString *string)
@@ -26,6 +29,17 @@ NSString *encodeString(NSString *string)
         loader = [[AVKArtworkLoader alloc] init];
     });
     return loader;
+}
+
+-(NSMutableDictionary *)cache{
+    if (!_cache) {
+        _cache = [NSMutableDictionary dictionary];
+    }
+    return _cache;
+}
+
+- (void)cacheObject:(UIImage*)artworkImage url:(NSString*)key{
+    [self.cache setValue:artworkImage forKey:key];
 }
 
 - (NSString*)optimizeString:(NSString*)s{
@@ -49,13 +63,18 @@ NSString *encodeString(NSString *string)
         NSData* data = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] returningResponse:nil error:nil];
         NSDictionary* resp = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         
-        NSLog(@"url: %@",url);
         NSString* artworkURL = [(NSArray*)resp[@"results"] firstObject][@"artworkUrl30"];
         if (artworkURL) {
-            NSLog(@"artwork url: %@",artworkURL);
+            
             artworkURL = [artworkURL stringByReplacingOccurrencesOfString:@".30x30-50.jpg" withString:@".400x400-75.jpg"];
+            if (self.cache[audio.id.stringValue]) {
+                return self.cache[audio.id.stringValue];
+            }
+            NSLog(@"artwork url: %@",artworkURL);
             NSData* artworkData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:artworkURL]] returningResponse:nil error:nil];
-            return [UIImage imageWithData:artworkData];
+            UIImage* img =  [UIImage imageWithData:artworkData];;
+            [self cacheObject:img url:audio.id.stringValue];
+            return img;
         }
 
         return nil;

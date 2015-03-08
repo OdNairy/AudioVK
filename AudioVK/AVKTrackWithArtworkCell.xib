@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Proxima Nova Bold.otf">
+            <string>ProximaNova-Bold</string>
+        </mutableArray>
+        <mutableArray key="Proxima Nova Light.ttf">
+            <string>ProximaNova-Light</string>
+            <string>ProximaNova-Light</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AVKTrackWithArtworkCell" rowHeight="56" id="rPY-8C-NSV" customClass="AVKTrackWithArtworkCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rPY-8C-NSV" id="tIW-X8-dFJ">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AlbumnArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="FVb-Xq-Ei6">
+                        <rect key="frame" x="8" y="6" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="FVb-Xq-Ei6" secondAttribute="height" multiplier="1:1" id="5ek-2b-tKs"/>
+                            <constraint firstAttribute="width" constant="45" id="d9m-6M-qxm"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="18" text="About the Music (Original Mix)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="Nuw-mX-8eU">
+                        <rect key="frame" x="61" y="8" width="242" height="18"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Toneshifterz &amp; Cde Black" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1l-7F-3DK">
+                        <rect key="frame" x="61" y="29" width="130" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="her-Qm-efY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="About the Music" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udG-Kh-Wqf">
+                        <rect key="frame" x="227" y="29" width="85" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="pi5-3t-fP3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="12"/>
+                        <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.20681423609999999" green="0.20681423609999999" blue="0.20681423609999999" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="udG-Kh-Wqf" firstAttribute="top" secondItem="Nuw-mX-8eU" secondAttribute="bottom" constant="3" id="1to-Sk-TsL"/>
+                    <constraint firstItem="Nuw-mX-8eU" firstAttribute="leading" secondItem="FVb-Xq-Ei6" secondAttribute="trailing" constant="8" id="4ZQ-Z0-af9"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Nuw-mX-8eU" secondAttribute="trailing" constant="9" id="8Db-4G-wdM"/>
+                    <constraint firstAttribute="centerY" secondItem="FVb-Xq-Ei6" secondAttribute="centerY" constant="-0.5" id="IQ5-K1-xEL"/>
+                    <constraint firstItem="Nuw-mX-8eU" firstAttribute="leading" secondItem="W1l-7F-3DK" secondAttribute="leading" id="JAl-Q8-sms"/>
+                    <constraint firstItem="udG-Kh-Wqf" firstAttribute="trailing" secondItem="tIW-X8-dFJ" secondAttribute="trailingMargin" id="cTT-ND-Tei"/>
+                    <constraint firstItem="FVb-Xq-Ei6" firstAttribute="leading" secondItem="tIW-X8-dFJ" secondAttribute="leadingMargin" id="eb0-zB-XcG"/>
+                    <constraint firstItem="udG-Kh-Wqf" firstAttribute="centerY" secondItem="W1l-7F-3DK" secondAttribute="centerY" id="hhZ-fD-vQb"/>
+                    <constraint firstItem="udG-Kh-Wqf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W1l-7F-3DK" secondAttribute="trailing" constant="20" id="oTC-FE-er4"/>
+                    <constraint firstAttribute="centerY" secondItem="Nuw-mX-8eU" secondAttribute="centerY" constant="10.5" id="obx-uU-mPI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.20681423609999999" green="0.20681423609999999" blue="0.20681423609999999" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="albumnLabel" destination="udG-Kh-Wqf" id="RCp-S7-9D0"/>
+                <outlet property="artistLabel" destination="W1l-7F-3DK" id="6yf-PY-YhK"/>
+                <outlet property="artworkImageView" destination="FVb-Xq-Ei6" id="k4l-dm-Vmn"/>
+                <outlet property="titleLabel" destination="Nuw-mX-8eU" id="wft-fr-rcZ"/>
+            </connections>
+            <point key="canvasLocation" x="261" y="255"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="AlbumnArtwork" width="56" height="56"/>
+    </resources>
+</document>

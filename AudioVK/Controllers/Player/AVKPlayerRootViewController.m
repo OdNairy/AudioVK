@@ -41,7 +41,6 @@ const CGFloat minimumPlayingNowScreenPart = 0.1;
 -(void)initializePlayingNowVC{
     self.playingNowVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([AVKPlayingNowViewController class])];
     self.playingNowVC.rootDelegate = self;
-    self.playingNowVC.view.backgroundColor = [UIColor colorWithWhite:0.92 alpha:1];
     
     [self addChildViewController:self.playingNowVC];
     [self.view addSubview:self.playingNowVC.view];
@@ -50,7 +49,7 @@ const CGFloat minimumPlayingNowScreenPart = 0.1;
 }
 
 - (void)initializeMyMusicVC{
-    self.myMusicVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([AVKMyMusicPlaylistViewController class])];
+    self.myMusicVC = [self.storyboard instantiateViewControllerWithIdentifier:@"myMusicPlaylistNavigationVC"];
     
     [self addChildViewController:self.myMusicVC];
     [self.view addSubview:self.myMusicVC.view];

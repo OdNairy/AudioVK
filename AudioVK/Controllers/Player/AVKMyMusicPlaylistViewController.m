@@ -8,6 +8,7 @@
 
 #import "AVKMyMusicPlaylistViewController.h"
 #import "AVKTrackWithArtworkListDataSource.h"
+#import "AVKTrackWithArtworkCell.h"
 #import "AVKAudioDataSource.h"
 
 @interface AVKMyMusicPlaylistViewController ()
@@ -20,10 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     AVKAudioDataSource* audioDataSource = [[AVKAudioDataSource alloc] initWithUserId:[VKSdk getAccessToken].userId];
     self.dataSource = [[AVKTrackWithArtworkListDataSource alloc] initWithAudioDataSource:audioDataSource];
     
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([AVKTrackWithArtworkCell class]) bundle:nil]
+         forCellReuseIdentifier:NSStringFromClass([AVKTrackWithArtworkCell class])];
     [[self.dataSource load] continueWithBlock:^id(BFTask *task) {
         [self.tableView reloadData];
         return nil;

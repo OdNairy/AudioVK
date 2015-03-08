@@ -12,6 +12,12 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.titleLabel.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width;
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    self.titleLabel.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

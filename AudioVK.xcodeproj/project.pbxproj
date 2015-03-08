@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A381CD01AAC4F49005B1CDE /* AVKTrackWithArtworkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A381CCF1AAC4F49005B1CDE /* AVKTrackWithArtworkCell.xib */; };
 		8A398D701AA5CF7C007709A9 /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A398D6D1AA5CF7C007709A9 /* Proxima Nova Bold.otf */; };
 		8A398D711AA5CF7C007709A9 /* Proxima Nova Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A398D6E1AA5CF7C007709A9 /* Proxima Nova Light.ttf */; };
 		8A398D721AA5CF7C007709A9 /* Proxima Nova Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A398D6F1AA5CF7C007709A9 /* Proxima Nova Regular.otf */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		26192FE02FA55A7D09DFEB7E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F858DAA223496C2344782A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8A381CCF1AAC4F49005B1CDE /* AVKTrackWithArtworkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AVKTrackWithArtworkCell.xib; sourceTree = "<group>"; };
 		8A398D6D1AA5CF7C007709A9 /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
 		8A398D6E1AA5CF7C007709A9 /* Proxima Nova Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Light.ttf"; sourceTree = "<group>"; };
 		8A398D6F1AA5CF7C007709A9 /* Proxima Nova Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Regular.otf"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				8A398D741AA5D29F007709A9 /* AVKTrackWithArtworkCell.h */,
 				8A398D751AA5D29F007709A9 /* AVKTrackWithArtworkCell.m */,
+				8A381CCF1AAC4F49005B1CDE /* AVKTrackWithArtworkCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				8A398D721AA5CF7C007709A9 /* Proxima Nova Regular.otf in Resources */,
 				FEA1D29F1A2E099000B8747D /* moments.mp4 in Resources */,
 				FEA1D2981A2DEC6800B8747D /* motionblock1.mp4 in Resources */,
+				8A381CD01AAC4F49005B1CDE /* AVKTrackWithArtworkCell.xib in Resources */,
 				FE3F2C4A1A34706100967FD9 /* 5.mp4 in Resources */,
 				FEC1EE4D1A6FD56400B57A1E /* Player.storyboard in Resources */,
 				FE2BDF511A3A4D00004D307E /* Dashboard.storyboard in Resources */,

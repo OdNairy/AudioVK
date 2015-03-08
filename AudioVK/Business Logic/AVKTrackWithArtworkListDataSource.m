@@ -46,7 +46,8 @@
     VKAudio* audio = self.audioDataSource.audios[indexPath.row];
     AVKTrackWithArtworkCell* trackCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AVKTrackWithArtworkCell class]) forIndexPath:indexPath];
     trackCell.titleLabel.text = audio.title;
-    trackCell.albumnLabel.text = audio.album_id.stringValue;
+    trackCell.artistLabel.text = audio.artist;
+    trackCell.artworkImageView.image = [UIImage imageNamed:@"AlbumnArtwork"];
     [[[AVKArtworkLoader instance] load:audio] continueWithBlock:^id(BFTask *task) {
         UIImage* img = task.result;
         if ([trackCell.titleLabel.text isEqualToString:audio.title] && img) {
