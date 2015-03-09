@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18880ABE8D5D191C3D499B82 /* VKAudio+Artwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 18880D147B1A39CE2873045F /* VKAudio+Artwork.m */; };
 		8A381CD01AAC4F49005B1CDE /* AVKTrackWithArtworkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A381CCF1AAC4F49005B1CDE /* AVKTrackWithArtworkCell.xib */; };
+		8A381CD31AAC5885005B1CDE /* AVKAudioGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A381CD21AAC5885005B1CDE /* AVKAudioGenre.swift */; };
 		8A398D701AA5CF7C007709A9 /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A398D6D1AA5CF7C007709A9 /* Proxima Nova Bold.otf */; };
 		8A398D711AA5CF7C007709A9 /* Proxima Nova Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A398D6E1AA5CF7C007709A9 /* Proxima Nova Light.ttf */; };
 		8A398D721AA5CF7C007709A9 /* Proxima Nova Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A398D6F1AA5CF7C007709A9 /* Proxima Nova Regular.otf */; };
 		8A398D761AA5D29F007709A9 /* AVKTrackWithArtworkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A398D751AA5D29F007709A9 /* AVKTrackWithArtworkCell.m */; };
 		8A398D791AA5D3B0007709A9 /* AVKAudioDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A398D781AA5D3B0007709A9 /* AVKAudioDataSource.m */; };
 		8A398D7D1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A398D7C1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m */; };
+		8AB8A19A1AAC62F900C55D9E /* AVKArtworkLoaderCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8A1991AAC62F900C55D9E /* AVKArtworkLoaderCache.m */; };
+		8AB8A19D1AACB0A800C55D9E /* AVKControlPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8A19C1AACB0A800C55D9E /* AVKControlPanelView.m */; };
 		9A42FBCB9D66CD2FB34BF8C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26192FE02FA55A7D09DFEB7E /* libPods.a */; };
 		FE0F18341AAB6AC9001C021F /* AVKArtworkLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0F18331AAB6AC9001C021F /* AVKArtworkLoader.m */; };
 		FE14ECD51A581D19000CBC7F /* AVKMusicPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE14ECD41A581D19000CBC7F /* AVKMusicPlayerViewController.m */; };
@@ -52,9 +56,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18880AA10F1E2DE2A8176608 /* AVKMyMusicVCDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKMyMusicVCDelegate.h; path = Controllers/Player/AVKMyMusicVCDelegate.h; sourceTree = "<group>"; };
+		18880D147B1A39CE2873045F /* VKAudio+Artwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VKAudio+Artwork.m"; sourceTree = "<group>"; };
+		18880DEB89EFE587451DB6D8 /* VKAudio+Artwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VKAudio+Artwork.h"; sourceTree = "<group>"; };
 		26192FE02FA55A7D09DFEB7E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F858DAA223496C2344782A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8A381CCF1AAC4F49005B1CDE /* AVKTrackWithArtworkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AVKTrackWithArtworkCell.xib; sourceTree = "<group>"; };
+		8A381CD11AAC5884005B1CDE /* AudioVK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioVK-Bridging-Header.h"; sourceTree = "<group>"; };
+		8A381CD21AAC5885005B1CDE /* AVKAudioGenre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AVKAudioGenre.swift; path = "Business Logic/AVKAudioGenre.swift"; sourceTree = "<group>"; };
 		8A398D6D1AA5CF7C007709A9 /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
 		8A398D6E1AA5CF7C007709A9 /* Proxima Nova Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Light.ttf"; sourceTree = "<group>"; };
 		8A398D6F1AA5CF7C007709A9 /* Proxima Nova Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Regular.otf"; sourceTree = "<group>"; };
@@ -64,6 +73,10 @@
 		8A398D781AA5D3B0007709A9 /* AVKAudioDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVKAudioDataSource.m; sourceTree = "<group>"; };
 		8A398D7B1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKTrackWithArtworkListDataSource.h; path = "Business Logic/AVKTrackWithArtworkListDataSource.h"; sourceTree = "<group>"; };
 		8A398D7C1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKTrackWithArtworkListDataSource.m; path = "Business Logic/AVKTrackWithArtworkListDataSource.m"; sourceTree = "<group>"; };
+		8AB8A1981AAC62F900C55D9E /* AVKArtworkLoaderCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKArtworkLoaderCache.h; path = "Business Logic/AVKArtworkLoaderCache.h"; sourceTree = "<group>"; };
+		8AB8A1991AAC62F900C55D9E /* AVKArtworkLoaderCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKArtworkLoaderCache.m; path = "Business Logic/AVKArtworkLoaderCache.m"; sourceTree = "<group>"; };
+		8AB8A19B1AACB0A800C55D9E /* AVKControlPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKControlPanelView.h; path = "Custom Views/AVKControlPanelView.h"; sourceTree = "<group>"; };
+		8AB8A19C1AACB0A800C55D9E /* AVKControlPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKControlPanelView.m; path = "Custom Views/AVKControlPanelView.m"; sourceTree = "<group>"; };
 		F29EE0A9E85A307141F93799 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FE0F18321AAB6AC9001C021F /* AVKArtworkLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKArtworkLoader.h; path = "Business Logic/AVKArtworkLoader.h"; sourceTree = "<group>"; };
 		FE0F18331AAB6AC9001C021F /* AVKArtworkLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKArtworkLoader.m; path = "Business Logic/AVKArtworkLoader.m"; sourceTree = "<group>"; };
@@ -171,6 +184,12 @@
 				8A398D7C1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m */,
 				FE0F18321AAB6AC9001C021F /* AVKArtworkLoader.h */,
 				FE0F18331AAB6AC9001C021F /* AVKArtworkLoader.m */,
+				8AB8A1981AAC62F900C55D9E /* AVKArtworkLoaderCache.h */,
+				8AB8A1991AAC62F900C55D9E /* AVKArtworkLoaderCache.m */,
+				8A381CD21AAC5885005B1CDE /* AVKAudioGenre.swift */,
+				8A381CD11AAC5884005B1CDE /* AudioVK-Bridging-Header.h */,
+				18880D147B1A39CE2873045F /* VKAudio+Artwork.m */,
+				18880DEB89EFE587451DB6D8 /* VKAudio+Artwork.h */,
 			);
 			name = "Business Logic";
 			sourceTree = "<group>";
@@ -215,7 +234,6 @@
 		FEC1EE421A6FD40D00B57A1E /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				8A398D731AA5D26E007709A9 /* Cells */,
 				FEDD602F1A73F99200D91B1C /* AVKPlayerProtocol.h */,
 				FEC1EE431A6FD43E00B57A1E /* AVKPlayerRootViewController.h */,
 				FEC1EE441A6FD43E00B57A1E /* AVKPlayerRootViewController.m */,
@@ -252,6 +270,7 @@
 				FED830421A377375009846EA /* Singletones */,
 				FED830401A377356009846EA /* Controllers */,
 				FED04B8F1A27A0AA009491B0 /* Supporting Files */,
+				18880AA10F1E2DE2A8176608 /* AVKMyMusicVCDelegate.h */,
 			);
 			path = AudioVK;
 			sourceTree = "<group>";
@@ -353,6 +372,9 @@
 				FEECE1C51A38425200095DC4 /* AVKAuthenticationTextField.h */,
 				FEECE1C61A38425200095DC4 /* AVKAuthenticationTextField.m */,
 				FEECE1C81A38433800095DC4 /* AVKAuthenticationTextField.xib */,
+				8A398D731AA5D26E007709A9 /* Cells */,
+				8AB8A19B1AACB0A800C55D9E /* AVKControlPanelView.h */,
+				8AB8A19C1AACB0A800C55D9E /* AVKControlPanelView.m */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -480,6 +502,7 @@
 			files = (
 				FE3F2C461A346E0300967FD9 /* AVKAuthenticationRootViewController.m in Sources */,
 				FEC1EE481A6FD45F00B57A1E /* AVKPlayingNowViewController.m in Sources */,
+				8AB8A19A1AAC62F900C55D9E /* AVKArtworkLoaderCache.m in Sources */,
 				FEC1EE451A6FD43E00B57A1E /* AVKPlayerRootViewController.m in Sources */,
 				FEA2F7EE1A3C730B00648938 /* AVKAudioListTableViewController.m in Sources */,
 				FEC1EE531A701AFA00B57A1E /* AVKViewController.m in Sources */,
@@ -493,14 +516,17 @@
 				FEECE1C71A38425200095DC4 /* AVKAuthenticationTextField.m in Sources */,
 				8A398D761AA5D29F007709A9 /* AVKTrackWithArtworkCell.m in Sources */,
 				FE14ECD51A581D19000CBC7F /* AVKMusicPlayerViewController.m in Sources */,
+				8AB8A19D1AACB0A800C55D9E /* AVKControlPanelView.m in Sources */,
 				FEE91A8C1A684FA20019392C /* AVKiTunesInfoViewController.m in Sources */,
 				FEB71AE81A2F568000D56C29 /* AVKStartPromoViewController.m in Sources */,
 				FED566491A3237CB006E1549 /* AVKStorage.m in Sources */,
 				FE3F2C4D1A34B14F00967FD9 /* AVKProxyNavigationController.m in Sources */,
+				8A381CD31AAC5885005B1CDE /* AVKAudioGenre.swift in Sources */,
 				FE2BDF4E1A3A4CE2004D307E /* AVKDashboardRootViewController.m in Sources */,
 				FE3527A41A2CBFB800FEBA6B /* AVKAuthenticationViewController.m in Sources */,
 				8A398D7D1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m in Sources */,
 				8A398D791AA5D3B0007709A9 /* AVKAudioDataSource.m in Sources */,
+				18880ABE8D5D191C3D499B82 /* VKAudio+Artwork.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,11 +643,14 @@
 			baseConfigurationReference = F29EE0A9E85A307141F93799 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AudioVK/AudioVK.pch;
 				INFOPLIST_FILE = AudioVK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AudioVK/AudioVK-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -630,11 +659,13 @@
 			baseConfigurationReference = 77F858DAA223496C2344782A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AudioVK/AudioVK.pch;
 				INFOPLIST_FILE = AudioVK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AudioVK/AudioVK-Bridging-Header.h";
 			};
 			name = Release;
 		};

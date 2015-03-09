@@ -12,6 +12,8 @@
 #import "AVKAudioDataSource.h"
 #import <VKAudio.h>
 #import "AVKArtworkLoader.h"
+#import "AudioVK-Swift.h"
+#import "Promise+Pause.h"
 
 @interface AVKTrackWithArtworkListDataSource ()
 @property (nonatomic, strong) AVKAudioDataSource * audioDataSource;
@@ -35,6 +37,15 @@
     return [self.audioDataSource reload];
 }
 
+- (VKAudio *)audioForIndexPath:(NSIndexPath *)indexPath; {
+    NSArray *audios = self.audioDataSource.audios;
+    if (indexPath.row < audios.count) {
+        return audios[indexPath.row];
+    }
+    return nil;
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.audioDataSource.audios.count;
 }
@@ -47,16 +58,15 @@
     AVKTrackWithArtworkCell* trackCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AVKTrackWithArtworkCell class]) forIndexPath:indexPath];
     trackCell.titleLabel.text = audio.title;
     trackCell.artistLabel.text = audio.artist;
+    trackCell.albumnLabel.text = [AVKAudioGenre genreStringFrom:audio.genre_id];
     trackCell.artworkImageView.image = [UIImage imageNamed:@"AlbumnArtwork"];
-    [[[AVKArtworkLoader instance] load:audio] continueWithBlock:^id(BFTask *task) {
-        UIImage* img = task.result;
+
+    [[AVKArtworkLoader instance] load:audio].then(^(UIImage *img) {
         if ([trackCell.titleLabel.text isEqualToString:audio.title] && img) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                trackCell.artworkImageView.image = img;
-            });
+            trackCell.artworkImageView.image = img;
         }
-        return nil;
-    }];
+    });
+
     return trackCell;
 }
 

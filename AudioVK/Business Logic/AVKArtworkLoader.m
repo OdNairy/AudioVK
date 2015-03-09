@@ -7,77 +7,88 @@
 //
 
 #import "AVKArtworkLoader.h"
+#import "NSURLConnection+PromiseKit.h"
 #import <Regexer.h>
+#import <SDImageCache.h>
+#import <PromiseKit/Promise.h>
 
 @interface AVKArtworkLoader ()
-@property (nonatomic, strong) NSMutableDictionary* cache;
+@property(nonatomic, strong) SDImageCache *cache;
 @end
 
 @implementation AVKArtworkLoader
-NSString *encodeString(NSString *string)
-{
+NSString *encodeString(NSString *string) {
     static CFStringRef charset = CFSTR("!@#$%&*()'\";:=,/?[]");
-    CFStringRef str = (__bridge CFStringRef)string;
+    CFStringRef str = (__bridge CFStringRef) string;
     CFStringEncoding encoding = kCFStringEncodingUTF8;
-    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, str, NULL, charset, encoding));
+    return (NSString *) CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, str, NULL, charset, encoding));
 }
 
-+(instancetype)instance{
++ (instancetype)instance {
     static dispatch_once_t onceToken;
-    static AVKArtworkLoader* loader;
+    static AVKArtworkLoader *loader;
     dispatch_once(&onceToken, ^{
         loader = [[AVKArtworkLoader alloc] init];
     });
     return loader;
 }
 
--(NSMutableDictionary *)cache{
+- (SDImageCache *)cache {
     if (!_cache) {
-        _cache = [NSMutableDictionary dictionary];
+        _cache = [SDImageCache sharedImageCache];
     }
     return _cache;
 }
 
-- (void)cacheObject:(UIImage*)artworkImage url:(NSString*)key{
-    [self.cache setValue:artworkImage forKey:key];
-}
-
-- (NSString*)optimizeString:(NSString*)s{
+- (NSString *)optimizeString:(NSString *)s {
     s = [s rx_stringByReplacingMatchesOfPattern:@"\\(.*\\)" withTemplate:@""];
     s = [s stringByReplacingOccurrencesOfString:@"OST" withString:@""];
     s = [s stringByTrimmingCharactersInSet:
-         [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     s = [s stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-    
+
     return s;
 }
 
+- (UIImage *)imageFromCacheForKey:(NSString *)key {
+    UIImage *cachedImage = [self.cache imageFromMemoryCacheForKey:key];
+    if (!cachedImage) {
+        cachedImage = [self.cache imageFromDiskCacheForKey:key];
+    }
+    return cachedImage;
+}
 
-- (BFTask*)load:(VKAudio *)audio{
-    return [BFTask taskFromExecutor:([BFExecutor executorWithDispatchQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)]) withBlock:^id{
-        NSString* title = [self optimizeString:audio.title];
-        NSString* artist = [self optimizeString:audio.artist];
-        NSString* searchTerm = [NSString stringWithFormat:@"%@+%@",artist,title];
-        
-        NSString* url = [NSString stringWithFormat:@"https://itunes.apple.com/ru/search?term=%@",encodeString(searchTerm)];
-        NSData* data = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] returningResponse:nil error:nil];
-        NSDictionary* resp = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        
-        NSString* artworkURL = [(NSArray*)resp[@"results"] firstObject][@"artworkUrl30"];
-        if (artworkURL) {
-            
-            artworkURL = [artworkURL stringByReplacingOccurrencesOfString:@".30x30-50.jpg" withString:@".400x400-75.jpg"];
-            if (self.cache[audio.id.stringValue]) {
-                return self.cache[audio.id.stringValue];
-            }
-            NSLog(@"artwork url: %@",artworkURL);
-            NSData* artworkData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:artworkURL]] returningResponse:nil error:nil];
-            UIImage* img =  [UIImage imageWithData:artworkData];;
-            [self cacheObject:img url:audio.id.stringValue];
-            return img;
+- (PMKPromise *)load:(VKAudio *)audio {
+    return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
+        UIImage *cacheImage = [self imageFromCacheForKey:audio.id.stringValue];
+        if (cacheImage) {
+            fulfill(cacheImage);
+        } else {
+            NSString *title = [self optimizeString:audio.title];
+            NSString *artist = [self optimizeString:audio.artist];
+            NSString *searchTerm = [NSString stringWithFormat:@"%@+%@", artist, title];
+            NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/ru/search?term=%@", encodeString(searchTerm)];
+
+            [NSURLConnection GET:url query:nil].then(^(NSDictionary *searchResponse) {
+                return searchResponse[@"results"];
+            }).then(^(NSArray *searchResults) {
+                return searchResults.firstObject[@"artworkUrl30"];
+            }).then(^(NSString *artworkURL) {
+                return [NSURLConnection GET:artworkURL query:nil];
+            }).then(^(UIImage *img) {
+                if (!img) {
+                    img = [UIImage imageNamed:@"AlbumnArtwork"];
+                }
+                return img;
+            }).catch(^(NSException *exception1) {
+                // Default image on the
+                return [UIImage imageNamed:@"AlbumnArtwork"];
+            }).then(^(UIImage *img) {
+                [self.cache storeImage:img forKey:audio.id.stringValue];
+                fulfill(img);
+            });
         }
 
-        return nil;
     }];
 }
 @end

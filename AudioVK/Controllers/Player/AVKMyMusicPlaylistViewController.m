@@ -10,6 +10,7 @@
 #import "AVKTrackWithArtworkListDataSource.h"
 #import "AVKTrackWithArtworkCell.h"
 #import "AVKAudioDataSource.h"
+#import "AVKMyMusicVCDelegate.h"
 
 @interface AVKMyMusicPlaylistViewController ()
 
@@ -18,6 +19,13 @@
 @end
 
 @implementation AVKMyMusicPlaylistViewController
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    VKAudio *selectedAudio = [self.dataSource audioForIndexPath:indexPath];
+    if ([self.delegate respondsToSelector:@selector(musicPlaylistVC:didSelectAudio:)]) {
+        [self.delegate musicPlaylistVC:self didSelectAudio:selectedAudio];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,7 +44,6 @@
     _dataSource = dataSource;
     self.tableView.dataSource = dataSource;
 }
-
 
 
 @end

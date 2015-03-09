@@ -11,6 +11,9 @@
 @class AVKAudioDataSource;
 @interface AVKTrackWithArtworkListDataSource : NSObject<UITableViewDataSource>
 -(instancetype)initWithAudioDataSource:(AVKAudioDataSource *)dataSource;
+
 -(BFTask*)load;
 -(BFTask*)reload;
+
+- (VKAudio *)audioForIndexPath:(NSIndexPath *)indexPath;
 @end

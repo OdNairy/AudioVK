@@ -9,14 +9,15 @@
 #import "AVKPlayerRootViewController.h"
 
 #import "AVKPlayingNowViewController.h"
+#import "AVKMyMusicVCDelegate.h"
 #import <Masonry.h>
 
-@interface AVKPlayerRootViewController ()
+@interface AVKPlayerRootViewController () <AVKMyMusicVCDelegate>
 @end
 
 
 @implementation AVKPlayerRootViewController
-const CGFloat minimumPlayingNowScreenPart = 0.1;
+const CGFloat minimumPlayingNowScreenPart = 60;
 
 
 - (void)viewDidLoad {
@@ -50,6 +51,8 @@ const CGFloat minimumPlayingNowScreenPart = 0.1;
 
 - (void)initializeMyMusicVC{
     self.myMusicVC = [self.storyboard instantiateViewControllerWithIdentifier:@"myMusicPlaylistNavigationVC"];
+    AVKMyMusicPlaylistViewController *myMusic = [(UINavigationController *) self.myMusicVC viewControllers].firstObject;
+    myMusic.delegate = self;
     
     [self addChildViewController:self.myMusicVC];
     [self.view addSubview:self.myMusicVC.view];
@@ -64,7 +67,7 @@ const CGFloat minimumPlayingNowScreenPart = 0.1;
     [playingNowVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.equalTo(self.view);
         make.left.equalTo(self.view);
-        make.top.equalTo(self.view.mas_bottom).with.offset(-viewHeight*minimumPlayingNowScreenPart);
+        make.top.equalTo(self.view.mas_bottom).with.offset(-minimumPlayingNowScreenPart);
     }];
 }
 
@@ -87,7 +90,12 @@ const CGFloat minimumPlayingNowScreenPart = 0.1;
 }
 
 - (void)triggeredPlayingNowVC:(AVKPlayingNowViewController*)playingNowVC{
-    
+
 }
+
+- (void)musicPlaylistVC:(AVKPlaylistViewController *)playlistViewController didSelectAudio:(VKAudio *)audio {
+    [self.playingNowVC updateInfoByAudio:audio];
+}
+
 
 @end

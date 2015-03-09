@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class PMKPromise;
+
 @interface AVKArtworkLoader : NSObject
 +(instancetype)instance;
--(BFTask*)load:(VKAudio*)audio;
+
+- (PMKPromise *)load:(VKAudio *)audio;
 @end

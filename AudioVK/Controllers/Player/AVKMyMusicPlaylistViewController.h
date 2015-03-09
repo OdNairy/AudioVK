@@ -8,6 +8,8 @@
 
 #import "AVKPlaylistViewController.h"
 
-@interface AVKMyMusicPlaylistViewController : AVKPlaylistViewController
+@protocol AVKMyMusicVCDelegate;
 
+@interface AVKMyMusicPlaylistViewController : AVKPlaylistViewController <UITableViewDelegate>
+@property(nonatomic, assign) id <AVKMyMusicVCDelegate> delegate;
 @end

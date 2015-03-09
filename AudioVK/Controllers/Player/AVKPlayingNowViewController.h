@@ -15,4 +15,6 @@
 @property (nonatomic, weak) id<AVKPlayingNowVCProtocol> rootDelegate;
 @property (nonatomic, weak) IBOutlet UIButton* panningView;
 
+- (void)updateInfoByAudio:(VKAudio *)audio;
+
 @end
