@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18880ABE8D5D191C3D499B82 /* VKAudio+Artwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 18880D147B1A39CE2873045F /* VKAudio+Artwork.m */; };
+		8A0571CB1AAF0CE7007E393C /* AVKPlaylistPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0571CA1AAF0CE7007E393C /* AVKPlaylistPlayer.m */; };
 		8A381CD01AAC4F49005B1CDE /* AVKTrackWithArtworkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A381CCF1AAC4F49005B1CDE /* AVKTrackWithArtworkCell.xib */; };
 		8A381CD31AAC5885005B1CDE /* AVKAudioGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A381CD21AAC5885005B1CDE /* AVKAudioGenre.swift */; };
 		8A398D701AA5CF7C007709A9 /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A398D6D1AA5CF7C007709A9 /* Proxima Nova Bold.otf */; };
@@ -56,11 +57,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1888068B2BA3372919D63984 /* AVKPlaylistPlayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKPlaylistPlayerDelegate.h; path = "Business Logic/AVKPlaylistPlayerDelegate.h"; sourceTree = "<group>"; };
 		18880AA10F1E2DE2A8176608 /* AVKMyMusicVCDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKMyMusicVCDelegate.h; path = Controllers/Player/AVKMyMusicVCDelegate.h; sourceTree = "<group>"; };
 		18880D147B1A39CE2873045F /* VKAudio+Artwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VKAudio+Artwork.m"; sourceTree = "<group>"; };
 		18880DEB89EFE587451DB6D8 /* VKAudio+Artwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VKAudio+Artwork.h"; sourceTree = "<group>"; };
 		26192FE02FA55A7D09DFEB7E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F858DAA223496C2344782A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8A0571C91AAF0CE7007E393C /* AVKPlaylistPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKPlaylistPlayer.h; path = "Business Logic/AVKPlaylistPlayer.h"; sourceTree = "<group>"; };
+		8A0571CA1AAF0CE7007E393C /* AVKPlaylistPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKPlaylistPlayer.m; path = "Business Logic/AVKPlaylistPlayer.m"; sourceTree = "<group>"; };
 		8A381CCF1AAC4F49005B1CDE /* AVKTrackWithArtworkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AVKTrackWithArtworkCell.xib; sourceTree = "<group>"; };
 		8A381CD11AAC5884005B1CDE /* AudioVK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioVK-Bridging-Header.h"; sourceTree = "<group>"; };
 		8A381CD21AAC5885005B1CDE /* AVKAudioGenre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AVKAudioGenre.swift; path = "Business Logic/AVKAudioGenre.swift"; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 				8A381CD11AAC5884005B1CDE /* AudioVK-Bridging-Header.h */,
 				18880D147B1A39CE2873045F /* VKAudio+Artwork.m */,
 				18880DEB89EFE587451DB6D8 /* VKAudio+Artwork.h */,
+				8A0571C91AAF0CE7007E393C /* AVKPlaylistPlayer.h */,
+				8A0571CA1AAF0CE7007E393C /* AVKPlaylistPlayer.m */,
 			);
 			name = "Business Logic";
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 				FED830401A377356009846EA /* Controllers */,
 				FED04B8F1A27A0AA009491B0 /* Supporting Files */,
 				18880AA10F1E2DE2A8176608 /* AVKMyMusicVCDelegate.h */,
+				1888068B2BA3372919D63984 /* AVKPlaylistPlayerDelegate.h */,
 			);
 			path = AudioVK;
 			sourceTree = "<group>";
@@ -515,6 +522,7 @@
 				FED04B921A27A0AA009491B0 /* main.m in Sources */,
 				FEECE1C71A38425200095DC4 /* AVKAuthenticationTextField.m in Sources */,
 				8A398D761AA5D29F007709A9 /* AVKTrackWithArtworkCell.m in Sources */,
+				8A0571CB1AAF0CE7007E393C /* AVKPlaylistPlayer.m in Sources */,
 				FE14ECD51A581D19000CBC7F /* AVKMusicPlayerViewController.m in Sources */,
 				8AB8A19D1AACB0A800C55D9E /* AVKControlPanelView.m in Sources */,
 				FEE91A8C1A684FA20019392C /* AVKiTunesInfoViewController.m in Sources */,

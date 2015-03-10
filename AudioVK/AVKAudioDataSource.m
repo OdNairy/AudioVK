@@ -68,7 +68,9 @@ const NSUInteger maxAudiosPerPage = 500;
 
 
 -(void)parseResponse:(VKResponse*)response{
-    self.audios = response.parsedModel;
+    VKAudios *vkAudios = response.parsedModel;
+    self.audios = vkAudios.items;
+
     self.totalCount = self.audios.count;
     self.pageCount = ceil( (float)self.totalCount /self.audiosPerPage);
 }

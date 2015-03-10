@@ -11,6 +11,7 @@
 #import "AVKPlayingNowViewController.h"
 #import "AVKMyMusicVCDelegate.h"
 #import <Masonry.h>
+#import <LMMediaPlayer/LMMediaItem.h>
 
 @interface AVKPlayerRootViewController () <AVKMyMusicVCDelegate>
 @end
@@ -95,6 +96,10 @@ const CGFloat minimumPlayingNowScreenPart = 60;
 
 - (void)musicPlaylistVC:(AVKPlaylistViewController *)playlistViewController didSelectAudio:(VKAudio *)audio {
     [self.playingNowVC updateInfoByAudio:audio];
+}
+
+- (void)musicPlaylistVC:(AVKPlaylistViewController *)playlistVC willPlayMediaItem:(LMMediaItem *)mediaItem {
+    [self.playingNowVC updateInfoByMediaItem:mediaItem];
 }
 
 

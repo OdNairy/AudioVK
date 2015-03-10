@@ -45,6 +45,11 @@
     return nil;
 }
 
+- (NSArray *)audioStackFromIndex:(NSUInteger)startIndex {
+    NSArray *audios = self.audioDataSource.audios;
+    return [audios subarrayWithRange:NSMakeRange(startIndex, audios.count - startIndex)];
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.audioDataSource.audios.count;

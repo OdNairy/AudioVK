@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Roman Gardukevich. All rights reserved.
 //
 
+#import <LMMediaPlayer/LMMediaItem.h>
 #import "AVKPlayingNowViewController.h"
 #import "AVKControlPanelView.h"
 #import "VKAudio+Artwork.h"
@@ -161,6 +162,12 @@
     });
     self.controlPanelView.titleLabel.text = audio.title;
     self.controlPanelView.artistLabel.text = audio.artist;
+}
+
+- (void)updateInfoByMediaItem:(LMMediaItem *)mediaItem{
+    self.controlPanelView.artworkImageView.image = [mediaItem artworkImageWithSize:self.controlPanelView.artworkImageView.bounds.size];
+    self.controlPanelView.titleLabel.text = mediaItem.title;
+    self.controlPanelView.artistLabel.text = mediaItem.artist;
 }
 
 

@@ -10,6 +10,7 @@
 
 #import "AVKViewController.h"
 #import "AVKPlayerProtocol.h"
+@class LMMediaItem;
 
 @interface AVKPlayingNowViewController : AVKViewController
 @property (nonatomic, weak) id<AVKPlayingNowVCProtocol> rootDelegate;
@@ -17,4 +18,5 @@
 
 - (void)updateInfoByAudio:(VKAudio *)audio;
 
+- (void)updateInfoByMediaItem:(LMMediaItem *)mediaItem;
 @end

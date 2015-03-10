@@ -16,4 +16,5 @@
 -(BFTask*)reload;
 
 - (VKAudio *)audioForIndexPath:(NSIndexPath *)indexPath;
+- (NSArray *)audioStackFromIndex:(NSUInteger)startIndex;
 @end

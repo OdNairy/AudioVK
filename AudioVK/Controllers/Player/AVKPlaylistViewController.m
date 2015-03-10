@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Roman Gardukevich. All rights reserved.
 //
 
+#import <LMMediaPlayer/LMMediaItem.h>
 #import "AVKPlaylistViewController.h"
 
 @interface AVKPlaylistViewController ()
