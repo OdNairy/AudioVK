@@ -17,6 +17,7 @@
 		8A398D761AA5D29F007709A9 /* AVKTrackWithArtworkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A398D751AA5D29F007709A9 /* AVKTrackWithArtworkCell.m */; };
 		8A398D791AA5D3B0007709A9 /* AVKAudioDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A398D781AA5D3B0007709A9 /* AVKAudioDataSource.m */; };
 		8A398D7D1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A398D7C1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m */; };
+		8AB2A3541AB0123000051BA0 /* AVKAudioCacheLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2A3531AB0123000051BA0 /* AVKAudioCacheLayer.m */; };
 		8AB8A19A1AAC62F900C55D9E /* AVKArtworkLoaderCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8A1991AAC62F900C55D9E /* AVKArtworkLoaderCache.m */; };
 		8AB8A19D1AACB0A800C55D9E /* AVKControlPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8A19C1AACB0A800C55D9E /* AVKControlPanelView.m */; };
 		9A42FBCB9D66CD2FB34BF8C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26192FE02FA55A7D09DFEB7E /* libPods.a */; };
@@ -77,6 +78,8 @@
 		8A398D781AA5D3B0007709A9 /* AVKAudioDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVKAudioDataSource.m; sourceTree = "<group>"; };
 		8A398D7B1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKTrackWithArtworkListDataSource.h; path = "Business Logic/AVKTrackWithArtworkListDataSource.h"; sourceTree = "<group>"; };
 		8A398D7C1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKTrackWithArtworkListDataSource.m; path = "Business Logic/AVKTrackWithArtworkListDataSource.m"; sourceTree = "<group>"; };
+		8AB2A3521AB0123000051BA0 /* AVKAudioCacheLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKAudioCacheLayer.h; path = "Business Logic/AVKAudioCacheLayer.h"; sourceTree = "<group>"; };
+		8AB2A3531AB0123000051BA0 /* AVKAudioCacheLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKAudioCacheLayer.m; path = "Business Logic/AVKAudioCacheLayer.m"; sourceTree = "<group>"; };
 		8AB8A1981AAC62F900C55D9E /* AVKArtworkLoaderCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKArtworkLoaderCache.h; path = "Business Logic/AVKArtworkLoaderCache.h"; sourceTree = "<group>"; };
 		8AB8A1991AAC62F900C55D9E /* AVKArtworkLoaderCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKArtworkLoaderCache.m; path = "Business Logic/AVKArtworkLoaderCache.m"; sourceTree = "<group>"; };
 		8AB8A19B1AACB0A800C55D9E /* AVKControlPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKControlPanelView.h; path = "Custom Views/AVKControlPanelView.h"; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				18880D147B1A39CE2873045F /* VKAudio+Artwork.m */,
 				8A0571C91AAF0CE7007E393C /* AVKPlaylistPlayer.h */,
 				8A0571CA1AAF0CE7007E393C /* AVKPlaylistPlayer.m */,
+				8AB2A3521AB0123000051BA0 /* AVKAudioCacheLayer.h */,
+				8AB2A3531AB0123000051BA0 /* AVKAudioCacheLayer.m */,
 			);
 			name = "Business Logic";
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 				FE0F18341AAB6AC9001C021F /* AVKArtworkLoader.m in Sources */,
 				FEA1D29B1A2DF94100B8747D /* AVKBackgroundVideoView.m in Sources */,
 				FEC1EE501A6FD86B00B57A1E /* AVKMyMusicPlaylistViewController.m in Sources */,
+				8AB2A3541AB0123000051BA0 /* AVKAudioCacheLayer.m in Sources */,
 				FEC1EE4B1A6FD4CD00B57A1E /* AVKPlaylistViewController.m in Sources */,
 				FEF29DB21A2B391500589D36 /* AVKDelegate.m in Sources */,
 				FED04B951A27A0AA009491B0 /* AVKAppDelegate.m in Sources */,
@@ -652,6 +658,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AudioVK/AudioVK.pch;
 				INFOPLIST_FILE = AudioVK/Info.plist;
@@ -668,6 +675,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AudioVK/AudioVK.pch;
 				INFOPLIST_FILE = AudioVK/Info.plist;

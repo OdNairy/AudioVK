@@ -14,6 +14,9 @@
 #import "AVKMyMusicVCDelegate.h"
 #import "AVKPlaylistPlayer.h"
 #import "AVKPlaylistPlayerDelegate.h"
+#import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
+
 
 @interface AVKMyMusicPlaylistViewController () <AVKPlaylistPlayerDelegate>
 
@@ -25,17 +28,6 @@
 
 @implementation AVKMyMusicPlaylistViewController
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    VKAudio *selectedAudio = [self.dataSource audioForIndexPath:indexPath];
-    NSArray *audiosStack = [self.dataSource audioStackFromIndex:indexPath.row];
-
-    if ([self.delegate respondsToSelector:@selector(musicPlaylistVC:didSelectAudio:)]) {
-        [self.delegate musicPlaylistVC:self didSelectAudio:selectedAudio];
-    }
-    self.playlistPlayer.queue = audiosStack;
-    [self.playlistPlayer play];
-
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,11 +43,38 @@
         [self.tableView reloadData];
         return nil;
     }];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    [self setupRemoteEventHandlers];
+
+}
+-(void)setupRemoteEventHandlers{
+    MPRemoteCommandCenter* center = [MPRemoteCommandCenter sharedCommandCenter];
+    [center.pauseCommand addTarget:self.playlistPlayer action:@selector(pause)];
+    [center.playCommand addTarget:self.playlistPlayer action:@selector(play)];
+//    [center.stopCommand addTarget:self.playlistPlayer action:@selector(stop)];
+    [center.togglePlayPauseCommand addTarget:self.playlistPlayer action:@selector(toggle)];
+    
+    [center.nextTrackCommand addTarget:self.playlistPlayer action:@selector(next)];
+    [center.previousTrackCommand addTarget:self.playlistPlayer action:@selector(previous)];
 }
 
 -(void)setDataSource:(AVKTrackWithArtworkListDataSource *)dataSource{
     _dataSource = dataSource;
     self.tableView.dataSource = dataSource;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    VKAudio *selectedAudio = [self.dataSource audioForIndexPath:indexPath];
+    NSArray *audiosStack = [self.dataSource audioStackFromIndex:indexPath.row];
+    
+    if ([self.delegate respondsToSelector:@selector(musicPlaylistVC:didSelectAudio:)]) {
+        [self.delegate musicPlaylistVC:self didSelectAudio:selectedAudio];
+    }
+    self.playlistPlayer.queue = audiosStack;
+    [self.playlistPlayer play];
+    
 }
 
 - (void)playlistPlayer:(AVKPlaylistPlayer *)playlistPlayer willPlayItem:(LMMediaItem *)mediaItem{
@@ -64,5 +83,42 @@
     }
 }
 
+
+#pragma mark - 
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
+    //if it is a remote control event handle it correctly
+    if (event.type == UIEventTypeRemoteControl) {
+        switch (event.subtype) {
+            case UIEventSubtypeRemoteControlPlay:
+                [self.playlistPlayer play];
+                break;
+            case UIEventSubtypeRemoteControlPause:
+                [self.playlistPlayer pause];
+                break;
+            case UIEventSubtypeRemoteControlTogglePlayPause:
+                [self.playlistPlayer toggle];
+                break;
+            case UIEventSubtypeRemoteControlNextTrack:
+                [self.playlistPlayer next];
+                break;
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                [self.playlistPlayer previous];
+                break;
+            default:
+                break;
+        }
+        if (event.subtype == UIEventSubtypeRemoteControlPlay) {
+            //            [self playAudio];
+        } else if (event.subtype == UIEventSubtypeRemoteControlPause) {
+            //            [self pauseAudio];
+            
+//            self.audioPlayer.rate = 0;
+        } else if (event.subtype == UIEventSubtypeRemoteControlTogglePlayPause) {
+            //            [self togglePlayPause];
+            
+        }
+    }
+}
 
 @end
