@@ -14,4 +14,5 @@
 +(instancetype)instance;
 
 - (PMKPromise *)load:(VKAudio *)audio;
+- (UIImage*)cachedArtwork:(VKAudio*)audio;
 @end

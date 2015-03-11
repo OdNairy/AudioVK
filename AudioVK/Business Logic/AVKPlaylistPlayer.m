@@ -41,9 +41,7 @@
         LMMediaItem *mediaItem = [[LMMediaItem alloc] initWithInfo:@{LMMediaItemInfoContentTypeKey:@0}];
         mediaItem.title = audio.title;
         mediaItem.artist = audio.artist;
-        audio.artwork.then(^(UIImage *artwork){
-            [mediaItem setArtworkImage:artwork];
-        });
+        [mediaItem setArtworkImage:audio.cachedArtwork];
         mediaItem.assetURL = [[NSURL alloc] initWithString:audio.url];
         [mediaArray addObject:mediaItem];
     }

@@ -91,4 +91,8 @@ NSString *encodeString(NSString *string) {
 
     }];
 }
+
+-(UIImage *)cachedArtwork:(VKAudio *)audio{
+    return [self imageFromCacheForKey:audio.id.stringValue];;
+}
 @end

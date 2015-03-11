@@ -12,4 +12,8 @@
     return [[AVKArtworkLoader instance] load:self];
 }
 
+-(UIImage *)cachedArtwork{
+    return [[AVKArtworkLoader instance] cachedArtwork:self];
+}
+
 @end

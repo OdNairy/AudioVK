@@ -9,4 +9,5 @@
 
 @interface VKAudio (Artwork)
 - (PMKPromise *)artwork;
+- (UIImage*)cachedArtwork;
 @end

@@ -192,8 +192,8 @@
 				8AB8A1991AAC62F900C55D9E /* AVKArtworkLoaderCache.m */,
 				8A381CD21AAC5885005B1CDE /* AVKAudioGenre.swift */,
 				8A381CD11AAC5884005B1CDE /* AudioVK-Bridging-Header.h */,
-				18880D147B1A39CE2873045F /* VKAudio+Artwork.m */,
 				18880DEB89EFE587451DB6D8 /* VKAudio+Artwork.h */,
+				18880D147B1A39CE2873045F /* VKAudio+Artwork.m */,
 				8A0571C91AAF0CE7007E393C /* AVKPlaylistPlayer.h */,
 				8A0571CA1AAF0CE7007E393C /* AVKPlaylistPlayer.m */,
 			);
