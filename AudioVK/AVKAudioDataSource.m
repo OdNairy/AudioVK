@@ -7,7 +7,10 @@
 //
 
 #import "AVKAudioDataSource.h"
+#import "AVKAudioCacheLayer.h"
+
 #import <BFExecutor.h>
+
 
 const NSUInteger maxAudiosPerPage = 500;
 
@@ -70,6 +73,9 @@ const NSUInteger maxAudiosPerPage = 500;
 -(void)parseResponse:(VKResponse*)response{
     VKAudios *vkAudios = response.parsedModel;
     self.audios = vkAudios.items;
+    for (VKAudio* audio in self.audios) {
+        audio.fromCache = [AVKAudioCacheLayer.instance isAudioCachedForId:audio.id];
+    }
 
     self.totalCount = self.audios.count;
     self.pageCount = ceil( (float)self.totalCount /self.audiosPerPage);

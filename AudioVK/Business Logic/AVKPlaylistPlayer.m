@@ -12,6 +12,7 @@
 #import "LMMediaPlayer.h"
 #import "AVKPlaylistPlayerDelegate.h"
 #import "VKAudio+Artwork.h"
+#import "AVKAudioCacheLayer.h"
 #import <LMMediaPlayer.h>
 
 
@@ -38,11 +39,17 @@
     [self.player removeAllMediaInQueue];
     NSMutableArray *mediaArray = [[NSMutableArray alloc] init];
     for (VKAudio *audio in queue){
-        LMMediaItem *mediaItem = [[LMMediaItem alloc] initWithInfo:@{LMMediaItemInfoContentTypeKey:@0}];
-        mediaItem.title = audio.title;
-        mediaItem.artist = audio.artist;
-        [mediaItem setArtworkImage:audio.cachedArtwork];
-        mediaItem.assetURL = [[NSURL alloc] initWithString:audio.url];
+        NSURL* url = [NSURL URLWithString:audio.url];
+        if (audio.fromCache) {
+            url = [AVKAudioCacheLayer.instance resourceURLForCachedAudioId:audio.id];
+        }
+        LMMediaItem *mediaItem = [[LMMediaItem alloc] initWithInfo:
+                                  @{LMMediaItemInfoContentTypeKey:@0,
+                                    LMMediaItemInfoArtistKey:audio.artist,
+                                    LMMediaItemInfoTitleKey :audio.title,
+                                    LMMediaItemInfoURLKey :url,
+                                    }];
+//        LMMediaItemInfoArtworkKey :audio.cachedArtwork
         [mediaArray addObject:mediaItem];
     }
     [self.player setQueue:mediaArray];
@@ -52,7 +59,6 @@
 - (LMMediaPlayer *)player {
     return [LMMediaPlayer sharedPlayer];
 }
-
 
 - (void)setCurrentPlayingItemIndex:(NSUInteger)currentPlayingItemIndex {
     _currentPlayingItemIndex = currentPlayingItemIndex;
@@ -77,6 +83,14 @@
 
 - (void)previous {
     [self.player playPreviousMedia];
+}
+-(void)toggle{
+    if (self.player.playbackState == LMMediaPlaybackStatePlaying) {
+        [self.player pause];
+    }else if (self.player.playbackState == LMMediaPlaybackStatePaused){
+        [self.player play];
+    }
+        
 }
 
 #pragma mark - LMMediaPlayerDelegate
