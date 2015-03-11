@@ -37,6 +37,7 @@ typedef NS_ENUM(NSInteger, AVKPlayerRepeatMode) {
 -(void)toggle;
 -(void)next;
 -(void)previous;
+-(void)seekTo:(NSTimeInterval)time;
 
 
 @end

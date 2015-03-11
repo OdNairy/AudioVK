@@ -261,7 +261,6 @@
 		FED04B831A27A0AA009491B0 = {
 			isa = PBXGroup;
 			children = (
-				8AB2A3961AB0497100051BA0 /* out.mp3 */,
 				FED04B8E1A27A0AA009491B0 /* AudioVK */,
 				FED04B8D1A27A0AA009491B0 /* Products */,
 				A48B5A31FDD84AB969D9EFC3 /* Pods */,
@@ -468,7 +467,6 @@
 				8A381CD01AAC4F49005B1CDE /* AVKTrackWithArtworkCell.xib in Resources */,
 				FE3F2C4A1A34706100967FD9 /* 5.mp4 in Resources */,
 				FEC1EE4D1A6FD56400B57A1E /* Player.storyboard in Resources */,
-				8AB2A3971AB0497100051BA0 /* out.mp3 in Resources */,
 				FE2BDF511A3A4D00004D307E /* Dashboard.storyboard in Resources */,
 				FED04B9D1A27A0AA009491B0 /* Images.xcassets in Resources */,
 			);
@@ -660,6 +658,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AudioVK/AudioVK.pch;
 				INFOPLIST_FILE = AudioVK/Info.plist;
@@ -676,6 +675,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AudioVK/AudioVK.pch;
 				INFOPLIST_FILE = AudioVK/Info.plist;

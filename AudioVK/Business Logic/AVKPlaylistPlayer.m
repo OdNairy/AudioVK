@@ -65,8 +65,9 @@
 }
 
 - (void)play {
-    [self.player stop];
+    [self.player pause];
     if (self.shouldRestartQueue){
+        self.shouldRestartQueue = NO;
         [self.player playAtIndex:0];
     } else {
         [self.player play];
@@ -91,6 +92,12 @@
         [self.player play];
     }
         
+}
+
+-(void)seekTo:(NSTimeInterval)time{
+    [self.player pause];
+    [self.player seekTo:time];
+    [self.player play];
 }
 
 #pragma mark - LMMediaPlayerDelegate
