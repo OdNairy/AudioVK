@@ -30,7 +30,8 @@ const CGFloat minimumPlayingNowScreenPart = 60;
 
     //  My music list
     [self initializeMyMusicVC];
-    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient error:nil];
+//    [[AVAudioSession sharedInstance] setActive:YES error:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

@@ -14,6 +14,8 @@
 #import "AVKMyMusicVCDelegate.h"
 #import "AVKPlaylistPlayer.h"
 #import "AVKPlaylistPlayerDelegate.h"
+#import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 
 @interface AVKMyMusicPlaylistViewController () <AVKPlaylistPlayerDelegate>
@@ -36,6 +38,21 @@
     self.playlistPlayer.queue = audiosStack;
     [self.playlistPlayer play];
 
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    [self setupRemoteEventHandlers];
+    
+}
+
+-(void)setupRemoteEventHandlers{
+    MPRemoteCommandCenter* center = [MPRemoteCommandCenter sharedCommandCenter];
+    [center.pauseCommand addTarget:self.playlistPlayer action:@selector(pause)];
+    [center.playCommand addTarget:self.playlistPlayer action:@selector(play)];
+    //    [center.stopCommand addTarget:self.playlistPlayer action:@selector(stop)];
+    [center.togglePlayPauseCommand addTarget:self.playlistPlayer action:@selector(toggle)];
+    
+    [center.nextTrackCommand addTarget:self.playlistPlayer action:@selector(next)];
+    [center.previousTrackCommand addTarget:self.playlistPlayer action:@selector(previous)];
 }
 
 - (void)viewDidLoad {
