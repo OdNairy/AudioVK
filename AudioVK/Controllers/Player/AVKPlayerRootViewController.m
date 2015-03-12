@@ -12,6 +12,7 @@
 #import "AVKMyMusicVCDelegate.h"
 #import <Masonry.h>
 #import <LMMediaPlayer/LMMediaItem.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface AVKPlayerRootViewController () <AVKMyMusicVCDelegate>
 @end
@@ -36,7 +37,6 @@ const CGFloat minimumPlayingNowScreenPart = 60;
     [super viewWillAppear:animated];
 }
 -(void)viewDidAppear:(BOOL)animated{
-    
     [self presentMyMusicVC:self.myMusicVC animeted:NO];
 }
 

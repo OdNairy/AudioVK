@@ -8,6 +8,12 @@
 
 #import "AVKTrackWithArtworkCell.h"
 
+@interface AVKTrackWithArtworkCell ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleToDownloadButtonConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleTrailingConstraint;
+@property (nonatomic, weak) IBOutlet UIView* downloadView;
+@end
+
 @implementation AVKTrackWithArtworkCell
 
 - (void)awakeFromNib {
@@ -20,10 +26,11 @@
     self.titleLabel.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setDownloadButtonActive:(BOOL)downloadButtonActive{
+    _downloadButtonActive = downloadButtonActive;
+    [self.titleToDownloadButtonConstraint setActive:_downloadButtonActive];
+    [self.titleTrailingConstraint setActive:!_downloadButtonActive];
+    self.downloadView.hidden = !downloadButtonActive;
 }
 
 @end

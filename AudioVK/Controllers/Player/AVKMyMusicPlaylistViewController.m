@@ -39,6 +39,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIBarButtonItem* downloadAllItemsButton = [[UIBarButtonItem alloc]initWithTitle:@"Download all" style:(UIBarButtonItemStylePlain) target:self action:@selector(downloadAll)];
+    [downloadAllItemsButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]} forState:(UIControlStateNormal)];
+    self.navigationItem.leftBarButtonItem = downloadAllItemsButton;
 
     AVKAudioDataSource* audioDataSource = [[AVKAudioDataSource alloc] initWithUserId:[VKSdk getAccessToken].userId];
     self.dataSource = [[AVKTrackWithArtworkListDataSource alloc] initWithAudioDataSource:audioDataSource];
@@ -51,6 +55,10 @@
         [self.tableView reloadData];
         return nil;
     }];
+}
+
+- (void)downloadAll{
+    
 }
 
 -(void)setDataSource:(AVKTrackWithArtworkListDataSource *)dataSource{

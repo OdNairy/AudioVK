@@ -61,6 +61,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     VKAudio* audio = self.audioDataSource.audios[indexPath.row];
     AVKTrackWithArtworkCell* trackCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AVKTrackWithArtworkCell class]) forIndexPath:indexPath];
+    trackCell.downloadButtonActive = indexPath.row%2 == 0;
     trackCell.titleLabel.text = audio.title;
     trackCell.artistLabel.text = audio.artist;
     trackCell.albumnLabel.text = [AVKAudioGenre genreStringFrom:audio.genre_id];
