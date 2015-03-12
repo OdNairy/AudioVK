@@ -7,9 +7,17 @@
 //
 
 #import "AVKControlPanelView.h"
+#import "AVKPlaylistPlayer.h"
+
+@interface AVKControlPanelView ()
+
+@end
 
 @implementation AVKControlPanelView
 
-
+-(IBAction)toggleButtonTapped:(UIButton*)sender{
+    [[AVKPlaylistPlayer instance] toggle];
+    self.toggleButton.selected = [[AVKPlaylistPlayer instance] playbackState] == AVKMediaPlaybackStatePlaying;
+}
 
 @end

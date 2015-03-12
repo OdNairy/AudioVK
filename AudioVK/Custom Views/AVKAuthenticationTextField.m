@@ -10,7 +10,6 @@
 #import <Chameleon.h>
 
 @interface AVKAuthenticationTextField ()
-
 @property (nonatomic, strong) IBOutlet UIImageView* imageView;
 @end
 

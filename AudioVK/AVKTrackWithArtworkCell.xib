@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -26,29 +27,49 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AlbumnArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="FVb-Xq-Ei6">
                         <rect key="frame" x="8" y="6" width="45" height="45"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="FVb-Xq-Ei6" secondAttribute="height" multiplier="1:1" id="5ek-2b-tKs"/>
-                            <constraint firstAttribute="width" constant="45" id="d9m-6M-qxm"/>
+                            <constraint firstAttribute="width" secondItem="FVb-Xq-Ei6" secondAttribute="height" multiplier="1:1" id="baQ-a2-n7O"/>
+                            <constraint firstAttribute="width" constant="45" id="uTQ-2w-5zu"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="18" text="About the Music (Original Mix)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="Nuw-mX-8eU">
-                        <rect key="frame" x="61" y="8" width="242" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Track title  ouoe uoe uoe uo eoeu u " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuw-mX-8eU" customClass="MarqueeLabel">
+                        <rect key="frame" x="61" y="7" width="219" height="21"/>
                         <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Toneshifterz &amp; Cde Black" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1l-7F-3DK">
-                        <rect key="frame" x="61" y="29" width="130" height="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1l-7F-3DK" userLabel="Artist name Label">
+                        <rect key="frame" x="61" y="31" width="30" height="12"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="her-Qm-efY"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="WqI-yb-1Y3"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" misplaced="YES" text="About the Music" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udG-Kh-Wqf">
-                        <rect key="frame" x="227" y="29" width="85" height="12"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rjh-on-UgP">
+                        <rect key="frame" x="288" y="16" width="24" height="24"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVK-7u-7va">
+                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                <state key="normal" image="download_button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="pi5-3t-fP3"/>
+                            <constraint firstAttribute="trailing" secondItem="eVK-7u-7va" secondAttribute="trailing" id="0kT-h2-Sdx"/>
+                            <constraint firstItem="eVK-7u-7va" firstAttribute="leading" secondItem="rjh-on-UgP" secondAttribute="leading" id="1Qw-Se-kOE"/>
+                            <constraint firstAttribute="bottom" secondItem="eVK-7u-7va" secondAttribute="bottom" id="4RV-RV-Jwu"/>
+                            <constraint firstAttribute="width" constant="24" id="5dn-KU-TWx"/>
+                            <constraint firstItem="eVK-7u-7va" firstAttribute="top" secondItem="rjh-on-UgP" secondAttribute="top" id="Jry-14-BfO"/>
+                            <constraint firstAttribute="width" secondItem="rjh-on-UgP" secondAttribute="height" multiplier="1:1" id="bFZ-qJ-q4X"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" misplaced="YES" text="blablabla" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udG-Kh-Wqf" userLabel="Genre type Label">
+                        <rect key="frame" x="232" y="31" width="48" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="5re-9v-EJp"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="12"/>
                         <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -57,29 +78,46 @@
                 </subviews>
                 <color key="backgroundColor" red="0.20681423609999999" green="0.20681423609999999" blue="0.20681423609999999" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="udG-Kh-Wqf" firstAttribute="top" secondItem="Nuw-mX-8eU" secondAttribute="bottom" constant="3" id="1to-Sk-TsL"/>
-                    <constraint firstItem="Nuw-mX-8eU" firstAttribute="leading" secondItem="FVb-Xq-Ei6" secondAttribute="trailing" constant="8" id="4ZQ-Z0-af9"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Nuw-mX-8eU" secondAttribute="trailing" constant="9" id="8Db-4G-wdM"/>
-                    <constraint firstAttribute="centerY" secondItem="FVb-Xq-Ei6" secondAttribute="centerY" constant="-0.5" id="IQ5-K1-xEL"/>
-                    <constraint firstItem="Nuw-mX-8eU" firstAttribute="leading" secondItem="W1l-7F-3DK" secondAttribute="leading" id="JAl-Q8-sms"/>
-                    <constraint firstItem="udG-Kh-Wqf" firstAttribute="trailing" secondItem="tIW-X8-dFJ" secondAttribute="trailingMargin" id="cTT-ND-Tei"/>
-                    <constraint firstItem="FVb-Xq-Ei6" firstAttribute="leading" secondItem="tIW-X8-dFJ" secondAttribute="leadingMargin" id="eb0-zB-XcG"/>
-                    <constraint firstItem="udG-Kh-Wqf" firstAttribute="centerY" secondItem="W1l-7F-3DK" secondAttribute="centerY" id="hhZ-fD-vQb"/>
-                    <constraint firstItem="udG-Kh-Wqf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W1l-7F-3DK" secondAttribute="trailing" constant="20" id="oTC-FE-er4"/>
-                    <constraint firstAttribute="centerY" secondItem="Nuw-mX-8eU" secondAttribute="centerY" constant="10.5" id="obx-uU-mPI"/>
+                    <constraint firstAttribute="trailing" secondItem="Nuw-mX-8eU" secondAttribute="trailing" constant="8" id="3nd-9c-fOy"/>
+                    <constraint firstAttribute="centerY" secondItem="rjh-on-UgP" secondAttribute="centerY" id="74S-ur-R97"/>
+                    <constraint firstItem="udG-Kh-Wqf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W1l-7F-3DK" secondAttribute="trailing" priority="750" constant="20" id="Ctl-Pp-JCQ"/>
+                    <constraint firstItem="W1l-7F-3DK" firstAttribute="top" secondItem="Nuw-mX-8eU" secondAttribute="bottom" constant="3" id="NYI-H1-Lyg"/>
+                    <constraint firstItem="udG-Kh-Wqf" firstAttribute="trailing" secondItem="Nuw-mX-8eU" secondAttribute="trailing" id="NZG-5y-gUV"/>
+                    <constraint firstItem="W1l-7F-3DK" firstAttribute="leading" secondItem="Nuw-mX-8eU" secondAttribute="leading" id="WoN-KU-PTs"/>
+                    <constraint firstItem="FVb-Xq-Ei6" firstAttribute="leading" secondItem="tIW-X8-dFJ" secondAttribute="leadingMargin" id="hEX-xj-4EI"/>
+                    <constraint firstItem="Nuw-mX-8eU" firstAttribute="top" secondItem="FVb-Xq-Ei6" secondAttribute="top" constant="1" id="hSa-xS-y8z"/>
+                    <constraint firstItem="udG-Kh-Wqf" firstAttribute="baseline" secondItem="W1l-7F-3DK" secondAttribute="baseline" id="lJh-JU-VQM"/>
+                    <constraint firstAttribute="centerY" secondItem="FVb-Xq-Ei6" secondAttribute="centerY" constant="-1" id="mMB-Af-348"/>
+                    <constraint firstItem="Nuw-mX-8eU" firstAttribute="leading" secondItem="FVb-Xq-Ei6" secondAttribute="trailing" constant="8" id="mUC-cn-JB5"/>
+                    <constraint firstItem="Nuw-mX-8eU" firstAttribute="trailing" secondItem="rjh-on-UgP" secondAttribute="trailing" id="pEw-dT-Gfc"/>
+                    <constraint firstItem="rjh-on-UgP" firstAttribute="leading" secondItem="Nuw-mX-8eU" secondAttribute="trailing" constant="8" symbolic="YES" id="qBc-9t-ee5"/>
+                    <constraint firstItem="rjh-on-UgP" firstAttribute="trailing" secondItem="tIW-X8-dFJ" secondAttribute="trailingMargin" id="rVG-wm-vx6"/>
+                    <constraint firstItem="Nuw-mX-8eU" firstAttribute="rightMargin" secondItem="rjh-on-UgP" secondAttribute="left" priority="250" constant="9" id="wjb-So-SK9"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="3nd-9c-fOy"/>
+                        <exclude reference="pEw-dT-Gfc"/>
+                        <exclude reference="wjb-So-SK9"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.20681423609999999" green="0.20681423609999999" blue="0.20681423609999999" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="albumnLabel" destination="udG-Kh-Wqf" id="RCp-S7-9D0"/>
                 <outlet property="artistLabel" destination="W1l-7F-3DK" id="6yf-PY-YhK"/>
                 <outlet property="artworkImageView" destination="FVb-Xq-Ei6" id="k4l-dm-Vmn"/>
+                <outlet property="downloadView" destination="rjh-on-UgP" id="hSO-KU-hoj"/>
                 <outlet property="titleLabel" destination="Nuw-mX-8eU" id="wft-fr-rcZ"/>
+                <outlet property="titleMarqueeLabel" destination="Nuw-mX-8eU" id="YjG-4k-aSG"/>
+                <outlet property="titleToDownloadButtonConstraint" destination="qBc-9t-ee5" id="zXO-jG-cxe"/>
+                <outlet property="titleTrailingConstraint" destination="pEw-dT-Gfc" id="SnD-2l-7pO"/>
             </connections>
-            <point key="canvasLocation" x="217" y="202"/>
+            <point key="canvasLocation" x="-116" y="112"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="AlbumnArtwork" width="56" height="56"/>
+        <image name="download_button" width="24" height="24"/>
     </resources>
 </document>

@@ -16,3 +16,4 @@ pod 'SDWebImage'
 pod 'PromiseKit'
 pod 'Parse+PromiseKit', '~> 0.9.2'
 pod 'LMMediaPlayer'
+pod 'MarqueeLabel' # Autoscroll Label

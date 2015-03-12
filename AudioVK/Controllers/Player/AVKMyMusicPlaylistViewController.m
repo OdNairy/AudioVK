@@ -18,10 +18,11 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 
+
 @interface AVKMyMusicPlaylistViewController () <AVKPlaylistPlayerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet AVKTrackWithArtworkListDataSource* dataSource;
+@property (strong, nonatomic) AVKTrackWithArtworkListDataSource* dataSource;
 
 @property(nonatomic, strong) AVKPlaylistPlayer *playlistPlayer;
 @end
@@ -31,10 +32,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIBarButtonItem* downloadAllItemsButton = [[UIBarButtonItem alloc]initWithTitle:@"Download all" style:(UIBarButtonItemStylePlain) target:self action:@selector(downloadAll)];
+    [downloadAllItemsButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]} forState:(UIControlStateNormal)];
+    self.navigationItem.leftBarButtonItem = downloadAllItemsButton;
 
     AVKAudioDataSource* audioDataSource = [[AVKAudioDataSource alloc] initWithUserId:[VKSdk getAccessToken].userId];
     self.dataSource = [[AVKTrackWithArtworkListDataSource alloc] initWithAudioDataSource:audioDataSource];
-    self.playlistPlayer = [[AVKPlaylistPlayer alloc] init];
+    self.playlistPlayer = [AVKPlaylistPlayer instance];
     self.playlistPlayer.delegate = self;
 
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([AVKTrackWithArtworkCell class]) bundle:nil]
@@ -57,6 +62,16 @@
     
     [center.nextTrackCommand addTarget:self.playlistPlayer action:@selector(next)];
     [center.previousTrackCommand addTarget:self.playlistPlayer action:@selector(previous)];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+
+
+}
+
+- (void)downloadAll{
+    
 }
 
 -(void)setDataSource:(AVKTrackWithArtworkListDataSource *)dataSource{

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AVKPlayerControlProtocol.h"
 
 @protocol AVKPlaylistPlayerDelegate;
 
@@ -25,7 +26,15 @@ typedef NS_ENUM(NSInteger, AVKPlayerRepeatMode) {
     AVKPlayerRepeatModeAlbumn = AVKPlayerRepeatModeNone
 };
 
-@interface AVKPlaylistPlayer : NSObject
+typedef NS_ENUM(NSUInteger, AVKMediaPlaybackState) {
+    AVKMediaPlaybackStateStopped,
+    AVKMediaPlaybackStatePlaying,
+    AVKMediaPlaybackStatePaused
+};
+
+@interface AVKPlaylistPlayer : NSObject<AVKPlayerControlProtocol>
+@property (nonatomic, readonly) AVKMediaPlaybackState playbackState;
+
 @property(nonatomic, weak) id<AVKPlaylistPlayerDelegate> delegate;
 @property (nonatomic, strong) NSArray* queue;
 @property (nonatomic) AVKPlayerShuffleMode shuffleMode;

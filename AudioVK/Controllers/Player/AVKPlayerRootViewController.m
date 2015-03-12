@@ -38,7 +38,6 @@ const CGFloat minimumPlayingNowScreenPart = 60;
     [super viewWillAppear:animated];
 }
 -(void)viewDidAppear:(BOOL)animated{
-    
     [self presentMyMusicVC:self.myMusicVC animeted:NO];
 }
 
