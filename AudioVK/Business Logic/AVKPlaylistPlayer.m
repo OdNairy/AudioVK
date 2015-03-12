@@ -24,6 +24,14 @@
 
 @implementation AVKPlaylistPlayer
 
++(instancetype)instance{
+    static dispatch_once_t onceToken;
+    static AVKPlaylistPlayer* player;
+    dispatch_once(&onceToken, ^{
+        player = [[AVKPlaylistPlayer alloc] init];
+    });
+    return player;
+}
 
 - (instancetype)init {
     self = [super init];
@@ -71,12 +79,27 @@
     [self.player pause];
 }
 
+- (void)stop{
+    [self.player stop];
+}
+- (void)toggle{
+    if (self.player.playbackState == LMMediaPlaybackStatePlaying) {
+        [self pause];
+    }else {
+        [self play];
+    }
+}
+
 - (void)next {
     [self.player playNextMedia];
 }
 
 - (void)previous {
     [self.player playPreviousMedia];
+}
+
+-(AVKMediaPlaybackState)playbackState{
+    return (AVKMediaPlaybackState)self.player.playbackState;
 }
 
 #pragma mark - LMMediaPlayerDelegate

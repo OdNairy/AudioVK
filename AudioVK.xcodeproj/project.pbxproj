@@ -82,6 +82,7 @@
 		8AB8A1991AAC62F900C55D9E /* AVKArtworkLoaderCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKArtworkLoaderCache.m; path = "Business Logic/AVKArtworkLoaderCache.m"; sourceTree = "<group>"; };
 		8AB8A19B1AACB0A800C55D9E /* AVKControlPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKControlPanelView.h; path = "Custom Views/AVKControlPanelView.h"; sourceTree = "<group>"; };
 		8AB8A19C1AACB0A800C55D9E /* AVKControlPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKControlPanelView.m; path = "Custom Views/AVKControlPanelView.m"; sourceTree = "<group>"; };
+		8ACF75541AB1FAB60093D46F /* AVKPlayerControlProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVKPlayerControlProtocol.h; sourceTree = "<group>"; };
 		8AF0681D1AB1CA1A00101716 /* AVKCacheAudioLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKCacheAudioLayer.h; path = "Business Logic/AVKCacheAudioLayer.h"; sourceTree = "<group>"; };
 		8AF0681E1AB1CA1A00101716 /* AVKCacheAudioLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKCacheAudioLayer.m; path = "Business Logic/AVKCacheAudioLayer.m"; sourceTree = "<group>"; };
 		F29EE0A9E85A307141F93799 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				FEDD602F1A73F99200D91B1C /* AVKPlayerProtocol.h */,
+				8ACF75541AB1FAB60093D46F /* AVKPlayerControlProtocol.h */,
 				FEC1EE431A6FD43E00B57A1E /* AVKPlayerRootViewController.h */,
 				FEC1EE441A6FD43E00B57A1E /* AVKPlayerRootViewController.m */,
 				FEC1EE461A6FD45F00B57A1E /* AVKPlayingNowViewController.h */,

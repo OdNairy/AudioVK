@@ -13,4 +13,6 @@
 @property(weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property(weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property(weak, nonatomic) IBOutlet UILabel *albumnLabel;
+
+@property(weak, nonatomic) IBOutlet UIButton *toggleButton;
 @end

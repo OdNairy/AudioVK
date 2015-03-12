@@ -47,7 +47,7 @@
 
     AVKAudioDataSource* audioDataSource = [[AVKAudioDataSource alloc] initWithUserId:[VKSdk getAccessToken].userId];
     self.dataSource = [[AVKTrackWithArtworkListDataSource alloc] initWithAudioDataSource:audioDataSource];
-    self.playlistPlayer = [[AVKPlaylistPlayer alloc] init];
+    self.playlistPlayer = [AVKPlaylistPlayer instance];
     self.playlistPlayer.delegate = self;
 
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([AVKTrackWithArtworkCell class]) bundle:nil]
