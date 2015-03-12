@@ -31,7 +31,7 @@
                             <constraint firstAttribute="width" constant="45" id="uTQ-2w-5zu"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track title  ouoe uoe uoe uo eoeu u " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuw-mX-8eU">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track title  ouoe uoe uoe uo eoeu u " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuw-mX-8eU" customClass="MarqueeLabel">
                         <rect key="frame" x="61" y="7" width="219" height="21"/>
                         <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,6 +109,7 @@
                 <outlet property="artworkImageView" destination="FVb-Xq-Ei6" id="k4l-dm-Vmn"/>
                 <outlet property="downloadView" destination="rjh-on-UgP" id="hSO-KU-hoj"/>
                 <outlet property="titleLabel" destination="Nuw-mX-8eU" id="wft-fr-rcZ"/>
+                <outlet property="titleMarqueeLabel" destination="Nuw-mX-8eU" id="YjG-4k-aSG"/>
                 <outlet property="titleToDownloadButtonConstraint" destination="qBc-9t-ee5" id="zXO-jG-cxe"/>
                 <outlet property="titleTrailingConstraint" destination="pEw-dT-Gfc" id="SnD-2l-7pO"/>
             </connections>
