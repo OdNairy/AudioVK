@@ -15,10 +15,11 @@
 #import "AVKPlaylistPlayer.h"
 #import "AVKPlaylistPlayerDelegate.h"
 
+
 @interface AVKMyMusicPlaylistViewController () <AVKPlaylistPlayerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet AVKTrackWithArtworkListDataSource* dataSource;
+@property (strong, nonatomic) AVKTrackWithArtworkListDataSource* dataSource;
 
 @property(nonatomic, strong) AVKPlaylistPlayer *playlistPlayer;
 @end
@@ -55,6 +56,12 @@
         [self.tableView reloadData];
         return nil;
     }];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+
+
 }
 
 - (void)downloadAll{

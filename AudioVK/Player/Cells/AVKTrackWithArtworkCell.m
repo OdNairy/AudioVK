@@ -38,8 +38,13 @@
 
 -(void)setDownloadButtonActive:(BOOL)downloadButtonActive{
     _downloadButtonActive = downloadButtonActive;
-    [self.titleToDownloadButtonConstraint setActive:_downloadButtonActive];
+    
+    // this is workaround to suppress constrainst warnings
+    [self.titleTrailingConstraint setActive:NO];
+    [self.titleToDownloadButtonConstraint setActive:NO];
+    
     [self.titleTrailingConstraint setActive:!_downloadButtonActive];
+    [self.titleToDownloadButtonConstraint setActive:_downloadButtonActive];
     self.downloadView.hidden = !downloadButtonActive;
 }
 
