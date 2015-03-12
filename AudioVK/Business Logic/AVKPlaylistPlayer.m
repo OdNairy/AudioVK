@@ -104,14 +104,6 @@
 - (void)previous {
     [self.player playPreviousMedia];
 }
--(void)toggle{
-    if (self.player.playbackState == LMMediaPlaybackStatePlaying) {
-        [self.player pause];
-    }else if (self.player.playbackState == LMMediaPlaybackStatePaused){
-        [self.player play];
-    }
-        
-}
 
 -(void)seekTo:(NSTimeInterval)time{
     [self.player pause];

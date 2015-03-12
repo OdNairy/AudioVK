@@ -18,7 +18,6 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 
-
 @interface AVKMyMusicPlaylistViewController () <AVKPlaylistPlayerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,6 +28,17 @@
 
 @implementation AVKMyMusicPlaylistViewController
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    VKAudio *selectedAudio = [self.dataSource audioForIndexPath:indexPath];
+    NSArray *audiosStack = [self.dataSource audioStackFromIndex:indexPath.row];
+
+    if ([self.delegate respondsToSelector:@selector(musicPlaylistVC:didSelectAudio:)]) {
+        [self.delegate musicPlaylistVC:self didSelectAudio:selectedAudio];
+    }
+    self.playlistPlayer.queue = audiosStack;
+    [self.playlistPlayer play];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -80,17 +90,6 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    VKAudio *selectedAudio = [self.dataSource audioForIndexPath:indexPath];
-    NSArray *audiosStack = [self.dataSource audioStackFromIndex:indexPath.row];
-    
-    if ([self.delegate respondsToSelector:@selector(musicPlaylistVC:didSelectAudio:)]) {
-        [self.delegate musicPlaylistVC:self didSelectAudio:selectedAudio];
-    }
-    self.playlistPlayer.queue = audiosStack;
-    [self.playlistPlayer play];
-    
-}
 
 - (void)playlistPlayer:(AVKPlaylistPlayer *)playlistPlayer willPlayItem:(LMMediaItem *)mediaItem{
     if ([self.delegate respondsToSelector:@selector(musicPlaylistVC:willPlayMediaItem:)]) {

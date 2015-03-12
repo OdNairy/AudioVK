@@ -30,6 +30,7 @@ const CGFloat minimumPlayingNowScreenPart = 60;
 
     //  My music list
     [self initializeMyMusicVC];
+
 }
 
 

@@ -39,13 +39,8 @@ typedef NS_ENUM(NSUInteger, AVKMediaPlaybackState) {
 @property (nonatomic, strong) NSArray* queue;
 @property (nonatomic) AVKPlayerShuffleMode shuffleMode;
 @property (nonatomic) AVKPlayerRepeatMode repeatMode;
++(instancetype)instance;
 
-
--(void)play;
--(void)pause;
--(void)toggle;
--(void)next;
--(void)previous;
 -(void)seekTo:(NSTimeInterval)time;
 
 
