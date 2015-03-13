@@ -15,6 +15,8 @@
 -(BFTask*)load;
 -(BFTask*)reload;
 
+- (void)cacheAllAudios;
+
 - (VKAudio *)audioForIndexPath:(NSIndexPath *)indexPath;
 - (NSArray *)audioStackFromIndex:(NSUInteger)startIndex;
 @end

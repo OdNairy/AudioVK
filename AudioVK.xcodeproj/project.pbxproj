@@ -19,6 +19,8 @@
 		8A398D7D1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A398D7C1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m */; };
 		8AB8A19A1AAC62F900C55D9E /* AVKArtworkLoaderCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8A1991AAC62F900C55D9E /* AVKArtworkLoaderCache.m */; };
 		8AB8A19D1AACB0A800C55D9E /* AVKControlPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8A19C1AACB0A800C55D9E /* AVKControlPanelView.m */; };
+		8AE912AE1AB2EB55000D415E /* AVKAudioResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE912AD1AB2EB55000D415E /* AVKAudioResourceLoader.m */; };
+		8AE912B21AB30537000D415E /* AVKTrackOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE912B11AB30537000D415E /* AVKTrackOptionsView.m */; };
 		9A42FBCB9D66CD2FB34BF8C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26192FE02FA55A7D09DFEB7E /* libPods.a */; };
 		FE0F18341AAB6AC9001C021F /* AVKArtworkLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0F18331AAB6AC9001C021F /* AVKArtworkLoader.m */; };
 		FE14ECD51A581D19000CBC7F /* AVKMusicPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE14ECD41A581D19000CBC7F /* AVKMusicPlayerViewController.m */; };
@@ -85,6 +87,10 @@
 		8AB8A19B1AACB0A800C55D9E /* AVKControlPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKControlPanelView.h; path = "Custom Views/AVKControlPanelView.h"; sourceTree = "<group>"; };
 		8AB8A19C1AACB0A800C55D9E /* AVKControlPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKControlPanelView.m; path = "Custom Views/AVKControlPanelView.m"; sourceTree = "<group>"; };
 		8ACF75541AB1FAB60093D46F /* AVKPlayerControlProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVKPlayerControlProtocol.h; sourceTree = "<group>"; };
+		8AE912AC1AB2EB55000D415E /* AVKAudioResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKAudioResourceLoader.h; path = "Business Logic/AVKAudioResourceLoader.h"; sourceTree = "<group>"; };
+		8AE912AD1AB2EB55000D415E /* AVKAudioResourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKAudioResourceLoader.m; path = "Business Logic/AVKAudioResourceLoader.m"; sourceTree = "<group>"; };
+		8AE912B01AB30537000D415E /* AVKTrackOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKTrackOptionsView.h; path = "Custom Views/AVKTrackOptionsView.h"; sourceTree = "<group>"; };
+		8AE912B11AB30537000D415E /* AVKTrackOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKTrackOptionsView.m; path = "Custom Views/AVKTrackOptionsView.m"; sourceTree = "<group>"; };
 		F29EE0A9E85A307141F93799 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FE0F18321AAB6AC9001C021F /* AVKArtworkLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKArtworkLoader.h; path = "Business Logic/AVKArtworkLoader.h"; sourceTree = "<group>"; };
 		FE0F18331AAB6AC9001C021F /* AVKArtworkLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKArtworkLoader.m; path = "Business Logic/AVKArtworkLoader.m"; sourceTree = "<group>"; };
@@ -186,12 +192,11 @@
 		8A398D7A1AA5D823007709A9 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
+				8AE912AF1AB2EC0E000D415E /* Audio Cache */,
 				8A398D771AA5D3B0007709A9 /* AVKAudioDataSource.h */,
 				8A398D781AA5D3B0007709A9 /* AVKAudioDataSource.m */,
 				8A398D7B1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.h */,
 				8A398D7C1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m */,
-				FE0F18321AAB6AC9001C021F /* AVKArtworkLoader.h */,
-				FE0F18331AAB6AC9001C021F /* AVKArtworkLoader.m */,
 				8AB8A1981AAC62F900C55D9E /* AVKArtworkLoaderCache.h */,
 				8AB8A1991AAC62F900C55D9E /* AVKArtworkLoaderCache.m */,
 				8A381CD21AAC5885005B1CDE /* AVKAudioGenre.swift */,
@@ -200,10 +205,21 @@
 				18880D147B1A39CE2873045F /* VKAudio+Artwork.m */,
 				8A0571C91AAF0CE7007E393C /* AVKPlaylistPlayer.h */,
 				8A0571CA1AAF0CE7007E393C /* AVKPlaylistPlayer.m */,
-				8AB2A3521AB0123000051BA0 /* AVKAudioCacheLayer.h */,
-				8AB2A3531AB0123000051BA0 /* AVKAudioCacheLayer.m */,
 			);
 			name = "Business Logic";
+			sourceTree = "<group>";
+		};
+		8AE912AF1AB2EC0E000D415E /* Audio Cache */ = {
+			isa = PBXGroup;
+			children = (
+				8AE912AC1AB2EB55000D415E /* AVKAudioResourceLoader.h */,
+				8AE912AD1AB2EB55000D415E /* AVKAudioResourceLoader.m */,
+				8AB2A3521AB0123000051BA0 /* AVKAudioCacheLayer.h */,
+				8AB2A3531AB0123000051BA0 /* AVKAudioCacheLayer.m */,
+				FE0F18321AAB6AC9001C021F /* AVKArtworkLoader.h */,
+				FE0F18331AAB6AC9001C021F /* AVKArtworkLoader.m */,
+			);
+			name = "Audio Cache";
 			sourceTree = "<group>";
 		};
 		A48B5A31FDD84AB969D9EFC3 /* Pods */ = {
@@ -389,6 +405,8 @@
 				8A398D731AA5D26E007709A9 /* Cells */,
 				8AB8A19B1AACB0A800C55D9E /* AVKControlPanelView.h */,
 				8AB8A19C1AACB0A800C55D9E /* AVKControlPanelView.m */,
+				8AE912B01AB30537000D415E /* AVKTrackOptionsView.h */,
+				8AE912B11AB30537000D415E /* AVKTrackOptionsView.m */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -522,6 +540,7 @@
 				FEC1EE531A701AFA00B57A1E /* AVKViewController.m in Sources */,
 				FE0F18341AAB6AC9001C021F /* AVKArtworkLoader.m in Sources */,
 				FEA1D29B1A2DF94100B8747D /* AVKBackgroundVideoView.m in Sources */,
+				8AE912AE1AB2EB55000D415E /* AVKAudioResourceLoader.m in Sources */,
 				FEC1EE501A6FD86B00B57A1E /* AVKMyMusicPlaylistViewController.m in Sources */,
 				FE283F111AB239D500D83F01 /* AVKAudioCacheLayer.m in Sources */,
 				FEC1EE4B1A6FD4CD00B57A1E /* AVKPlaylistViewController.m in Sources */,
@@ -532,6 +551,7 @@
 				8A398D761AA5D29F007709A9 /* AVKTrackWithArtworkCell.m in Sources */,
 				8A0571CB1AAF0CE7007E393C /* AVKPlaylistPlayer.m in Sources */,
 				FE14ECD51A581D19000CBC7F /* AVKMusicPlayerViewController.m in Sources */,
+				8AE912B21AB30537000D415E /* AVKTrackOptionsView.m in Sources */,
 				8AB8A19D1AACB0A800C55D9E /* AVKControlPanelView.m in Sources */,
 				FEE91A8C1A684FA20019392C /* AVKiTunesInfoViewController.m in Sources */,
 				FEB71AE81A2F568000D56C29 /* AVKStartPromoViewController.m in Sources */,

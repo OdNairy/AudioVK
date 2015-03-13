@@ -11,9 +11,8 @@
 #import "AVKTrackWithArtworkCell.h"
 #import "AVKAudioDataSource.h"
 #import <VKAudio.h>
-#import "AVKArtworkLoader.h"
-#import "AudioVK-Swift.h"
 #import "Promise+Pause.h"
+#import "AVKAudioCacheLayer.h"
 
 @interface AVKTrackWithArtworkListDataSource ()
 @property (nonatomic, strong) AVKAudioDataSource * audioDataSource;
@@ -50,6 +49,18 @@
     return [audios subarrayWithRange:NSMakeRange(startIndex, audios.count - startIndex)];
 }
 
+-(void)cacheAllAudios{
+    for (VKAudio* audio in self.audioDataSource.audios) {
+        if (!audio.fromCache) {
+            [[AVKAudioCacheLayer instance] cacheAudio:audio
+                                          progression:nil
+                                           completion:^(VKAudio *audio, BOOL success) {
+                                               NSLog(@"Audio %@ did cached",audio.id);
+                                           }];
+        }
+    }
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.audioDataSource.audios.count;
@@ -61,17 +72,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     VKAudio* audio = self.audioDataSource.audios[indexPath.row];
     AVKTrackWithArtworkCell* trackCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AVKTrackWithArtworkCell class]) forIndexPath:indexPath];
-    trackCell.downloadButtonActive = indexPath.row%2 == 0;
-    trackCell.titleLabel.text = audio.title;
-    trackCell.artistLabel.text = audio.artist;
-    trackCell.albumnLabel.text = [AVKAudioGenre genreStringFrom:audio.genre_id];
-    trackCell.artworkImageView.image = [UIImage imageNamed:@"AlbumnArtwork"];
+    [trackCell setupWithAudio:audio];
 
-    [[AVKArtworkLoader instance] load:audio].then(^(UIImage *img) {
-        if ([trackCell.titleLabel.text isEqualToString:audio.title] && img) {
-            trackCell.artworkImageView.image = img;
-        }
-    });
 
     return trackCell;
 }

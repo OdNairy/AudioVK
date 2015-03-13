@@ -15,6 +15,7 @@
 #import "AVKPlaylistPlayer.h"
 #import "AVKPlaylistPlayerDelegate.h"
 #import <AVFoundation/AVFoundation.h>
+#import "AVKAudioCacheLayer.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 
@@ -43,8 +44,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem* downloadAllItemsButton = [[UIBarButtonItem alloc]initWithTitle:@"Download all" style:(UIBarButtonItemStylePlain) target:self action:@selector(downloadAll)];
-    [downloadAllItemsButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]} forState:(UIControlStateNormal)];
+    UIBarButtonItem* downloadAllItemsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"download_button"] style:(UIBarButtonItemStylePlain) target:self action:@selector(downloadAll)];
+    downloadAllItemsButton.tintColor = [UIColor whiteColor];
+    [downloadAllItemsButton setBackgroundVerticalPositionAdjustment:4 forBarMetrics:(UIBarMetricsDefault)];
+//    [downloadAllItemsButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]} forState:(UIControlStateNormal)];
     self.navigationItem.leftBarButtonItem = downloadAllItemsButton;
 
     AVKAudioDataSource* audioDataSource = [[AVKAudioDataSource alloc] initWithUserId:[VKSdk getAccessToken].userId];
@@ -58,11 +61,12 @@
         [self.tableView reloadData];
         return nil;
     }];
+    
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     [self setupRemoteEventHandlers];
-
 }
+
 -(void)setupRemoteEventHandlers{
     MPRemoteCommandCenter* center = [MPRemoteCommandCenter sharedCommandCenter];
     [center.pauseCommand addTarget:self.playlistPlayer action:@selector(pause)];
@@ -76,12 +80,11 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-
-
+    
 }
 
 - (void)downloadAll{
-    
+    [self.dataSource cacheAllAudios];
 }
 
 -(void)setDataSource:(AVKTrackWithArtworkListDataSource *)dataSource{

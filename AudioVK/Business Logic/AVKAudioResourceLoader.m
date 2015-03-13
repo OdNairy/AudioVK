@@ -6,13 +6,16 @@
 //  Copyright (c) 2015 Roman Gardukevich. All rights reserved.
 //
 
-#import "AVKCacheAudioLayer.h"
+#import "AVKAudioResourceLoader.h"
 #import <AVFoundation/AVFoundation.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 
 NSString* const kAVKCacheAudioLayerCustomScheme = @"kAVKCacheAudioLayerCustomScheme";
 
-@interface AVKCacheAudioLayer ()<NSURLConnectionDataDelegate>
+@interface AVKAudioResourceLoader ()<NSURLConnectionDataDelegate>
+@property (nonatomic,getter=isFinished, readwrite) BOOL finished;
+@property (nonatomic,getter=isCanceled, readwrite) BOOL canceled;
+
 @property (nonatomic, strong) NSURL* audioURL;
 @property (nonatomic, copy) NSString* originalAudioUrlScheme;
 
@@ -25,7 +28,7 @@ NSString* const kAVKCacheAudioLayerCustomScheme = @"kAVKCacheAudioLayerCustomSch
 @property (nonatomic, strong) NSMutableArray *pendingRequests;
 @end
 
-@implementation AVKCacheAudioLayer
+@implementation AVKAudioResourceLoader
 - (instancetype)initWithAudioURL:(NSURL *)audioURL cachePath:(NSURL *)cacheURL
 {
     self = [super init];
@@ -33,8 +36,7 @@ NSString* const kAVKCacheAudioLayerCustomScheme = @"kAVKCacheAudioLayerCustomSch
         self.audioURL = audioURL;
         self.originalAudioUrlScheme = [self schemeFromUrl:audioURL];
         self.cacheURL = cacheURL;
-        
-        
+
         self.pendingRequests = [NSMutableArray array];
     }
     return self;
@@ -60,6 +62,7 @@ NSString* const kAVKCacheAudioLayerCustomScheme = @"kAVKCacheAudioLayerCustomSch
 
 
 -(void)cancel{
+    self.canceled = YES;
     [self.connection cancel];
 }
 
@@ -111,6 +114,7 @@ NSString* const kAVKCacheAudioLayerCustomScheme = @"kAVKCacheAudioLayerCustomSch
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    self.finished = YES;
     [self processPendingRequests];
     
     if ([self.delegate respondsToSelector:@selector(cacheAudioLayer:didFinishLoadingData:)]) {

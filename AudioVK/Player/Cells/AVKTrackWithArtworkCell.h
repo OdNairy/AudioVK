@@ -9,12 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface AVKTrackWithArtworkCell : UITableViewCell
-@property (nonatomic) BOOL downloadButtonActive;
-
 @property (weak, nonatomic) IBOutlet UIImageView *artworkImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albumnLabel;
 
+-(void)setupWithAudio:(VKAudio*)audio;
 
 @end
