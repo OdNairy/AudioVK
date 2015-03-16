@@ -32,13 +32,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track title  ouoe uoe uoe uo eoeu u " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuw-mX-8eU" customClass="MarqueeLabel">
-                        <rect key="frame" x="61" y="7" width="219" height="21"/>
+                        <rect key="frame" x="61" y="7" width="219" height="20"/>
                         <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1l-7F-3DK" userLabel="Artist name Label">
-                        <rect key="frame" x="61" y="31" width="30" height="12"/>
+                        <rect key="frame" x="61" y="30" width="30" height="14"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="WqI-yb-1Y3"/>
                         </constraints>
@@ -74,7 +74,7 @@
                         </connections>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="blablabla" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udG-Kh-Wqf" userLabel="Genre type Label">
-                        <rect key="frame" x="232" y="31" width="48" height="12"/>
+                        <rect key="frame" x="231" y="30" width="49" height="14"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="5re-9v-EJp"/>
                         </constraints>
@@ -82,6 +82,13 @@
                         <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15R-OI-DmC" userLabel="Separator View">
+                        <rect key="frame" x="60" y="54" width="220" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="0.14999999999999999" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="nbe-kG-wnw"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.20681423609999999" green="0.20681423609999999" blue="0.20681423609999999" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
@@ -90,12 +97,15 @@
                     <constraint firstItem="udG-Kh-Wqf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W1l-7F-3DK" secondAttribute="trailing" priority="750" constant="20" id="Ctl-Pp-JCQ"/>
                     <constraint firstItem="W1l-7F-3DK" firstAttribute="top" secondItem="Nuw-mX-8eU" secondAttribute="bottom" constant="3" id="NYI-H1-Lyg"/>
                     <constraint firstItem="udG-Kh-Wqf" firstAttribute="trailing" secondItem="Nuw-mX-8eU" secondAttribute="trailing" id="NZG-5y-gUV"/>
+                    <constraint firstItem="15R-OI-DmC" firstAttribute="bottom" secondItem="tIW-X8-dFJ" secondAttribute="bottom" id="SSV-02-fFd"/>
                     <constraint firstItem="W1l-7F-3DK" firstAttribute="leading" secondItem="Nuw-mX-8eU" secondAttribute="leading" id="WoN-KU-PTs"/>
                     <constraint firstItem="FVb-Xq-Ei6" firstAttribute="leading" secondItem="tIW-X8-dFJ" secondAttribute="leadingMargin" id="hEX-xj-4EI"/>
                     <constraint firstItem="Nuw-mX-8eU" firstAttribute="top" secondItem="FVb-Xq-Ei6" secondAttribute="top" constant="1" id="hSa-xS-y8z"/>
+                    <constraint firstItem="15R-OI-DmC" firstAttribute="leading" secondItem="tIW-X8-dFJ" secondAttribute="leading" constant="60" id="hvS-xA-tsV"/>
                     <constraint firstItem="udG-Kh-Wqf" firstAttribute="baseline" secondItem="W1l-7F-3DK" secondAttribute="baseline" id="lJh-JU-VQM"/>
                     <constraint firstAttribute="centerY" secondItem="FVb-Xq-Ei6" secondAttribute="centerY" constant="-1" id="mMB-Af-348"/>
                     <constraint firstItem="Nuw-mX-8eU" firstAttribute="leading" secondItem="FVb-Xq-Ei6" secondAttribute="trailing" constant="8" id="mUC-cn-JB5"/>
+                    <constraint firstItem="15R-OI-DmC" firstAttribute="trailing" secondItem="tIW-X8-dFJ" secondAttribute="trailing" constant="-40" id="ned-in-zlf"/>
                     <constraint firstItem="Nuw-mX-8eU" firstAttribute="trailing" secondItem="rjh-on-UgP" secondAttribute="trailing" id="pEw-dT-Gfc"/>
                     <constraint firstItem="rjh-on-UgP" firstAttribute="leading" secondItem="Nuw-mX-8eU" secondAttribute="trailing" constant="8" symbolic="YES" id="qBc-9t-ee5"/>
                     <constraint firstItem="rjh-on-UgP" firstAttribute="trailing" secondItem="tIW-X8-dFJ" secondAttribute="trailingMargin" id="rVG-wm-vx6"/>

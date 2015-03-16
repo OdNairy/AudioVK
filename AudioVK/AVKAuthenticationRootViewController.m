@@ -177,7 +177,9 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
 #pragma mark - Setups
 - (void)setupBackgroundVideo{
     self.player = [self playerControllerForBackgroundVideo];
-    [self.view addSubview:self.player.view];
+//    [self.view addSubview:self.player.view];
+    [self.view insertSubview:self.player.view atIndex:0];
+
     [self.player play];
     [self setupNotBlockableVideoPlaying];
     [self.player.view addMotionEffect:[self motionEffectGroupForBackgroundVideo]];
@@ -218,7 +220,7 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
 }
 
 -(BOOL)shouldAutorotate{
-    return NO;
+    return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
 }
 
 @end
