@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface AVKTrackOptionsView : UIView
+
 @property (nonatomic, getter=isDownloadButtonActive) BOOL downloadButtonActive;
+
 @property (nonatomic, strong) VKAudio* audio;
 @end

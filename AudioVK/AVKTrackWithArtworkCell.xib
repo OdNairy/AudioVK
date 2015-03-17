@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C2507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -32,13 +32,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track title  ouoe uoe uoe uo eoeu u " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuw-mX-8eU" customClass="MarqueeLabel">
-                        <rect key="frame" x="61" y="7" width="219" height="20"/>
+                        <rect key="frame" x="61" y="7" width="219" height="21"/>
                         <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1l-7F-3DK" userLabel="Artist name Label">
-                        <rect key="frame" x="61" y="30" width="30" height="14"/>
+                        <rect key="frame" x="61" y="31" width="30" height="12"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="WqI-yb-1Y3"/>
                         </constraints>
@@ -46,35 +46,8 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rjh-on-UgP" customClass="AVKTrackOptionsView">
-                        <rect key="frame" x="288" y="16" width="24" height="24"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVK-7u-7va">
-                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                <state key="normal" image="download all">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="downloadAudioButtonTapped:" destination="rjh-on-UgP" eventType="touchUpInside" id="LYi-Xc-XDF"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="eVK-7u-7va" secondAttribute="trailing" id="0kT-h2-Sdx"/>
-                            <constraint firstItem="eVK-7u-7va" firstAttribute="leading" secondItem="rjh-on-UgP" secondAttribute="leading" id="1Qw-Se-kOE"/>
-                            <constraint firstAttribute="bottom" secondItem="eVK-7u-7va" secondAttribute="bottom" id="4RV-RV-Jwu"/>
-                            <constraint firstAttribute="width" constant="24" id="5dn-KU-TWx"/>
-                            <constraint firstItem="eVK-7u-7va" firstAttribute="top" secondItem="rjh-on-UgP" secondAttribute="top" id="Jry-14-BfO"/>
-                            <constraint firstAttribute="width" secondItem="rjh-on-UgP" secondAttribute="height" multiplier="1:1" id="bFZ-qJ-q4X"/>
-                        </constraints>
-                        <connections>
-                            <outlet property="titleToDownloadButtonConstraint" destination="qBc-9t-ee5" id="Jzt-cv-smc"/>
-                            <outlet property="titleTrailingConstraint" destination="pEw-dT-Gfc" id="ceC-wq-6Yr"/>
-                        </connections>
-                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="blablabla" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udG-Kh-Wqf" userLabel="Genre type Label">
-                        <rect key="frame" x="231" y="30" width="49" height="14"/>
+                        <rect key="frame" x="232.5" y="31" width="47.5" height="12"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="5re-9v-EJp"/>
                         </constraints>
@@ -88,6 +61,32 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="nbe-kG-wnw"/>
                         </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rjh-on-UgP" customClass="AVKTrackOptionsView">
+                        <rect key="frame" x="288" y="0.0" width="32" height="55"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqK-rG-Jul" customClass="ACPDownloadView">
+                                <rect key="frame" x="1" y="13" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mqK-rG-Jul" secondAttribute="height" multiplier="1:1" id="AfS-zX-VPq"/>
+                                    <constraint firstAttribute="width" constant="30" id="M7f-gh-X9B"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="mqK-rG-Jul" secondAttribute="centerY" id="14Y-x0-ySv"/>
+                            <constraint firstAttribute="width" constant="32" id="5dn-KU-TWx"/>
+                            <constraint firstAttribute="centerX" secondItem="mqK-rG-Jul" secondAttribute="centerX" id="XD1-4n-eQw"/>
+                            <constraint firstAttribute="width" secondItem="rjh-on-UgP" secondAttribute="height" multiplier="1:1" constant="-23" id="bFZ-qJ-q4X"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="downloadView" destination="mqK-rG-Jul" id="dkr-IH-ob7"/>
+                            <outlet property="titleToDownloadButtonConstraint" destination="qBc-9t-ee5" id="Jzt-cv-smc"/>
+                            <outlet property="titleTrailingConstraint" destination="pEw-dT-Gfc" id="ceC-wq-6Yr"/>
+                        </connections>
                     </view>
                 </subviews>
                 <color key="backgroundColor" red="0.20681423609999999" green="0.20681423609999999" blue="0.20681423609999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -106,9 +105,9 @@
                     <constraint firstAttribute="centerY" secondItem="FVb-Xq-Ei6" secondAttribute="centerY" constant="-1" id="mMB-Af-348"/>
                     <constraint firstItem="Nuw-mX-8eU" firstAttribute="leading" secondItem="FVb-Xq-Ei6" secondAttribute="trailing" constant="8" id="mUC-cn-JB5"/>
                     <constraint firstItem="15R-OI-DmC" firstAttribute="trailing" secondItem="tIW-X8-dFJ" secondAttribute="trailing" constant="-40" id="ned-in-zlf"/>
-                    <constraint firstItem="Nuw-mX-8eU" firstAttribute="trailing" secondItem="rjh-on-UgP" secondAttribute="trailing" id="pEw-dT-Gfc"/>
+                    <constraint firstItem="Nuw-mX-8eU" firstAttribute="trailing" secondItem="rjh-on-UgP" secondAttribute="trailing" constant="-8" id="pEw-dT-Gfc"/>
                     <constraint firstItem="rjh-on-UgP" firstAttribute="leading" secondItem="Nuw-mX-8eU" secondAttribute="trailing" constant="8" symbolic="YES" id="qBc-9t-ee5"/>
-                    <constraint firstItem="rjh-on-UgP" firstAttribute="trailing" secondItem="tIW-X8-dFJ" secondAttribute="trailingMargin" id="rVG-wm-vx6"/>
+                    <constraint firstItem="rjh-on-UgP" firstAttribute="trailing" secondItem="tIW-X8-dFJ" secondAttribute="trailingMargin" constant="8" id="rVG-wm-vx6"/>
                     <constraint firstItem="Nuw-mX-8eU" firstAttribute="rightMargin" secondItem="rjh-on-UgP" secondAttribute="left" priority="250" constant="9" id="wjb-So-SK9"/>
                 </constraints>
                 <variation key="default">
@@ -133,6 +132,5 @@
     </objects>
     <resources>
         <image name="AlbumnArtwork" width="56" height="56"/>
-        <image name="download all" width="26" height="22"/>
     </resources>
 </document>

@@ -189,27 +189,7 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		8A398D7A1AA5D823007709A9 /* Business Logic */ = {
-			isa = PBXGroup;
-			children = (
-				8AE912AF1AB2EC0E000D415E /* Audio Cache */,
-				8A398D771AA5D3B0007709A9 /* AVKAudioDataSource.h */,
-				8A398D781AA5D3B0007709A9 /* AVKAudioDataSource.m */,
-				8A398D7B1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.h */,
-				8A398D7C1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m */,
-				8AB8A1981AAC62F900C55D9E /* AVKArtworkLoaderCache.h */,
-				8AB8A1991AAC62F900C55D9E /* AVKArtworkLoaderCache.m */,
-				8A381CD21AAC5885005B1CDE /* AVKAudioGenre.swift */,
-				8A381CD11AAC5884005B1CDE /* AudioVK-Bridging-Header.h */,
-				18880DEB89EFE587451DB6D8 /* VKAudio+Artwork.h */,
-				18880D147B1A39CE2873045F /* VKAudio+Artwork.m */,
-				8A0571C91AAF0CE7007E393C /* AVKPlaylistPlayer.h */,
-				8A0571CA1AAF0CE7007E393C /* AVKPlaylistPlayer.m */,
-			);
-			name = "Business Logic";
-			sourceTree = "<group>";
-		};
-		8AE912AF1AB2EC0E000D415E /* Audio Cache */ = {
+		8AE912AF1AB2EC0E000D415E /* Audio Cache Layer */ = {
 			isa = PBXGroup;
 			children = (
 				8AE912AC1AB2EB55000D415E /* AVKAudioResourceLoader.h */,
@@ -219,7 +199,7 @@
 				FE0F18321AAB6AC9001C021F /* AVKArtworkLoader.h */,
 				FE0F18331AAB6AC9001C021F /* AVKArtworkLoader.m */,
 			);
-			name = "Audio Cache";
+			name = "Audio Cache Layer";
 			sourceTree = "<group>";
 		};
 		A48B5A31FDD84AB969D9EFC3 /* Pods */ = {
@@ -296,11 +276,12 @@
 		FED04B8E1A27A0AA009491B0 /* AudioVK */ = {
 			isa = PBXGroup;
 			children = (
-				FED830421A377375009846EA /* Singletones */,
-				FED830401A377356009846EA /* Controllers */,
-				FED04B8F1A27A0AA009491B0 /* Supporting Files */,
+				FED830421A377375009846EA /* Model */,
+				FEECE1C41A38423400095DC4 /* View */,
+				FED830401A377356009846EA /* Controller */,
 				18880AA10F1E2DE2A8176608 /* AVKMyMusicVCDelegate.h */,
 				1888068B2BA3372919D63984 /* AVKPlaylistPlayerDelegate.h */,
+				FED04B8F1A27A0AA009491B0 /* Supporting Files */,
 			);
 			path = AudioVK;
 			sourceTree = "<group>";
@@ -359,16 +340,15 @@
 			name = Authentification;
 			sourceTree = "<group>";
 		};
-		FED830401A377356009846EA /* Controllers */ = {
+		FED830401A377356009846EA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FEECE1C41A38423400095DC4 /* Custom Views */,
 				FED830411A377368009846EA /* Common */,
 				FED8303E1A377340009846EA /* Authentification */,
 				FE2BDF4B1A3A4CA2004D307E /* Dashboard */,
 				FEC1EE421A6FD40D00B57A1E /* Player */,
 			);
-			name = Controllers;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		FED830411A377368009846EA /* Common */ = {
@@ -382,33 +362,45 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
-		FED830421A377375009846EA /* Singletones */ = {
+		FED830421A377375009846EA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8AE912AF1AB2EC0E000D415E /* Audio Cache Layer */,
 				FED04B931A27A0AA009491B0 /* AVKAppDelegate.h */,
 				FED04B941A27A0AA009491B0 /* AVKAppDelegate.m */,
 				FEF29DB01A2B391500589D36 /* AVKDelegate.h */,
 				FEF29DB11A2B391500589D36 /* AVKDelegate.m */,
 				FED566471A3237CB006E1549 /* AVKStorage.h */,
 				FED566481A3237CB006E1549 /* AVKStorage.m */,
-				8A398D7A1AA5D823007709A9 /* Business Logic */,
+				8A398D771AA5D3B0007709A9 /* AVKAudioDataSource.h */,
+				8A398D781AA5D3B0007709A9 /* AVKAudioDataSource.m */,
+				8A398D7B1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.h */,
+				8A398D7C1AA5D889007709A9 /* AVKTrackWithArtworkListDataSource.m */,
+				8AB8A1981AAC62F900C55D9E /* AVKArtworkLoaderCache.h */,
+				8AB8A1991AAC62F900C55D9E /* AVKArtworkLoaderCache.m */,
+				8A381CD21AAC5885005B1CDE /* AVKAudioGenre.swift */,
+				8A381CD11AAC5884005B1CDE /* AudioVK-Bridging-Header.h */,
+				18880DEB89EFE587451DB6D8 /* VKAudio+Artwork.h */,
+				18880D147B1A39CE2873045F /* VKAudio+Artwork.m */,
+				8A0571C91AAF0CE7007E393C /* AVKPlaylistPlayer.h */,
+				8A0571CA1AAF0CE7007E393C /* AVKPlaylistPlayer.m */,
 			);
-			name = Singletones;
+			name = Model;
 			sourceTree = "<group>";
 		};
-		FEECE1C41A38423400095DC4 /* Custom Views */ = {
+		FEECE1C41A38423400095DC4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8A398D731AA5D26E007709A9 /* Cells */,
 				FEECE1C51A38425200095DC4 /* AVKAuthenticationTextField.h */,
 				FEECE1C61A38425200095DC4 /* AVKAuthenticationTextField.m */,
 				FEECE1C81A38433800095DC4 /* AVKAuthenticationTextField.xib */,
-				8A398D731AA5D26E007709A9 /* Cells */,
 				8AB8A19B1AACB0A800C55D9E /* AVKControlPanelView.h */,
 				8AB8A19C1AACB0A800C55D9E /* AVKControlPanelView.m */,
 				8AE912B01AB30537000D415E /* AVKTrackOptionsView.h */,
 				8AE912B11AB30537000D415E /* AVKTrackOptionsView.m */,
 			);
-			name = "Custom Views";
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
