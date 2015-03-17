@@ -57,6 +57,7 @@
     [VKSdk initializeWithDelegate:[AVKDelegate sharedDelegate] andAppId:@"4657523"];
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         [Parse enableLocalDatastore];
+
         [Parse setApplicationId:@"7Ky1DZqyCKlzex4hgiCsFj2Lg1CHVAKtf5GLhBF8"
                       clientKey:@"QE4JrBZPVhvPgtjbKnCHdLswZcgYSRKH8MtYTk4X"];
         [PFTwitterUtils initializeWithConsumerKey:@"mU6FRz89p9NOwIoPtQkWN0Ujb" consumerSecret:@"tq5Hcz6fu17vRiv8f1Idt9L2JkBi85XhF3Nantx1B4ufhrEwxD"];

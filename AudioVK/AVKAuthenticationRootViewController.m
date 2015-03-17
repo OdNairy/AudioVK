@@ -37,6 +37,8 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self processPinnedUsers];
+    
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:nil action:nil];
 
     [self setupBackgroundVideo];
@@ -50,6 +52,22 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(restartVideoPlayer)
                                                  name:UIApplicationDidBecomeActiveNotification object:nil];
+}
+
+- (void)processPinnedUsers{
+    PFQuery* pinnedUsersQuery = [[PFUser query] fromLocalDatastore];
+    pinnedUsersQuery.trace = YES;
+    self.view.window.userInteractionEnabled = NO;
+    [pinnedUsersQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        self.view.window.userInteractionEnabled = YES;
+        PFUser* pinnedUser = objects.firstObject;
+        if (pinnedUser && [pinnedUser isKindOfClass:[PFUser class]]) {
+            [PFUser becomeInBackground:pinnedUser.sessionToken block:^(PFUser *user, NSError *error) {
+                [VKSdk wakeUpSession];
+                [self presentHomeViewController];
+            }];
+        }
+    }];
 }
 
 #pragma  mark - Notifications Actions
@@ -162,7 +180,10 @@ typedef NS_ENUM (NSInteger, AVKDirection) {
         NSLog(@"%s",__PRETTY_FUNCTION__);
 
         if (task.result && !task.error) {
-             [self presentHomeViewController];
+            PFUser* user = task.result;
+            [user pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                [self presentHomeViewController];
+            }];
          }else if (task.error.code == kPFErrorObjectNotFound){
              [[AVKStorage sharedStorage] setNilValueForKey:AVKSessionTokenStorageKey];
              [self displaySignUpViewController];

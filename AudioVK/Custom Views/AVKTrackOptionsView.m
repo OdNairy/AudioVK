@@ -56,7 +56,7 @@
     
 }
 
--(IBAction)downloadAudioButtonTapped{
+-(void)downloadAudioButtonTapped{
     __weak typeof(self) weakSelf = self;
     NSLog(@"%s %@",__PRETTY_FUNCTION__,self.audio.id);
     [self.downloadView setIndicatorStatus:(ACPDownloadStatusRunning)];
