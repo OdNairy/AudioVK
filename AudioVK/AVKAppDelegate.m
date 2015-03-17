@@ -29,27 +29,9 @@
 - (void)runTestCode{
     PFQuery* adminQ = [PFRole query];
     [adminQ whereKey:@"name" equalTo:@"admins"];
-//    [[[moderatorsQ getFirstObjectInBackground] continueWithBlock:^id(BFTask *task) {
-//        PFRole* moderatorRole = task.result;
-//        return moderatorRole.roles.query.findObjectsInBackground;
-//    }] continueWithBlock:^id(BFTask *task) {
-//        return nil;
-//    }];
-    
+
     PFQuery* odnairyUser = [PFUser query];
     [odnairyUser whereKey:@"username" equalTo:@"OdNairy"];
-
-//    BFTask* userTask = odnairyUser.getFirstObjectInBackground;
-//    BFTask* adminsTask = adminQ.getFirstObjectInBackground;
-    
-    
-//    BFTask* task =  [BFTask taskForCompletionOfAllTasks:@[userTask, adminsTask]];
-//    [task continueWithBlock:^id(BFTask *task) {
-//        NSLog(@"user: %@",userTask.result);
-//        NSLog(@"admin role: %@",adminsTask.result);
-//        PFRole* role = adminsTask.result;
-//        return nil;
-//    }];
     
 }
 

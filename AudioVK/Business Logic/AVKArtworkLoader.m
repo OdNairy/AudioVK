@@ -68,11 +68,18 @@ NSString *encodeString(NSString *string) {
             NSString *artist = [self optimizeString:audio.artist];
             NSString *searchTerm = [NSString stringWithFormat:@"%@+%@", artist, title];
             NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/ru/search?term=%@", encodeString(searchTerm)];
-
+            NSLog(@"url: %@",url);
             [NSURLConnection GET:url query:nil].then(^(NSDictionary *searchResponse) {
                 return searchResponse[@"results"];
             }).then(^(NSArray *searchResults) {
                 return searchResults.firstObject[@"artworkUrl30"];
+            }).then(^(NSString* artworkURl30){
+                NSString* artworkURL = artworkURl30;
+                NSString* artworkURL400 = [artworkURl30 stringByReplacingOccurrencesOfString:@".30x30-50.jpg" withString:@".400x400-75.jpg"];
+                if (artworkURL400) {
+                    artworkURL = artworkURL400;
+                }
+                return artworkURL;
             }).then(^(NSString *artworkURL) {
                 return [NSURLConnection GET:artworkURL query:nil];
             }).then(^(UIImage *img) {
