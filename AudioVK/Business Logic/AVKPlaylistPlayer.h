@@ -45,3 +45,20 @@ typedef NS_ENUM(NSUInteger, AVKMediaPlaybackState) {
 
 
 @end
+
+
+// Notifications
+extern NSString* const kAVKPlaylistPlayerWillStartPlaying;
+extern NSString* const kAVKPlaylistPlayerWillChangeState;
+extern NSString* const kAVKPlaylistPlayerDidStartPlaying;
+extern NSString* const kAVKPlaylistPlayerDidFinishPlaying;
+extern NSString* const kAVKPlaylistPlayerDidStop;
+extern NSString* const kAVKPlaylistPlayerDidChangeCurrentTime;
+extern NSString* const kAVKPlaylistPlayerDidChangeRepeatMode;
+extern NSString* const kAVKPlaylistPlayerDidChangeShuffleMode;
+
+// Keys for InfoDictionary
+extern NSString* const kAVKPlaylistPlayerStateKey;
+extern NSString* const kAVKPlaylistPlayerMediaKey;
+extern NSString* const kAVKPlaylistPlayerRepeatModeKey;
+extern NSString* const kAVKPlaylistPlayerShuffleModeKey;

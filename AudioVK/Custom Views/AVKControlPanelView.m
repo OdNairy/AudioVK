@@ -15,9 +15,18 @@
 
 @implementation AVKControlPanelView
 
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateToggleButtonState) name:kAVKPlaylistPlayerWillChangeState object:nil];
+}
+
 -(IBAction)toggleButtonTapped:(UIButton*)sender{
     [[AVKPlaylistPlayer instance] toggle];
-    self.toggleButton.selected = [[AVKPlaylistPlayer instance] playbackState] == AVKMediaPlaybackStatePlaying;
+    [self updateToggleButtonState];
+}
+
+- (void)updateToggleButtonState{
+    self.toggleButton.selected = [[AVKPlaylistPlayer instance] playbackState] != AVKMediaPlaybackStatePlaying;
 }
 
 @end
