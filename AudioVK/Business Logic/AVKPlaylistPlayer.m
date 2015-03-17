@@ -71,7 +71,7 @@ NSString* const kAVKPlaylistPlayerShuffleModeKey = @"kAVKPlaylistPlayerShuffleMo
                                     LMMediaItemInfoTitleKey :audio.title,
                                     LMMediaItemInfoURLKey :url,
                                     }];
-//        LMMediaItemInfoArtworkKey :audio.cachedArtwork
+        [mediaItem setArtworkImage:audio.cachedArtwork];
         [mediaArray addObject:mediaItem];
     }
     [self.player setQueue:mediaArray];

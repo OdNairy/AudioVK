@@ -47,7 +47,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="blablabla" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udG-Kh-Wqf" userLabel="Genre type Label">
-                        <rect key="frame" x="232.5" y="31" width="47.5" height="12"/>
+                        <rect key="frame" x="232" y="31" width="47.5" height="12"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="5re-9v-EJp"/>
                         </constraints>
@@ -89,7 +89,6 @@
                         </connections>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.20681423609999999" green="0.20681423609999999" blue="0.20681423609999999" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Nuw-mX-8eU" secondAttribute="trailing" constant="8" id="3nd-9c-fOy"/>
                     <constraint firstAttribute="centerY" secondItem="rjh-on-UgP" secondAttribute="centerY" id="74S-ur-R97"/>

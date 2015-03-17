@@ -160,6 +160,13 @@
                                             <action selector="toggleButtonTapped:" destination="UFR-Xt-hjp" eventType="touchUpInside" id="MRi-ac-jwM"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9eq-kc-JIh">
+                                        <rect key="frame" x="0.0" y="58" width="600" height="2"/>
+                                        <color key="backgroundColor" red="0.40000000596046448" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="FdJ-qe-Jem"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -168,12 +175,23 @@
                                     <constraint firstAttribute="trailing" secondItem="ZgQ-D8-ZwN" secondAttribute="trailing" constant="16" id="6gc-xj-bFN"/>
                                     <constraint firstItem="coC-BU-FLG" firstAttribute="leading" secondItem="bu1-Yg-lSD" secondAttribute="trailing" constant="8" id="IlL-4z-rV1"/>
                                     <constraint firstItem="bu1-Yg-lSD" firstAttribute="top" secondItem="UFR-Xt-hjp" secondAttribute="top" constant="8" id="SHW-Mo-skT"/>
+                                    <constraint firstAttribute="bottom" secondItem="9eq-kc-JIh" secondAttribute="bottom" id="ZxP-0L-So3"/>
+                                    <constraint firstItem="9eq-kc-JIh" firstAttribute="leading" secondItem="bu1-Yg-lSD" secondAttribute="trailing" constant="8" id="ai2-BZ-NxL"/>
                                     <constraint firstItem="bu1-Yg-lSD" firstAttribute="leading" secondItem="UFR-Xt-hjp" secondAttribute="leading" constant="8" id="hkG-DR-dwf"/>
+                                    <constraint firstItem="9eq-kc-JIh" firstAttribute="leading" secondItem="UFR-Xt-hjp" secondAttribute="leading" id="ihU-GL-Wd5"/>
                                     <constraint firstItem="coC-BU-FLG" firstAttribute="top" secondItem="bu1-Yg-lSD" secondAttribute="top" id="leE-xm-1Fp"/>
                                     <constraint firstAttribute="centerY" secondItem="ZgQ-D8-ZwN" secondAttribute="centerY" constant="1.5" id="pMp-8a-OA7"/>
+                                    <constraint firstAttribute="trailing" secondItem="9eq-kc-JIh" secondAttribute="trailing" id="psP-Gz-NSy"/>
                                     <constraint firstItem="ZgQ-D8-ZwN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="coC-BU-FLG" secondAttribute="trailing" constant="20" id="r50-iu-0MC"/>
                                     <constraint firstItem="QR0-ae-vtZ" firstAttribute="leading" secondItem="coC-BU-FLG" secondAttribute="leading" id="rCw-KA-EOG"/>
+                                    <constraint firstItem="ZgQ-D8-ZwN" firstAttribute="leading" secondItem="9eq-kc-JIh" secondAttribute="trailing" constant="8" id="vB1-Vr-Efk"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ai2-BZ-NxL"/>
+                                        <exclude reference="vB1-Vr-Efk"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="artistLabel" destination="QR0-ae-vtZ" id="5Zr-3m-7DC"/>
                                     <outlet property="artworkImageView" destination="bu1-Yg-lSD" id="Fwu-zH-tVb"/>

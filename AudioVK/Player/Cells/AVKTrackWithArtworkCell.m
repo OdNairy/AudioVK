@@ -58,6 +58,12 @@
 
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated{
     [super setSelected:selected animated:animated];
+    
+    UIColor *selectedColor = [UIColor colorWithRed:85.0/255 green:85.0/255 blue:85.0/255 alpha:1];
+    UIColor *defaultColor = [UIColor colorWithRed:53.0/255 green:53.0/255 blue:53.0/255 alpha:1];
+    [UIView promiseWithDuration:.2 animations:^{
+        self.backgroundColor = selected? selectedColor: defaultColor;
+    }];
     if (selected) {
         [self.titleMarqueeLabel unpauseLabel];
     }else {

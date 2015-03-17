@@ -25,11 +25,22 @@
 @property (strong, nonatomic) AVKTrackWithArtworkListDataSource* dataSource;
 
 @property(nonatomic, strong) AVKPlaylistPlayer *playlistPlayer;
+
+@property (nonatomic, strong) UIView* selectedCellIndicator;
 @end
 
 @implementation AVKMyMusicPlaylistViewController
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGRect selectedRect = [tableView rectForRowAtIndexPath:indexPath];
+    CGRect indicatorFrame = CGRectMake(selectedRect.origin.x, selectedRect.origin.y, self.selectedCellIndicator.bounds.size.width, selectedRect.size.height);
+    [UIView animateWithDuration:.2 delay:0 options:0 animations:^{
+        self.selectedCellIndicator.frame = indicatorFrame;
+        self.selectedCellIndicator.alpha = 1;
+    } completion:^(BOOL finished) {
+        
+    }];
+    
     VKAudio *selectedAudio = [self.dataSource audioForIndexPath:indexPath];
     NSArray *audiosStack = [self.dataSource audioStackFromIndex:indexPath.row];
 
@@ -37,12 +48,21 @@
         [self.delegate musicPlaylistVC:self didSelectAudio:selectedAudio];
     }
     self.playlistPlayer.queue = audiosStack;
-    [self.playlistPlayer play];
-    
+
+    // push play block after current RunLoop
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.playlistPlayer play];
+    });
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.selectedCellIndicator = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2, self.tableView.rowHeight)];
+    self.selectedCellIndicator.backgroundColor = [UIColor colorWithRed:102./255 green:1 blue:102./255 alpha:1];
+    self.selectedCellIndicator.alpha = 0;
+    [self.tableView addSubview:self.selectedCellIndicator];
     
     UIBarButtonItem* downloadAllItemsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"download_button"] style:(UIBarButtonItemStylePlain) target:self action:@selector(downloadAll)];
     downloadAllItemsButton.tintColor = [UIColor whiteColor];
