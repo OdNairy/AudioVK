@@ -32,14 +32,7 @@
 @implementation AVKMyMusicPlaylistViewController
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGRect selectedRect = [tableView rectForRowAtIndexPath:indexPath];
-    CGRect indicatorFrame = CGRectMake(selectedRect.origin.x, selectedRect.origin.y, self.selectedCellIndicator.bounds.size.width, selectedRect.size.height);
-    [UIView animateWithDuration:.2 delay:0 options:0 animations:^{
-        self.selectedCellIndicator.frame = indicatorFrame;
-        self.selectedCellIndicator.alpha = 1;
-    } completion:^(BOOL finished) {
-        
-    }];
+    [self updateIndicatorForIndexPath:indexPath];
     
     VKAudio *selectedAudio = [self.dataSource audioForIndexPath:indexPath];
     NSArray *audiosStack = [self.dataSource audioStackFromIndex:indexPath.row];
@@ -54,6 +47,15 @@
         [self.playlistPlayer play];
     });
 
+}
+
+- (void)updateIndicatorForIndexPath:(NSIndexPath*)indexPath{
+    CGRect selectedRect = [self.tableView rectForRowAtIndexPath:indexPath];
+    CGRect indicatorFrame = CGRectMake(selectedRect.origin.x, selectedRect.origin.y, self.selectedCellIndicator.bounds.size.width, selectedRect.size.height);
+    [UIView animateWithDuration:.2 delay:0 options:0 animations:^{
+        self.selectedCellIndicator.frame = indicatorFrame;
+        self.selectedCellIndicator.alpha = 1;
+    } completion:nil];
 }
 
 - (void)viewDidLoad {
@@ -117,6 +119,7 @@
     if ([self.delegate respondsToSelector:@selector(musicPlaylistVC:willPlayMediaItem:)]) {
         [self.delegate musicPlaylistVC:self willPlayMediaItem:mediaItem];
     }
+    
 }
 
 

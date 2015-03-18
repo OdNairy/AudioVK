@@ -43,7 +43,6 @@ typedef NS_ENUM(NSUInteger, AVKMediaPlaybackState) {
 
 -(void)seekTo:(NSTimeInterval)time;
 
-
 @end
 
 
