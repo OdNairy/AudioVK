@@ -29,12 +29,15 @@ NSString* const kAVKPlaylistPlayerMediaKey = @"kAVKPlaylistPlayerMediaKey";
 NSString* const kAVKPlaylistPlayerRepeatModeKey = @"kAVKPlaylistPlayerRepeatModeKey";
 NSString* const kAVKPlaylistPlayerShuffleModeKey = @"kAVKPlaylistPlayerShuffleModeKey";
 
-
 @interface AVKPlaylistPlayer () <LMMediaPlayerDelegate>
 @property(nonatomic, strong) LMMediaPlayer* player;
 @property (nonatomic) BOOL shouldRestartQueue;
 
 @property(nonatomic, assign) NSUInteger currentPlayingItemIndex;
+
+// Target-Action implementation
+@property (nonatomic, strong) NSMutableArray* registeredActions;
+
 @end
 
 @implementation AVKPlaylistPlayer
@@ -54,6 +57,13 @@ NSString* const kAVKPlaylistPlayerShuffleModeKey = @"kAVKPlaylistPlayerShuffleMo
         self.player.delegate = self;
     }
     return self;
+}
+
+-(NSMutableArray *)registeredActions{
+    if (!_registeredActions) {
+        _registeredActions = [NSMutableArray array];
+    }
+    return _registeredActions;
 }
 
 - (void)setQueue:(NSArray *)queue {
@@ -129,49 +139,94 @@ NSString* const kAVKPlaylistPlayerShuffleModeKey = @"kAVKPlaylistPlayerShuffleMo
     return (AVKMediaPlaybackState)self.player.playbackState;
 }
 
+#pragma mark - Target-Action
+
+
+
 #pragma mark - LMMediaPlayerDelegate
 
-#define AVK_PLAYLIST_NOTIFICATION_NAME(A) kAVKPlaylistPlayer##A
-#define _AVK_NOTIFICATION(NAME,DICT) [[NSNotificationCenter defaultCenter] postNotificationName:NAME \
+#define AVK_PLAYLIST_NOTIFICATION_NAME(A) kAVKPlaylistPlayer ## A
+#define AVK_PLAYLIST_ACTION_NAME(A) AVKPlaylistPlayer ## A ## Event
+#define _AVK_NOTIFICATION(NAME,ACTION,DICT) [[NSNotificationCenter defaultCenter] postNotificationName:NAME \
             object:self \
-          userInfo:DICT];
-#define AVK_NOTIFICATION(NAME,DICT) _AVK_NOTIFICATION(AVK_PLAYLIST_NOTIFICATION_NAME(NAME),(DICT))
+          userInfo:DICT];     [self sendActionsForControlEvents:ACTION params:DICT];
+#define AVK_NOTIFY(NAME,DICT) _AVK_NOTIFICATION(AVK_PLAYLIST_NOTIFICATION_NAME(NAME),AVK_PLAYLIST_ACTION_NAME(NAME),(DICT))
 
 
 - (BOOL)mediaPlayerWillStartPlaying:(LMMediaPlayer *)player media:(LMMediaItem *)media {
-    AVK_NOTIFICATION(WillStartPlaying, @{kAVKPlaylistPlayerMediaKey:media});
-    
+    AVK_NOTIFY(WillStartPlaying, @{kAVKPlaylistPlayerMediaKey:media});
     [self.delegate playlistPlayer:self willPlayItem:media];
     return YES;
 }
 
 - (void)mediaPlayerWillChangeState:(LMMediaPlaybackState)state {
-    AVK_NOTIFICATION(WillChangeState, @{kAVKPlaylistPlayerStateKey:@(state)});
+    AVK_NOTIFY(WillChangeState, @{kAVKPlaylistPlayerStateKey:@(state)});
 }
 
 - (void)mediaPlayerDidStartPlaying:(LMMediaPlayer *)player media:(LMMediaItem *)media {
-    AVK_NOTIFICATION(DidStartPlaying, @{kAVKPlaylistPlayerMediaKey:media});
+    AVK_NOTIFY(DidStartPlaying, @{kAVKPlaylistPlayerMediaKey:media});
 }
 
 - (void)mediaPlayerDidFinishPlaying:(LMMediaPlayer *)player media:(LMMediaItem *)media {
-    AVK_NOTIFICATION(DidFinishPlaying, @{kAVKPlaylistPlayerMediaKey:media});
+    AVK_NOTIFY(DidFinishPlaying, @{kAVKPlaylistPlayerMediaKey:media});
 }
 
 - (void)mediaPlayerDidStop:(LMMediaPlayer *)player media:(LMMediaItem *)media {
 
-    AVK_NOTIFICATION(DidStop, media?@{kAVKPlaylistPlayerMediaKey:media}:nil);
+    AVK_NOTIFY(DidStop, media?@{kAVKPlaylistPlayerMediaKey:media}:nil);
 }
 
 - (void)mediaPlayerDidChangeCurrentTime:(LMMediaPlayer *)player {
-    AVK_NOTIFICATION(DidChangeCurrentTime, nil);
+    AVK_NOTIFY(DidChangeCurrentTime, nil);
 }
 
 - (void)mediaPlayerDidChangeRepeatMode:(LMMediaRepeatMode)mode player:(LMMediaPlayer *)player {
-    AVK_NOTIFICATION(DidChangeRepeatMode, @{kAVKPlaylistPlayerRepeatModeKey:@(mode)});
+    AVK_NOTIFY(DidChangeRepeatMode, @{kAVKPlaylistPlayerRepeatModeKey:@(mode)});
 }
 
 - (void)mediaPlayerDidChangeShuffleMode:(BOOL)enabled player:(LMMediaPlayer *)player {
-    AVK_NOTIFICATION(DidChangeShuffleMode, @{kAVKPlaylistPlayerShuffleModeKey:@(enabled)});
+    AVK_NOTIFY(DidChangeShuffleMode, @{kAVKPlaylistPlayerShuffleModeKey:@(enabled)});
 }
+
+@end
+
+@interface AVKTargetActionPair : NSObject
+@property (nonatomic, weak) id target;
+@property (nonatomic, assign) SEL action;
+@property (nonatomic, assign) AVKPlaylistPlayerEvents events;
+@end
+@implementation AVKTargetActionPair@end
+
+@implementation AVKPlaylistPlayer (TargetAction)
+
+- (void)addTarget:(id)target action:(SEL)action forControlEvents:(AVKPlaylistPlayerEvents)controlEvents{
+    AVKTargetActionPair* pair = [[AVKTargetActionPair alloc] init];
+    pair.target = target; pair.action = action; pair.events = controlEvents;
+    [self.registeredActions addObject:pair];
+}
+- (void)removeTarget:(id)target action:(SEL)action forControlEvents:(AVKPlaylistPlayerEvents)controlEvents{
+    for (NSInteger i = self.registeredActions.count -1; i>=0; --i) {
+        AVKTargetActionPair* pair = self.registeredActions[i];
+        if (pair.target == target) {
+            pair.events &= !controlEvents;
+            if (!pair.events) {
+                [self.registeredActions removeObjectAtIndex:i];
+            }
+        }
+    }
+}
+
+- (void)sendActionsForControlEvents:(AVKPlaylistPlayerEvents)controlEvents{
+    [self sendActionsForControlEvents:controlEvents params:self];
+}
+
+- (void)sendActionsForControlEvents:(AVKPlaylistPlayerEvents)controlEvents params:(id)params{
+    for (AVKTargetActionPair* pair in self.registeredActions) {
+        if (pair.events & controlEvents) {
+            ((void (*)(id, SEL, id))[pair.target methodForSelector:pair.action])(pair.target, pair.action, params);
+        }
+    }
+}
+
 
 @end

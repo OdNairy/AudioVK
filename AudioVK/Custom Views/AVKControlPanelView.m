@@ -17,16 +17,23 @@
 
 -(void)awakeFromNib{
     [super awakeFromNib];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateToggleButtonState) name:kAVKPlaylistPlayerWillChangeState object:nil];
+    [[AVKPlaylistPlayer instance] addTarget:self action:@selector(updateToggleButtonState:) forControlEvents:(AVKPlaylistPlayerWillChangeStateEvent)];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateToggleButtonState) name:kAVKPlaylistPlayerWillChangeState object:nil];
 }
 
 -(IBAction)toggleButtonTapped:(UIButton*)sender{
     [[AVKPlaylistPlayer instance] toggle];
-    [self updateToggleButtonState];
 }
 
-- (void)updateToggleButtonState{
-    self.toggleButton.selected = [[AVKPlaylistPlayer instance] playbackState] != AVKMediaPlaybackStatePlaying;
+- (void)updateToggleButtonState:(NSDictionary*)params{
+    NSLog(@"stateUpdated: %@",@[@"Stop",@"Playing",@"Pause"][[params[kAVKPlaylistPlayerStateKey] unsignedIntegerValue]]);
+    
+    AVKMediaPlaybackState state = [params[kAVKPlaylistPlayerStateKey] unsignedIntegerValue];
+    BOOL isPaused = state == AVKMediaPlaybackStatePaused;
+    BOOL isPlaying = state == AVKMediaPlaybackStatePlaying;
+    BOOL isStoped = state == AVKMediaPlaybackStateStopped;
+    
+    self.toggleButton.selected = isPlaying;
 }
 
 @end

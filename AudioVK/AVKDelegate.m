@@ -112,9 +112,11 @@ NSString *const kVkDelegateAccessHasBeenDenied = @"kVkDelegateAccessHasBeenDenie
 -(void)removeTarget:(id)target action:(SEL)action forAccessTokenEvents:(VKAccessTokenEvents)accessTokenEvents{
     for (NSInteger i = 0; i< self.targetsActions.count; i++){
         AUVTargetActionPair* pair = self.targetsActions[i];
-        pair->_eventMask = pair->_eventMask & !accessTokenEvents;   // remove event mask
-        if (!pair->_eventMask) {
-            [self.targetsActions removeObjectAtIndex:i];
+        if (pair->_target == target) {
+            pair->_eventMask = pair->_eventMask & !accessTokenEvents;   // remove event mask
+            if (!pair->_eventMask) {
+                [self.targetsActions removeObjectAtIndex:i];
+            }
         }
     }
 }
