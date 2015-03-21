@@ -154,7 +154,7 @@ NSString* const kAVKPlaylistPlayerShuffleModeKey = @"kAVKPlaylistPlayerShuffleMo
 
 
 - (BOOL)mediaPlayerWillStartPlaying:(LMMediaPlayer *)player media:(LMMediaItem *)media {
-    AVK_NOTIFY(WillStartPlaying, @{kAVKPlaylistPlayerMediaKey:media});
+    AVK_NOTIFY(WillStartPlaying, media?@{kAVKPlaylistPlayerMediaKey:media}:nil);
     [self.delegate playlistPlayer:self willPlayItem:media];
     return YES;
 }
