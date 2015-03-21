@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 #import "AVKPlayerControlProtocol.h"
 
 @protocol AVKPlaylistPlayerDelegate;
@@ -56,7 +57,7 @@ typedef NS_ENUM(NSUInteger, AVKPlaylistPlayerEvents) {
 
 -(void)seekTo:(NSTimeInterval)time;
 
-
+- (AVPlayer*)systemAVPlayer;
 
 @end
 

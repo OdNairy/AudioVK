@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Roman Gardukevich. All rights reserved.
 //
 
-#import <AVFoundation/AVFoundation.h>
 #import <LMMediaPlayer/LMMediaItem.h>
 #import "AVKPlaylistPlayer.h"
 #import "LMMediaPlayer.h"
@@ -133,6 +132,10 @@ NSString* const kAVKPlaylistPlayerShuffleModeKey = @"kAVKPlaylistPlayerShuffleMo
     [self.player pause];
     [self.player seekTo:time];
     [self.player play];
+}
+
+-(AVPlayer *)systemAVPlayer{
+    return [[LMMediaPlayer sharedPlayer] corePlayer];
 }
 
 -(AVKMediaPlaybackState)playbackState{
