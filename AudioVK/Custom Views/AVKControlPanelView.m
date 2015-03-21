@@ -30,7 +30,6 @@ NSString* stringFromCMTime(CMTime time)
     [super awakeFromNib];
     self.progressView.progress = 0;
     [[AVKPlaylistPlayer instance] addTarget:self action:@selector(updateToggleButtonState:) forControlEvents:(AVKPlaylistPlayerWillChangeStateEvent)];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateToggleButtonState) name:kAVKPlaylistPlayerWillChangeState object:nil];
     
     __weak typeof (self) weakSelf = self;
     CMTime interval = CMTimeMake(25, 100);
@@ -44,7 +43,7 @@ NSString* stringFromCMTime(CMTime time)
             float normalizedTime = (float) player.currentTime.value / (double) endTime.value;
             [weakSelf.progressView setProgress:normalizedTime animated:NO];
         }else{
-            [weakSelf.progressView setProgress:1 animated:NO];
+            [weakSelf.progressView setProgress:0 animated:NO];
         }
         
     }];

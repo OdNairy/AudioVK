@@ -106,21 +106,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFR-Xt-hjp" userLabel="Control Panel View" customClass="AVKControlPanelView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="18" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="coC-BU-FLG" customClass="MarqueeLabel">
-                                        <rect key="frame" x="60" y="8" width="300" height="18"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="18" id="O0q-7i-li2"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="e1O-Y5-0G5"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="scrollDuration">
-                                                <real key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AlbumnArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="bu1-Yg-lSD">
                                         <rect key="frame" x="8" y="8" width="44" height="44"/>
                                         <constraints>
@@ -167,6 +152,21 @@
                                         <color key="progressTintColor" red="0.40000000000000002" green="1" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </progressView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="18" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="coC-BU-FLG" customClass="MarqueeLabel">
+                                        <rect key="frame" x="60" y="8" width="478" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="O0q-7i-li2"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="e1O-Y5-0G5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="scrollDuration">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -183,7 +183,7 @@
                                     <constraint firstItem="jxs-EW-awV" firstAttribute="leading" secondItem="UFR-Xt-hjp" secondAttribute="leading" id="ngP-MT-O6M"/>
                                     <constraint firstItem="ZgQ-D8-ZwN" firstAttribute="top" secondItem="UFR-Xt-hjp" secondAttribute="top" id="oMa-AU-ser"/>
                                     <constraint firstAttribute="centerY" secondItem="ZgQ-D8-ZwN" secondAttribute="centerY" constant="1.5" id="pMp-8a-OA7"/>
-                                    <constraint firstItem="ZgQ-D8-ZwN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="coC-BU-FLG" secondAttribute="trailing" constant="20" id="r50-iu-0MC"/>
+                                    <constraint firstItem="ZgQ-D8-ZwN" firstAttribute="leading" secondItem="coC-BU-FLG" secondAttribute="trailing" constant="8" symbolic="YES" id="r50-iu-0MC"/>
                                     <constraint firstItem="QR0-ae-vtZ" firstAttribute="leading" secondItem="coC-BU-FLG" secondAttribute="leading" id="rCw-KA-EOG"/>
                                 </constraints>
                                 <variation key="default">
