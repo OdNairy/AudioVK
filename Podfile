@@ -18,3 +18,4 @@ pod 'Parse+PromiseKit', '~> 0.9.2'
 pod 'LMMediaPlayer'
 pod 'MarqueeLabel' # Autoscroll Label
 pod 'ACPDownload' # Downloading progress view
+pod 'UIImage+AverageColor'

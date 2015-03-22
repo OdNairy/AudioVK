@@ -7,6 +7,8 @@
 //
 
 #import <LMMediaPlayer/LMMediaItem.h>
+#import <MediaPlayer/MediaPlayer.h>
+
 #import "AVKMyMusicPlaylistViewController.h"
 #import "AVKTrackWithArtworkListDataSource.h"
 #import "AVKTrackWithArtworkCell.h"
@@ -16,7 +18,8 @@
 #import "AVKPlaylistPlayerDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 #import "AVKAudioCacheLayer.h"
-#import <MediaPlayer/MediaPlayer.h>
+#import "AVKNowPlayingIndicatiorView.h"
+#import "VKAudio+Artwork.h"
 
 
 @interface AVKMyMusicPlaylistViewController () <AVKPlaylistPlayerDelegate>
@@ -26,15 +29,16 @@
 
 @property(nonatomic, strong) AVKPlaylistPlayer *playlistPlayer;
 
-@property (nonatomic, strong) UIView* selectedCellIndicator;
+@property (nonatomic, strong) AVKNowPlayingIndicatiorView* selectedCellIndicator;
 @end
 
 @implementation AVKMyMusicPlaylistViewController
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self updateIndicatorForIndexPath:indexPath];
-    
     VKAudio *selectedAudio = [self.dataSource audioForIndexPath:indexPath];
+    [self updateIndicatorForIndexPath:indexPath audio:selectedAudio];
+    
+    
     NSArray *audiosStack = [self.dataSource audioStackFromIndex:indexPath.row];
 
     if ([self.delegate respondsToSelector:@selector(musicPlaylistVC:didSelectAudio:)]) {
@@ -49,7 +53,7 @@
 
 }
 
-- (void)updateIndicatorForIndexPath:(NSIndexPath*)indexPath{
+- (void)updateIndicatorForIndexPath:(NSIndexPath*)indexPath audio:(VKAudio*)audio{
     CGRect selectedRect = [self.tableView rectForRowAtIndexPath:indexPath];
     CGRect indicatorFrame = CGRectMake(selectedRect.origin.x, selectedRect.origin.y, self.selectedCellIndicator.bounds.size.width, selectedRect.size.height);
     [UIView animateWithDuration:.2 delay:0 options:0 animations:^{
@@ -61,15 +65,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.selectedCellIndicator = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2, self.tableView.rowHeight)];
-    self.selectedCellIndicator.backgroundColor = [UIColor colorWithRed:102./255 green:1 blue:102./255 alpha:1];
+    self.selectedCellIndicator = [[AVKNowPlayingIndicatiorView alloc] initWithFrame:CGRectMake(0, 0, 3, self.tableView.rowHeight)];
     self.selectedCellIndicator.alpha = 0;
     [self.tableView addSubview:self.selectedCellIndicator];
     
     UIBarButtonItem* downloadAllItemsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"download_button"] style:(UIBarButtonItemStylePlain) target:self action:@selector(downloadAll)];
     downloadAllItemsButton.tintColor = [UIColor whiteColor];
     [downloadAllItemsButton setBackgroundVerticalPositionAdjustment:4 forBarMetrics:(UIBarMetricsDefault)];
-//    [downloadAllItemsButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]} forState:(UIControlStateNormal)];
     self.navigationItem.leftBarButtonItem = downloadAllItemsButton;
 
     AVKAudioDataSource* audioDataSource = [[AVKAudioDataSource alloc] initWithUserId:[VKSdk getAccessToken].userId];

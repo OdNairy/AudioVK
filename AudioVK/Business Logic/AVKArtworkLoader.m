@@ -50,6 +50,11 @@ NSString *encodeString(NSString *string) {
     return s;
 }
 
+- (void)purgeCache{
+    [self.cache clearMemory];
+    [self.cache cleanDisk];
+}
+
 - (UIImage *)imageFromCacheForKey:(NSString *)key {
     UIImage *cachedImage = [self.cache imageFromMemoryCacheForKey:key];
     if (!cachedImage) {

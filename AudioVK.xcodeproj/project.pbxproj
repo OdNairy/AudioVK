@@ -40,6 +40,7 @@
 		FEA1D2E71A2E512500B8747D /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1D2E61A2E512500B8747D /* Accounts.framework */; };
 		FEA1D2E91A2E512A00B8747D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1D2E81A2E512A00B8747D /* Social.framework */; };
 		FEA2F7EE1A3C730B00648938 /* AVKAudioListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2F7ED1A3C730B00648938 /* AVKAudioListTableViewController.m */; };
+		FEB111B51ABEA2480064E463 /* AVKNowPlayingIndicatiorView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB111B41ABEA2480064E463 /* AVKNowPlayingIndicatiorView.m */; };
 		FEB71AE81A2F568000D56C29 /* AVKStartPromoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB71AE71A2F568000D56C29 /* AVKStartPromoViewController.m */; };
 		FEC1EE451A6FD43E00B57A1E /* AVKPlayerRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC1EE441A6FD43E00B57A1E /* AVKPlayerRootViewController.m */; };
 		FEC1EE481A6FD45F00B57A1E /* AVKPlayingNowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC1EE471A6FD45F00B57A1E /* AVKPlayingNowViewController.m */; };
@@ -117,6 +118,8 @@
 		FEA1D2E81A2E512A00B8747D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		FEA2F7EC1A3C730B00648938 /* AVKAudioListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKAudioListTableViewController.h; path = Controllers/Dashboard/AVKAudioListTableViewController.h; sourceTree = "<group>"; };
 		FEA2F7ED1A3C730B00648938 /* AVKAudioListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKAudioListTableViewController.m; path = Controllers/Dashboard/AVKAudioListTableViewController.m; sourceTree = "<group>"; };
+		FEB111B31ABEA2480064E463 /* AVKNowPlayingIndicatiorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKNowPlayingIndicatiorView.h; path = "Custom Views/AVKNowPlayingIndicatiorView.h"; sourceTree = "<group>"; };
+		FEB111B41ABEA2480064E463 /* AVKNowPlayingIndicatiorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKNowPlayingIndicatiorView.m; path = "Custom Views/AVKNowPlayingIndicatiorView.m"; sourceTree = "<group>"; };
 		FEB71AE61A2F568000D56C29 /* AVKStartPromoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKStartPromoViewController.h; path = Controllers/AVKStartPromoViewController.h; sourceTree = "<group>"; };
 		FEB71AE71A2F568000D56C29 /* AVKStartPromoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVKStartPromoViewController.m; path = Controllers/AVKStartPromoViewController.m; sourceTree = "<group>"; };
 		FEC1EE431A6FD43E00B57A1E /* AVKPlayerRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVKPlayerRootViewController.h; path = Controllers/Player/AVKPlayerRootViewController.h; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 				8AB8A19C1AACB0A800C55D9E /* AVKControlPanelView.m */,
 				8AE912B01AB30537000D415E /* AVKTrackOptionsView.h */,
 				8AE912B11AB30537000D415E /* AVKTrackOptionsView.m */,
+				FEB111B31ABEA2480064E463 /* AVKNowPlayingIndicatiorView.h */,
+				FEB111B41ABEA2480064E463 /* AVKNowPlayingIndicatiorView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -527,6 +532,7 @@
 				FE3F2C461A346E0300967FD9 /* AVKAuthenticationRootViewController.m in Sources */,
 				FEC1EE481A6FD45F00B57A1E /* AVKPlayingNowViewController.m in Sources */,
 				8AB8A19A1AAC62F900C55D9E /* AVKArtworkLoaderCache.m in Sources */,
+				FEB111B51ABEA2480064E463 /* AVKNowPlayingIndicatiorView.m in Sources */,
 				FEC1EE451A6FD43E00B57A1E /* AVKPlayerRootViewController.m in Sources */,
 				FEA2F7EE1A3C730B00648938 /* AVKAudioListTableViewController.m in Sources */,
 				FEC1EE531A701AFA00B57A1E /* AVKViewController.m in Sources */,
