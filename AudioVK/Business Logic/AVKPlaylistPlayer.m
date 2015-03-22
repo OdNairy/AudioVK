@@ -54,8 +54,48 @@ NSString* const kAVKPlaylistPlayerShuffleModeKey = @"kAVKPlaylistPlayerShuffleMo
     self = [super init];
     if (self) {
         self.player.delegate = self;
+        AVAudioSession* audioSession = [AVAudioSession sharedInstance];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleAudioSessionInterruption:) name:@"AVAudioSessionInterruptionNotification" object:audioSession];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleAudioSessionRouteChange:) name:@"AVAudioSessionRouteChangeNotification" object:audioSession];
+
     }
     return self;
+}
+
+- (void)handleAudioSessionInterruption:(NSNotification *)notification
+{
+    if (![notification.name isEqualToString:@"AVAudioSessionInterruptionNotification"]) {
+        return;
+    }
+    
+    AVAudioSessionInterruptionType interruptionType = [(NSNumber *)notification.userInfo[AVAudioSessionInterruptionTypeKey] intValue];
+    
+    switch (interruptionType) {
+        case AVAudioSessionInterruptionTypeBegan:
+            [self pause];
+            break;
+        case AVAudioSessionInterruptionTypeEnded:
+            [self play];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)handleAudioSessionRouteChange:(NSNotification *)notification
+{
+    
+    AVAudioSessionRouteChangeReason reason = [(NSNumber *)notification.userInfo[AVAudioSessionRouteChangeReasonKey] intValue];
+    
+    // if old device becomes unavailable (i.e. the headphones were unplugged), pause the track (this is standard behavior)
+    switch (reason) {
+        case AVAudioSessionRouteChangeReasonOldDeviceUnavailable:
+            [self pause];
+            break;
+        default:
+            break;
+    }
 }
 
 -(NSMutableArray *)registeredActions{
